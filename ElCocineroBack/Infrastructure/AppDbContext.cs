@@ -1,5 +1,3 @@
-using System;
-using System.Collections.Generic;
 using ElCocineroBack.Domain.Author;
 using ElCocineroBack.Domain.Recipe;
 using Microsoft.EntityFrameworkCore;
@@ -13,6 +11,14 @@ namespace ElCocineroBack.Infrastructure
 
         public AppDbContext(DbContextOptions<AppDbContext> options) : base(options)
         {
+        }
+
+        protected override void OnModelCreating(ModelBuilder modelBuilder)
+        {
+            modelBuilder.Entity<RecipeState>()
+                .HasOne(x => x.Author)
+                .WithMany(x => x.Recipes);
+            base.OnModelCreating(modelBuilder);
         }
     }
 }

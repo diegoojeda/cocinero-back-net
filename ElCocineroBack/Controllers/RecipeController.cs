@@ -12,9 +12,9 @@ namespace ElCocineroBack.Controllers
     [ApiController]
     public class RecipeController : Controller
     {
-        private readonly RecipeService _recipeService;
+        private readonly RecipeApplicationService _recipeService;
 
-        public RecipeController(RecipeService recipeService)
+        public RecipeController(RecipeApplicationService recipeService)
         {
             _recipeService = recipeService;
         }
@@ -24,6 +24,13 @@ namespace ElCocineroBack.Controllers
         public async Task<IEnumerable<RecipeResponseDto>> GetAllRecipesAsync()
         {
             return (await _recipeService.getAllRecipes()).Select<Recipe, RecipeResponseDto>(x => x);
+        }
+
+        [HttpPost]
+        [ProducesResponseType(typeof(IEnumerable<RecipeResponseDto>), 200)]
+        public async Task<RecipeResponseDto> SaveRecipe([FromBody] SaveRecipeRequestDto body)
+        {
+            return await _recipeService.SaveAsync(body);
         }
     }
 
@@ -41,5 +48,12 @@ namespace ElCocineroBack.Controllers
             Description = description;
             AuthorId = authorId;
         }
+    }
+
+    public class SaveRecipeRequestDto
+    {
+        public string Name { get; set; }
+        public string Description { get; set; }
+        public string AuthorId { get; set; }
     }
 }

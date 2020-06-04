@@ -13,5 +13,15 @@ namespace ElCocineroBack.Domain.Recipe
         public RecipeId(string id) : base(id)
         {
         }
+        
+        public static implicit operator string(RecipeId item)
+        {
+            return item.Id;
+        }
+
+        public static implicit operator RecipeId(string value)
+        {
+            return new RecipeId(value);
+        }
     }
 }

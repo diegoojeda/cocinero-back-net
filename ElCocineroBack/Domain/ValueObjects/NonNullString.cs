@@ -7,6 +7,10 @@ namespace ElCocineroBack.Domain.ValueObjects
     {
         private string value { get; }
 
+        public NonNullString()
+        {
+        }
+
         public NonNullString(string value)
         {
             if (string.IsNullOrEmpty(value))
@@ -21,6 +25,12 @@ namespace ElCocineroBack.Domain.ValueObjects
         {
             return value.value;
         }
+
+        public static implicit operator NonNullString(string value)
+        {
+            return new NonNullString(value);
+        }
+        
     }
 
     public class EmptyValueException : DomainException

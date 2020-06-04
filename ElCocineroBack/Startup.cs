@@ -36,6 +36,7 @@ namespace ElCocineroBack
             services.AddScoped<IUnitOfWork, UnitOfWork>();
 
             services.AddTransient(typeof(RecipeService));
+            services.AddTransient(typeof(RecipeApplicationService));
             services.AddTransient(typeof(AuthorService));
         }
 

@@ -1,4 +1,5 @@
 using System.Collections.Generic;
+using System.Linq;
 using ElCocineroBack.Controllers;
 using ElCocineroBack.Domain.Recipe;
 using ElCocineroBack.Domain.ValueObjects;
@@ -7,22 +8,21 @@ namespace ElCocineroBack.Domain.Author
 {
     public class Author
     {
-        private AuthorId Id;
-        private NonNullString Name;
+        public AuthorId Id => new AuthorId(State.AuthorKey);
 
-        public AuthorState State;
+        private NonNullString Name => new NonNullString(State.Name);
+
+        private IEnumerable<Recipe.Recipe> Recipes => State.Recipes.Select(x => new Recipe.Recipe(x));
+
+        public AuthorState State { get; }
 
         public Author(AuthorId id, NonNullString name)
         {
-            Id = id;
-            Name = name;
-            State = new AuthorState {Id = id.Id, Name = name, Recipes = new List<RecipeState>()};
+            State = new AuthorState {AuthorKey = id.Id, Name = name, Recipes = new List<RecipeState>()};
         }
 
         internal Author(AuthorState state)
         {
-            Id = new AuthorId(state.Id);
-            Name = new NonNullString(state.Name);
             State = state;
         }
 

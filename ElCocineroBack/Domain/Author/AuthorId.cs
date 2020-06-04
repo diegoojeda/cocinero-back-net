@@ -1,10 +1,10 @@
-using System.ComponentModel.DataAnnotations.Schema;
 using ElCocineroBack.Domain.ValueObjects;
+using Microsoft.EntityFrameworkCore;
 
 namespace ElCocineroBack.Domain.Author
 {
-    [ComplexType]
-    public class AuthorId: Identity
+    [Owned]
+    public class AuthorId : Identity
     {
         public AuthorId()
         {
@@ -12,6 +12,16 @@ namespace ElCocineroBack.Domain.Author
 
         public AuthorId(string id) : base(id)
         {
+        }
+
+        public static implicit operator string(AuthorId item)
+        {
+            return item.Id;
+        }
+
+        public static implicit operator AuthorId(string value)
+        {
+            return new AuthorId(value);
         }
     }
 }

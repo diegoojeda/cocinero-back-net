@@ -5,6 +5,7 @@ namespace ElCocineroBack.Domain.Author
 {
     public interface IAuthorRepository
     {
+        Task<Author> FindAsync(AuthorId authorId);
         Task<Author> AddAsync(Author author);
     }
 }

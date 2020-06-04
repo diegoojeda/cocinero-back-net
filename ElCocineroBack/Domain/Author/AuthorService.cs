@@ -16,7 +16,12 @@ namespace ElCocineroBack.Domain.Author
             this._unitOfWork = unitOfWork;
         }
 
-        public async Task<AuthorResponseDto> SaveAsync(Author author)
+        public async Task<Author> FindAsync(AuthorId authorId)
+        {
+            return await _authorRepository.FindAsync(authorId);
+        }
+
+        public async Task<Author> SaveAsync(Author author)
         {
             var inserted = await _authorRepository.AddAsync(author);
             await _unitOfWork.CompleteAsync();

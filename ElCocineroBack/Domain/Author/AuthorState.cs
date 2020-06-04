@@ -1,15 +1,15 @@
-using System.Collections;
 using System.Collections.Generic;
-using System.ComponentModel.DataAnnotations.Schema;
+using System.ComponentModel.DataAnnotations;
 using ElCocineroBack.Domain.Recipe;
 
 namespace ElCocineroBack.Domain.Author
 {
     public class AuthorState
     {
-        public string Id { get; set; }
+        [Key] public string AuthorKey { get; set; }
+
         public string Name { get; set; }
-        [ForeignKey("AuthorStateFk")]
+
         public List<RecipeState> Recipes { get; set; }
 
         public Author ToAuthor()
@@ -17,7 +17,7 @@ namespace ElCocineroBack.Domain.Author
             return new Author(this);
         }
 
-        public static Author ToAuthor(AuthorState state)
+        public Author ToAuthor(AuthorState state)
         {
             return new Author(state);
         }

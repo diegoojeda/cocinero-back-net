@@ -16,5 +16,11 @@ namespace ElCocineroBack.Infrastructure
         {
             return await _context.Recipes.Select(x => x.ToRecipe()).ToListAsync();
         }
+
+        public async Task<Recipe> SaveAsync(Recipe recipe)
+        {
+            var inserted = await _context.Recipes.AddAsync(recipe.State);
+            return inserted.Entity.ToRecipe();
+        }
     }
 }

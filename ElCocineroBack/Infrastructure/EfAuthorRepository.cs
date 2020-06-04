@@ -1,4 +1,3 @@
-using System;
 using System.Threading.Tasks;
 using ElCocineroBack.Domain.Author;
 
@@ -10,10 +9,15 @@ namespace ElCocineroBack.Infrastructure
         {
         }
 
+        public async Task<Author> FindAsync(AuthorId authorId)
+        {
+            return (await _context.Authors.FindAsync(authorId.Id)).ToAuthor();
+        }
+
         public async Task<Author> AddAsync(Author author)
         {
             var inserted = await _context.Authors.AddAsync(author.State);
-            return new Author(inserted.Entity);
+            return inserted.Entity.ToAuthor();
         }
     }
 }

@@ -4,6 +4,8 @@ namespace ElCocineroBack.Domain.ValueObjects
 {
     public abstract class Identity : IEquatable<Identity>, IIdentity
     {
+        public string Id { get; set; }
+
         public Identity()
         {
             this.Id = Guid.NewGuid().ToString();
@@ -11,11 +13,9 @@ namespace ElCocineroBack.Domain.ValueObjects
 
         public Identity(string id)
         {
-            Guid.Parse(id);//To validate valid Guid as ID
+            Guid.Parse(id); //To validate valid Guid as ID
             Id = id;
         }
-
-        public string Id { get; set; }
 
         public bool Equals(Identity id)
         {
