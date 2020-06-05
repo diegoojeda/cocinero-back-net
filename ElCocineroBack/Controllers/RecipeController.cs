@@ -23,7 +23,7 @@ namespace ElCocineroBack.Controllers
         [ProducesResponseType(typeof(IEnumerable<RecipeResponseDto>), 200)]
         public async Task<IEnumerable<RecipeResponseDto>> GetAllRecipesAsync()
         {
-            return (await _recipeService.getAllRecipes()).Select<Recipe, RecipeResponseDto>(x => x);
+            return (await _recipeService.GetAllRecipes()).Select<Recipe, RecipeResponseDto>(x => x);
         }
 
         [HttpPost]

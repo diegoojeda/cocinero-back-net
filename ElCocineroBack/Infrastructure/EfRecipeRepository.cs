@@ -14,13 +14,25 @@ namespace ElCocineroBack.Infrastructure
 
         public async Task<IEnumerable<Recipe>> FindAllAsync()
         {
-            return await _context.Recipes.Select(x => x.ToRecipe()).ToListAsync();
+            return await _context.Recipes
+                .Include(x => x.Author)
+                .Select(x => x.ToRecipe())
+                .ToListAsync();
         }
 
         public async Task<Recipe> SaveAsync(Recipe recipe)
         {
             var inserted = await _context.Recipes.AddAsync(recipe.State);
             return inserted.Entity.ToRecipe();
+        }
+
+        public async Task<IEnumerable<Recipe>> FindAllForAuthorAsync(string authorId)
+        {
+            return await _context.Recipes
+                .Where(x => x.AuthorId == authorId)
+                .Include(x => x.Author)
+                .Select(x => x.ToRecipe())
+                .ToListAsync();
         }
     }
 }

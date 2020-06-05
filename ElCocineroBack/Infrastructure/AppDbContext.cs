@@ -17,7 +17,8 @@ namespace ElCocineroBack.Infrastructure
         {
             modelBuilder.Entity<RecipeState>()
                 .HasOne(x => x.Author)
-                .WithMany(x => x.Recipes);
+                .WithMany(x => x.Recipes)
+                .HasForeignKey(p => p.AuthorId);
             base.OnModelCreating(modelBuilder);
         }
     }

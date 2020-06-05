@@ -37,7 +37,9 @@ namespace ElCocineroBack
 
             services.AddTransient(typeof(RecipeService));
             services.AddTransient(typeof(RecipeApplicationService));
+
             services.AddTransient(typeof(AuthorService));
+            services.AddTransient(typeof(AuthorApplicationService));
         }
 
         public void Configure(IApplicationBuilder app, IWebHostEnvironment env)

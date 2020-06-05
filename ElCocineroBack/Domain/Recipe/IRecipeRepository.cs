@@ -7,5 +7,6 @@ namespace ElCocineroBack.Domain.Recipe
     {
         Task<IEnumerable<Recipe>> FindAllAsync();
         Task<Recipe> SaveAsync(Recipe recipe);
+        Task<IEnumerable<Recipe>> FindAllForAuthorAsync(string authorId);
     }
 }

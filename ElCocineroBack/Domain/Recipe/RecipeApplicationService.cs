@@ -17,9 +17,9 @@ namespace ElCocineroBack.Domain.Recipe
         }
 
 
-        public Task<IEnumerable<Recipe>> getAllRecipes()
+        public Task<IEnumerable<Recipe>> GetAllRecipes()
         {
-            return _recipeService.getAllRecipes();
+            return _recipeService.FindAllAsync();
         }
 
         public async Task<Recipe> SaveAsync(SaveRecipeRequestDto body)
