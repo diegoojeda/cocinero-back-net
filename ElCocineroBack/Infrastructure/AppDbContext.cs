@@ -1,4 +1,5 @@
 using ElCocineroBack.Domain.Author;
+using ElCocineroBack.Domain.Ingredient;
 using ElCocineroBack.Domain.Recipe;
 using Microsoft.EntityFrameworkCore;
 
@@ -8,6 +9,7 @@ namespace ElCocineroBack.Infrastructure
     {
         public DbSet<RecipeState> Recipes { get; set; }
         public DbSet<AuthorState> Authors { get; set; }
+        public DbSet<IngredientState> Ingredients { get; set; }
 
         public AppDbContext(DbContextOptions<AppDbContext> options) : base(options)
         {

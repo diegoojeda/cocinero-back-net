@@ -1,6 +1,7 @@
 using System.Configuration;
 using ElCocineroBack.Domain;
 using ElCocineroBack.Domain.Author;
+using ElCocineroBack.Domain.Ingredient;
 using ElCocineroBack.Domain.Recipe;
 using ElCocineroBack.Infrastructure;
 using Microsoft.AspNetCore.Builder;
@@ -33,6 +34,7 @@ namespace ElCocineroBack
 
             services.AddScoped<IRecipeRepository, EfRecipeRepository>();
             services.AddScoped<IAuthorRepository, EfAuthorRepository>();
+            services.AddScoped<IIngredientRepository, EfIngredientRepository>();
             services.AddScoped<IUnitOfWork, UnitOfWork>();
 
             services.AddTransient(typeof(RecipeService));
@@ -40,6 +42,8 @@ namespace ElCocineroBack
 
             services.AddTransient(typeof(AuthorService));
             services.AddTransient(typeof(AuthorApplicationService));
+
+            services.AddTransient(typeof(IngredientService));
         }
 
         public void Configure(IApplicationBuilder app, IWebHostEnvironment env)
