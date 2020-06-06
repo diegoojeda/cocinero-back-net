@@ -6,11 +6,13 @@ using ElCocineroBack.Domain.ValueObjects;
 
 namespace ElCocineroBack.Domain.Author
 {
+    using AuthorName = NonNullString;
+
     public class Author
     {
         public AuthorId Id => new AuthorId(State.AuthorKey);
 
-        private NonNullString Name => new NonNullString(State.Name);
+        private AuthorName Name => new NonNullString(State.Name);
 
         private IEnumerable<Recipe.Recipe> Recipes => State.Recipes.Select(x => new Recipe.Recipe(x));
 

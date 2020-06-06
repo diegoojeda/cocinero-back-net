@@ -3,11 +3,13 @@ using ElCocineroBack.Domain.ValueObjects;
 
 namespace ElCocineroBack.Domain.Recipe
 {
+    using RecipeName = NonNullString;
+    using RecipeDescription = NonNullString;
     public class Recipe
     {
         public RecipeId Id => new RecipeId(State.RecipeKey);
-        private NonNullString Name => new NonNullString(State.Name);
-        private NonNullString Description => new NonNullString(State.Description);
+        private RecipeName Name => new NonNullString(State.Name);
+        private RecipeDescription Description => new NonNullString(State.Description);
         private Author.Author Author => State.Author.ToAuthor();
 
         public RecipeState State { get; }

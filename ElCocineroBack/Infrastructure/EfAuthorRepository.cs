@@ -1,5 +1,7 @@
+using System.Linq;
 using System.Threading.Tasks;
 using ElCocineroBack.Domain.Author;
+using Microsoft.EntityFrameworkCore;
 
 namespace ElCocineroBack.Infrastructure
 {
@@ -18,6 +20,11 @@ namespace ElCocineroBack.Infrastructure
         {
             var inserted = await _context.Authors.AddAsync(author.State);
             return inserted.Entity.ToAuthor();
+        }
+
+        public Task<bool> Any(string authorId)
+        {
+            return _context.Authors.AnyAsync(x => x.AuthorKey == authorId);
         }
     }
 }

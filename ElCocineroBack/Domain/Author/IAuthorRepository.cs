@@ -7,5 +7,6 @@ namespace ElCocineroBack.Domain.Author
     {
         Task<Author> FindAsync(AuthorId authorId);
         Task<Author> AddAsync(Author author);
+        Task<bool> Any(string authorId);
     }
 }

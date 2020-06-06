@@ -1,6 +1,7 @@
 using System.Collections.Generic;
 using System.Threading.Tasks;
 using ElCocineroBack.Domain.Author;
+using ElCocineroBack.Domain.Author.Exceptions;
 using Microsoft.AspNetCore.Mvc;
 
 namespace ElCocineroBack.Controllers
@@ -26,9 +27,16 @@ namespace ElCocineroBack.Controllers
 
         [HttpGet("{authorId}/recipes")]
         [ProducesResponseType(typeof(List<RecipeResponseDto>), 200)]
-        public async Task<IEnumerable<RecipeResponseDto>> FindAllRecipesForAuthor(string authorId)
+        public async Task<IActionResult> FindAllRecipesForAuthor(string authorId)
         {
-            return await _authorService.FindAllRecipes(authorId);
+            try
+            {
+                return Ok(await _authorService.FindAllRecipes(authorId));
+            }
+            catch (AuthorNotFoundException anfe)
+            {
+                return NotFound(anfe.Message);
+            }
         }
     }
 

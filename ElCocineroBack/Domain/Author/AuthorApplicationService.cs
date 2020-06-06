@@ -2,6 +2,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
 using ElCocineroBack.Controllers;
+using ElCocineroBack.Domain.Author.Exceptions;
 using ElCocineroBack.Domain.Recipe;
 
 namespace ElCocineroBack.Domain.Author
@@ -27,9 +28,12 @@ namespace ElCocineroBack.Domain.Author
             return await _authorService.SaveAsync(author);
         }
 
-
         public async Task<IEnumerable<RecipeResponseDto>> FindAllRecipes(string authorId)
         {
+            if (! await _authorService.Any(authorId))
+            {
+                throw new AuthorNotFoundException(authorId);
+            }
             return (await _recipeService.FindAllForAuthorAsync(authorId))
                 .Select<Recipe.Recipe, RecipeResponseDto>(x => x);
         }

@@ -28,5 +28,10 @@ namespace ElCocineroBack.Domain.Author
 
             return inserted;
         }
+
+        public async Task<bool> Any(string authorId)
+        {
+            return await _authorRepository.Any(authorId);
+        }
     }
 }
