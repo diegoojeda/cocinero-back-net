@@ -17,13 +17,15 @@ namespace ElCocineroBack.Infrastructure
             return await _context
                 .Recipes
                 .Include(x => x.Author)
+                .Include(x => x.Ingredients)
                 .Select(x => x.ToRecipe())
                 .ToListAsync();
         }
 
         public async Task<Recipe> SaveAsync(Recipe recipe)
         {
-            return (await _context.Recipes.AddAsync(recipe.State)).Entity.ToRecipe();
+            var saved = await _context.Recipes.AddAsync(recipe.State);
+            return saved.Entity.ToRecipe();
         }
 
         public async Task<IEnumerable<Recipe>> FindAllForAuthorAsync(string authorId)
@@ -32,6 +34,7 @@ namespace ElCocineroBack.Infrastructure
                 .Recipes
                 .Where(x => x.AuthorId == authorId)
                 .Include(x => x.Author)
+                .Include(x => x.Ingredients)
                 .Select(x => x.ToRecipe())
                 .ToListAsync();
         }

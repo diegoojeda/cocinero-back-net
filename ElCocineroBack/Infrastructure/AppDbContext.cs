@@ -1,6 +1,7 @@
 using ElCocineroBack.Domain.Author;
 using ElCocineroBack.Domain.Ingredient;
 using ElCocineroBack.Domain.Recipe;
+using ElCocineroBack.Domain.Recipe.RecipeIngredient;
 using Microsoft.EntityFrameworkCore;
 
 namespace ElCocineroBack.Infrastructure
@@ -10,6 +11,7 @@ namespace ElCocineroBack.Infrastructure
         public DbSet<RecipeState> Recipes { get; set; }
         public DbSet<AuthorState> Authors { get; set; }
         public DbSet<IngredientState> Ingredients { get; set; }
+        // public DbSet<RecipeIngredientState> RecipeIngredients { get; set; }
 
         public AppDbContext(DbContextOptions<AppDbContext> options) : base(options)
         {
@@ -17,10 +19,16 @@ namespace ElCocineroBack.Infrastructure
 
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {
-            modelBuilder.Entity<RecipeState>()
+            modelBuilder
+                .Entity<RecipeState>()
                 .HasOne(x => x.Author)
                 .WithMany(x => x.Recipes)
                 .HasForeignKey(p => p.AuthorId);
+
+            modelBuilder
+                .Entity<RecipeIngredientState>()
+                .HasKey(x => new {x.RecipeId, x.IngredientId});
+
             base.OnModelCreating(modelBuilder);
         }
     }

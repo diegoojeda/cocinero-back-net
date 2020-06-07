@@ -1,4 +1,6 @@
+using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
+using ElCocineroBack.Domain.Recipe.RecipeIngredient;
 
 namespace ElCocineroBack.Domain.Ingredient
 {
@@ -6,6 +8,7 @@ namespace ElCocineroBack.Domain.Ingredient
     {
         [Key] public string IngredientKey { get; set; }
         public string Name { get; set; }
+        public IEnumerable<RecipeIngredientState> Recipes { get; set; }
 
         public Ingredient ToIngredient()
         {

@@ -1,6 +1,7 @@
 using System.Collections.Generic;
 using System.Linq;
-using ElCocineroBack.Controllers;
+using ElCocineroBack.Controllers.Author.Request;
+using ElCocineroBack.Controllers.Author.Response;
 using ElCocineroBack.Domain.Recipe;
 using ElCocineroBack.Domain.ValueObjects;
 

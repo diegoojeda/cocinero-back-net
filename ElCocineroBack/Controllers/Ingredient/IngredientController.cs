@@ -1,11 +1,12 @@
-using System.Collections;
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
+using ElCocineroBack.Controllers.Ingredient.Request;
+using ElCocineroBack.Controllers.Ingredient.Response;
 using ElCocineroBack.Domain.Ingredient;
 using Microsoft.AspNetCore.Mvc;
 
-namespace ElCocineroBack.Controllers
+namespace ElCocineroBack.Controllers.Ingredient
 {
     [Route("/api/ingredient")]
     [Produces("application/json")]
@@ -23,25 +24,15 @@ namespace ElCocineroBack.Controllers
         [ProducesResponseType(typeof(IEnumerable<IngredientResponseDto>), 200)]
         public async Task<IEnumerable<IngredientResponseDto>> GetAllIngredientsAsync()
         {
-            return (await _ingredientService.FindAllAsync()).Select<Ingredient, IngredientResponseDto>(x => x);
+            return (await _ingredientService.FindAllAsync())
+                .Select<Domain.Ingredient.Ingredient, IngredientResponseDto>(x => x);
         }
 
         [HttpPost]
         [ProducesResponseType(typeof(IngredientResponseDto), 200)]
-        public async Task<IngredientResponseDto> SaveIngredientAsync([FromBody] CreateIngredientDto body)
+        public async Task<IngredientResponseDto> SaveIngredientAsync([FromBody] CreateIngredientRequestDto body)
         {
             return (await _ingredientService.SaveAsync(body));
         }
-    }
-
-    public class CreateIngredientDto
-    {
-        public string Name { get; set; }
-    }
-
-    public class IngredientResponseDto
-    {
-        public string Id { get; set; }
-        public string Name { get; set; }
     }
 }

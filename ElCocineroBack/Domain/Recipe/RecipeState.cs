@@ -1,4 +1,4 @@
-using System;
+using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
 using ElCocineroBack.Domain.Author;
 
@@ -11,6 +11,7 @@ namespace ElCocineroBack.Domain.Recipe
         public string Description { get; set; }
         public string AuthorId { get; set; }
         public AuthorState Author { get; set; }
+        public IEnumerable<RecipeIngredient.RecipeIngredientState> Ingredients { get; set; }
 
         public Recipe ToRecipe()
         {

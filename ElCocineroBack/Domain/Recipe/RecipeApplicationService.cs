@@ -1,6 +1,7 @@
 using System.Collections.Generic;
+using System.Linq;
 using System.Threading.Tasks;
-using ElCocineroBack.Controllers;
+using ElCocineroBack.Controllers.Recipe.Request;
 using ElCocineroBack.Domain.Author;
 
 namespace ElCocineroBack.Domain.Recipe
@@ -16,16 +17,18 @@ namespace ElCocineroBack.Domain.Recipe
             _recipeService = recipeService;
         }
 
-
         public Task<IEnumerable<Recipe>> GetAllRecipes()
         {
             return _recipeService.FindAllAsync();
         }
 
-        public async Task<Recipe> SaveAsync(SaveRecipeRequestDto body)
+        public async Task<Recipe> SaveAsync(CreateRecipeRequestDto body)
         {
             var author = await _authorService.FindAsync(body.AuthorId);
-            return await _recipeService.SaveAsync(new Recipe(body.Name, body.Description, author));
+            var newRecipeId = new RecipeId();
+            // var ingredients = body.Ingredients.Select(x =>
+            //     new RecipeIngredient.RecipeIngredient(newRecipeId, x.Id, x.Amount, x.Unit));
+            return await _recipeService.SaveAsync(new Recipe(newRecipeId, body.Name, body.Description, author, new List<RecipeIngredient.RecipeIngredient>()));
         }
     }
 }

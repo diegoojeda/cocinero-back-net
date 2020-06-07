@@ -1,10 +1,13 @@
 using System.Collections.Generic;
 using System.Threading.Tasks;
+using ElCocineroBack.Controllers.Author.Request;
+using ElCocineroBack.Controllers.Author.Response;
+using ElCocineroBack.Controllers.Recipe.Response;
 using ElCocineroBack.Domain.Author;
 using ElCocineroBack.Domain.Author.Exceptions;
 using Microsoft.AspNetCore.Mvc;
 
-namespace ElCocineroBack.Controllers
+namespace ElCocineroBack.Controllers.Author
 {
     [Route("/api/author")]
     [Produces("application/json")]
@@ -38,22 +41,5 @@ namespace ElCocineroBack.Controllers
                 return NotFound(anfe.Message);
             }
         }
-    }
-
-    public class AuthorResponseDto
-    {
-        public string Id { get; set; }
-        public string Name { get; set; }
-
-        public AuthorResponseDto(string authorId, string authorName)
-        {
-            Id = authorId;
-            Name = authorName;
-        }
-    }
-
-    public class CreateAuthorRequestDto
-    {
-        public string Name { get; set; }
     }
 }

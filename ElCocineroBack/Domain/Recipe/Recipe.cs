@@ -1,10 +1,13 @@
-using ElCocineroBack.Controllers;
+using System.Collections.Generic;
+using System.Linq;
+using ElCocineroBack.Controllers.Recipe.Response;
 using ElCocineroBack.Domain.ValueObjects;
 
 namespace ElCocineroBack.Domain.Recipe
 {
     using RecipeName = NonNullString;
     using RecipeDescription = NonNullString;
+
     public class Recipe
     {
         public RecipeId Id => new RecipeId(State.RecipeKey);
@@ -12,9 +15,17 @@ namespace ElCocineroBack.Domain.Recipe
         private RecipeDescription Description => new NonNullString(State.Description);
         private Author.Author Author => State.Author.ToAuthor();
 
+        // private IEnumerable<RecipeIngredient.RecipeIngredient> Ingredients =>
+        //     State.Ingredients.Select(x => x.ToRecipeIngredient());
+
         public RecipeState State { get; }
 
-        public Recipe(RecipeId id, NonNullString name, NonNullString description, Author.Author author)
+        public Recipe(
+            RecipeId id,
+            NonNullString name,
+            NonNullString description,
+            Author.Author author,
+            IEnumerable<RecipeIngredient.RecipeIngredient> ingredients)
         {
             State = new RecipeState
             {
@@ -22,7 +33,8 @@ namespace ElCocineroBack.Domain.Recipe
                 Name = name,
                 Description = description,
                 Author = author.State,
-                AuthorId = author.Id
+                AuthorId = author.Id,
+                Ingredients = ingredients.Select(x => x.State)
             };
         }
 
@@ -31,14 +43,15 @@ namespace ElCocineroBack.Domain.Recipe
             State = state;
         }
 
-        public Recipe(NonNullString name, NonNullString description, Author.Author author) :
-            this(new RecipeId(), name, description, author)
-        {
-        }
-
         public static implicit operator RecipeResponseDto(Recipe recipe)
         {
-            return new RecipeResponseDto(recipe.Id, recipe.Name, recipe.Description, recipe.Author.Id.Id);
+            return new RecipeResponseDto(
+                recipe.Id,
+                recipe.Name,
+                recipe.Description,
+                recipe.Author.Id.Id
+                // recipe.Ingredients
+                );
         }
     }
 }

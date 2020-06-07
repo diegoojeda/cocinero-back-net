@@ -1,0 +1,56 @@
+using ElCocineroBack.Controllers.Recipe.Request;
+using ElCocineroBack.Controllers.Recipe.Response;
+using ElCocineroBack.Domain.Ingredient;
+using ElCocineroBack.Domain.ValueObjects;
+
+namespace ElCocineroBack.Domain.Recipe.RecipeIngredient
+{
+    using Amount = PositiveInteger;
+    using IngredientUnit = NonNullString;
+
+    public class RecipeIngredient
+    {
+        private RecipeId RecipeId => State.RecipeId;
+        private IngredientId IngredientId => State.IngredientId;
+        private Amount Amount => State.Amount;
+        private IngredientUnit Unit => State.Unit;
+
+        public RecipeIngredientState State;
+
+        public RecipeIngredient(
+            RecipeId recipeId,
+            IngredientId ingredientId,
+            PositiveInteger amount,
+            IngredientUnit unit)
+        {
+            State = new RecipeIngredientState
+            {
+                RecipeId = recipeId.Id,
+                IngredientId = ingredientId.Id,
+                Amount = amount.Value,
+                Unit = unit
+            };
+        }
+
+        public RecipeIngredient(RecipeIngredientState state)
+        {
+            State = state;
+        }
+
+        public static RecipeIngredient FromDto(RecipeIngredientDto dto, RecipeId recipeId)
+        {
+            return new RecipeIngredient(recipeId, dto.Id, dto.Amount, dto.Unit);
+        }
+
+        public static implicit operator RecipeIngredientResponseDto(RecipeIngredient recipeIngredient)
+        {
+            return new RecipeIngredientResponseDto
+            {
+                IngredientId = recipeIngredient.IngredientId,
+                Amount = recipeIngredient.Amount,
+                Unit = recipeIngredient.Unit,
+                Name = recipeIngredient.State.Ingredient.Name
+            };
+        }
+    }
+}

@@ -1,7 +1,7 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
-using ElCocineroBack.Controllers;
+using ElCocineroBack.Controllers.Recipe.Response;
 using ElCocineroBack.Domain.Author.Exceptions;
 using ElCocineroBack.Domain.Recipe;
 

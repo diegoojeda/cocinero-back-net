@@ -1,4 +1,7 @@
-using ElCocineroBack.Controllers;
+using System.Collections.Generic;
+using System.Linq;
+using ElCocineroBack.Controllers.Ingredient.Request;
+using ElCocineroBack.Controllers.Ingredient.Response;
 using ElCocineroBack.Domain.ValueObjects;
 
 namespace ElCocineroBack.Domain.Ingredient
@@ -9,6 +12,8 @@ namespace ElCocineroBack.Domain.Ingredient
     {
         public IngredientId Id => new IngredientId(State.IngredientKey);
         public IngredientName Name => new IngredientName(State.Name);
+        private IEnumerable<Recipe.RecipeIngredient.RecipeIngredient> Recipes =>
+            State.Recipes.Select(x => x.ToRecipeIngredient());
 
         public IngredientState State { get; }
 
@@ -35,7 +40,7 @@ namespace ElCocineroBack.Domain.Ingredient
             };
         }
 
-        public static implicit operator Ingredient(CreateIngredientDto ingredient)
+        public static implicit operator Ingredient(CreateIngredientRequestDto ingredient)
         {
             return new Ingredient(new IngredientId(), ingredient.Name);
         }
