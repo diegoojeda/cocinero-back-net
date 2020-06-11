@@ -4,6 +4,7 @@ using System.Linq;
 using System.Threading.Tasks;
 using ElCocineroBack.Controllers.Recipe.Request;
 using ElCocineroBack.Domain.Author;
+using ElCocineroBack.Domain.Author.Exceptions;
 
 namespace ElCocineroBack.Domain.Recipe
 {
@@ -26,10 +27,17 @@ namespace ElCocineroBack.Domain.Recipe
         public async Task<Recipe> SaveAsync(CreateRecipeRequestDto body)
         {
             var author = await _authorService.FindAsync(body.AuthorId);
+            if (author == null)
+            {
+                throw new AuthorNotFoundException(body.AuthorId);
+            }
+
             var newRecipeId = new RecipeId();
             var ingredients = body.Ingredients.Select(x =>
-                new RecipeIngredient.RecipeIngredient(newRecipeId, x.Id ?? Guid.NewGuid().ToString(), x.Amount, x.Unit));
-            return await _recipeService.SaveAsync(new Recipe(newRecipeId, body.Name, body.Description, author, ingredients));
+                new RecipeIngredient.RecipeIngredient(newRecipeId, x.Id ?? Guid.NewGuid().ToString(), x.Amount,
+                    x.Unit));
+            return await _recipeService.SaveAsync(new Recipe(newRecipeId, body.Name, body.Description, author,
+                ingredients));
         }
     }
 }
