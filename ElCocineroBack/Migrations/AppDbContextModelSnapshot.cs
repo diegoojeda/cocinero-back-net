@@ -39,28 +39,6 @@ namespace ElCocineroBack.Migrations
                     b.HasKey("IngredientKey");
 
                     b.ToTable("Ingredients");
-
-                    b.HasData(
-                        new
-                        {
-                            IngredientKey = "0c03d869-6b0c-46f7-b28f-10d62bee5129",
-                            Name = "Harina"
-                        },
-                        new
-                        {
-                            IngredientKey = "8c1cce22-c1cf-4297-95c1-15f9bd754d7b",
-                            Name = "Pollo"
-                        },
-                        new
-                        {
-                            IngredientKey = "ce9c1969-a011-45a6-9fc4-79c79c321e73",
-                            Name = "Manzanas"
-                        },
-                        new
-                        {
-                            IngredientKey = "d55b6100-6ab1-48d1-b781-94d7316285e6",
-                            Name = "Platanos"
-                        });
                 });
 
             modelBuilder.Entity("ElCocineroBack.Domain.Recipe.RecipeIngredient.RecipeIngredientState", b =>
@@ -74,20 +52,12 @@ namespace ElCocineroBack.Migrations
                     b.Property<int>("Amount")
                         .HasColumnType("INTEGER");
 
-                    b.Property<string>("IngredientStateIngredientKey")
-                        .HasColumnType("TEXT");
-
-                    b.Property<string>("RecipeStateRecipeKey")
-                        .HasColumnType("TEXT");
-
                     b.Property<string>("Unit")
                         .HasColumnType("TEXT");
 
                     b.HasKey("RecipeId", "IngredientId");
 
-                    b.HasIndex("IngredientStateIngredientKey");
-
-                    b.HasIndex("RecipeStateRecipeKey");
+                    b.HasIndex("IngredientId");
 
                     b.ToTable("RecipeIngredients");
                 });
@@ -115,13 +85,17 @@ namespace ElCocineroBack.Migrations
 
             modelBuilder.Entity("ElCocineroBack.Domain.Recipe.RecipeIngredient.RecipeIngredientState", b =>
                 {
-                    b.HasOne("ElCocineroBack.Domain.Ingredient.IngredientState", null)
+                    b.HasOne("ElCocineroBack.Domain.Ingredient.IngredientState", "Ingredient")
                         .WithMany("Recipes")
-                        .HasForeignKey("IngredientStateIngredientKey");
+                        .HasForeignKey("IngredientId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
 
-                    b.HasOne("ElCocineroBack.Domain.Recipe.RecipeState", null)
+                    b.HasOne("ElCocineroBack.Domain.Recipe.RecipeState", "Recipe")
                         .WithMany("Ingredients")
-                        .HasForeignKey("RecipeStateRecipeKey");
+                        .HasForeignKey("RecipeId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
                 });
 
             modelBuilder.Entity("ElCocineroBack.Domain.Recipe.RecipeState", b =>

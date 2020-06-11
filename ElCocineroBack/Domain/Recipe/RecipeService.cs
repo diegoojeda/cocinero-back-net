@@ -1,4 +1,5 @@
 using System;
+using System.Collections;
 using System.Collections.Generic;
 using System.Threading.Tasks;
 using ElCocineroBack.Controllers;
@@ -31,6 +32,13 @@ namespace ElCocineroBack.Domain.Recipe
         public Task<IEnumerable<Recipe>> FindAllForAuthorAsync(string authorId)
         {
             return _recipeRepository.FindAllForAuthorAsync(authorId);
+        }
+
+        public async Task SaveIngredientsAsync(
+            IEnumerable<RecipeIngredient.RecipeIngredient> ingredients)
+        {
+            await _recipeRepository.SaveIngredientsAsync(ingredients);
+            await _unitOfWork.CompleteAsync();
         }
     }
 }

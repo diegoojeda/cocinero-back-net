@@ -6,10 +6,11 @@ namespace ElCocineroBack.Domain.Recipe.RecipeIngredient
     public class RecipeIngredientState
     {
         public string RecipeId { get; set; }
-        public RecipeState Recipe;
+        public RecipeState Recipe { get; set; }
+
         public string IngredientId { get; set; }
-        public IngredientState Ingredient;
-        
+        public IngredientState Ingredient { get; set; }
+
         public int Amount { get; set; }
         public string Unit { get; set; }
 

@@ -1,7 +1,10 @@
+using System;
+using System.Collections;
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
 using ElCocineroBack.Domain.Recipe;
+using ElCocineroBack.Domain.Recipe.RecipeIngredient;
 using Microsoft.EntityFrameworkCore;
 
 namespace ElCocineroBack.Infrastructure
@@ -37,6 +40,14 @@ namespace ElCocineroBack.Infrastructure
                 .Include(x => x.Ingredients)
                 .Select(x => x.ToRecipe())
                 .ToListAsync();
+        }
+
+        public async Task SaveIngredientsAsync(IEnumerable<RecipeIngredient> ingredients)
+        {
+            await _context
+                .RecipeIngredients
+                .AddRangeAsync(ingredients.Select(x => x.State));
+            
         }
     }
 }

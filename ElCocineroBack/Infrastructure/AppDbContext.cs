@@ -1,11 +1,11 @@
-using System;
-using System.Collections.Generic;
+using System.Linq;
+using System.Security.Principal;
 using ElCocineroBack.Domain.Author;
 using ElCocineroBack.Domain.Ingredient;
 using ElCocineroBack.Domain.Recipe;
 using ElCocineroBack.Domain.Recipe.RecipeIngredient;
-using ElCocineroBack.Infrastructure.Seed;
 using Microsoft.EntityFrameworkCore;
+using IIdentity = ElCocineroBack.Domain.ValueObjects.IIdentity;
 
 namespace ElCocineroBack.Infrastructure
 {
@@ -22,6 +22,12 @@ namespace ElCocineroBack.Infrastructure
         {
         }
 
+        protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
+        {
+            optionsBuilder.EnableSensitiveDataLogging();
+            base.OnConfiguring(optionsBuilder);
+        }
+
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {
             modelBuilder
@@ -34,7 +40,18 @@ namespace ElCocineroBack.Infrastructure
                 .Entity<RecipeIngredientState>()
                 .HasKey(x => new {x.RecipeId, x.IngredientId});
 
-            modelBuilder.Entity<IngredientState>().HasData(IngredientsSeeding.GetAllIngredients());
+            modelBuilder
+                .Entity<RecipeIngredientState>()
+                .HasOne(x => x.Ingredient)
+                .WithMany(x => x.Recipes)
+                .HasForeignKey(x => x.IngredientId);
+
+            modelBuilder
+                .Entity<RecipeIngredientState>()
+                .HasOne(x => x.Recipe)
+                .WithMany(x => x.Ingredients)
+                .HasForeignKey(x => x.RecipeId);
+
             base.OnModelCreating(modelBuilder);
         }
     }

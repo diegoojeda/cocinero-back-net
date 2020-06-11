@@ -214,11 +214,6 @@
       &quot;id&quot;: &quot;${chickenIngredientId}&quot;,&#xd;
       &quot;amount&quot;: 200,&#xd;
       &quot;unit&quot;: &quot;GR&quot;&#xd;
-    },&#xd;
-    {&#xd;
-      &quot;name&quot;: &quot;Ingrediente inventado&quot;,&#xd;
-      &quot;amount&quot;: 300,&#xd;
-      &quot;unit&quot;: &quot;GR&quot;&#xd;
     }&#xd;
   ]&#xd;
 }</stringProp>

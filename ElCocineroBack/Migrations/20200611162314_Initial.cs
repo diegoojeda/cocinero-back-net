@@ -57,56 +57,29 @@ namespace ElCocineroBack.Migrations
                     RecipeId = table.Column<string>(type: "TEXT", nullable: false),
                     IngredientId = table.Column<string>(type: "TEXT", nullable: false),
                     Amount = table.Column<int>(type: "INTEGER", nullable: false),
-                    Unit = table.Column<string>(type: "TEXT", nullable: true),
-                    IngredientStateIngredientKey = table.Column<string>(type: "TEXT", nullable: true),
-                    RecipeStateRecipeKey = table.Column<string>(type: "TEXT", nullable: true)
+                    Unit = table.Column<string>(type: "TEXT", nullable: true)
                 },
                 constraints: table =>
                 {
                     table.PrimaryKey("PK_RecipeIngredients", x => new { x.RecipeId, x.IngredientId });
                     table.ForeignKey(
-                        name: "FK_RecipeIngredients_Ingredients_IngredientStateIngredientKey",
-                        column: x => x.IngredientStateIngredientKey,
+                        name: "FK_RecipeIngredients_Ingredients_IngredientId",
+                        column: x => x.IngredientId,
                         principalTable: "Ingredients",
                         principalColumn: "IngredientKey",
-                        onDelete: ReferentialAction.Restrict);
+                        onDelete: ReferentialAction.Cascade);
                     table.ForeignKey(
-                        name: "FK_RecipeIngredients_Recipes_RecipeStateRecipeKey",
-                        column: x => x.RecipeStateRecipeKey,
+                        name: "FK_RecipeIngredients_Recipes_RecipeId",
+                        column: x => x.RecipeId,
                         principalTable: "Recipes",
                         principalColumn: "RecipeKey",
-                        onDelete: ReferentialAction.Restrict);
+                        onDelete: ReferentialAction.Cascade);
                 });
 
-            migrationBuilder.InsertData(
-                table: "Ingredients",
-                columns: new[] { "IngredientKey", "Name" },
-                values: new object[] { "0c03d869-6b0c-46f7-b28f-10d62bee5129", "Harina" });
-
-            migrationBuilder.InsertData(
-                table: "Ingredients",
-                columns: new[] { "IngredientKey", "Name" },
-                values: new object[] { "8c1cce22-c1cf-4297-95c1-15f9bd754d7b", "Pollo" });
-
-            migrationBuilder.InsertData(
-                table: "Ingredients",
-                columns: new[] { "IngredientKey", "Name" },
-                values: new object[] { "ce9c1969-a011-45a6-9fc4-79c79c321e73", "Manzanas" });
-
-            migrationBuilder.InsertData(
-                table: "Ingredients",
-                columns: new[] { "IngredientKey", "Name" },
-                values: new object[] { "d55b6100-6ab1-48d1-b781-94d7316285e6", "Platanos" });
-
             migrationBuilder.CreateIndex(
-                name: "IX_RecipeIngredients_IngredientStateIngredientKey",
+                name: "IX_RecipeIngredients_IngredientId",
                 table: "RecipeIngredients",
-                column: "IngredientStateIngredientKey");
-
-            migrationBuilder.CreateIndex(
-                name: "IX_RecipeIngredients_RecipeStateRecipeKey",
-                table: "RecipeIngredients",
-                column: "RecipeStateRecipeKey");
+                column: "IngredientId");
 
             migrationBuilder.CreateIndex(
                 name: "IX_Recipes_AuthorId",

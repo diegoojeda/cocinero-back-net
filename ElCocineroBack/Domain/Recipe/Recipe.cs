@@ -1,3 +1,4 @@
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using ElCocineroBack.Controllers.Recipe.Response;
@@ -15,7 +16,8 @@ namespace ElCocineroBack.Domain.Recipe
         private RecipeDescription Description => new NonNullString(State.Description);
         private Author.Author Author => State.Author.ToAuthor();
 
-        private IEnumerable<RecipeIngredient.RecipeIngredient> Ingredients => State.Ingredients.Select(x => x.ToRecipeIngredient());
+        private IEnumerable<RecipeIngredient.RecipeIngredient> Ingredients =>
+            State.Ingredients.Select(x => x.ToRecipeIngredient());
 
         public RecipeState State { get; }
 
@@ -28,12 +30,12 @@ namespace ElCocineroBack.Domain.Recipe
         {
             State = new RecipeState
             {
-                RecipeKey = id.Id,
+                RecipeKey = id,
                 Name = name,
                 Description = description,
                 Author = author.State,
                 AuthorId = author.Id,
-                Ingredients = ingredients.Select(x => x.State)
+                Ingredients = ingredients.Select(x => x.State).ToList()
             };
         }
 

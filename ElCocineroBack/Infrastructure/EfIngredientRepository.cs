@@ -20,6 +20,17 @@ namespace ElCocineroBack.Infrastructure
                 .ToListAsync();
         }
 
+        public async Task<IEnumerable<Ingredient>> FindAllAsync(IEnumerable<IngredientId> ids)
+        {
+            var idsString = ids.Select(x => x.Id);
+            return await _context
+                .Ingredients
+                .Where(x => idsString.Contains(x.IngredientKey))
+                .Include(x => x.Recipes)
+                .Select(x => x.ToIngredient())
+                .ToListAsync();
+        }
+
         public async Task<Ingredient> SaveAsync(Ingredient ingredient)
         {
             return (await _context.Ingredients.AddAsync(ingredient.State)).Entity.ToIngredient();
