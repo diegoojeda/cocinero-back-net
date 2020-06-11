@@ -13,20 +13,20 @@ namespace ElCocineroBack.Controllers.Recipe.Response
         public string Name { get; }
         public string Description { get; }
         public string AuthorId { get; }
-        // public IEnumerable<RecipeIngredientResponseDto> Ingredients { get; }
+        public IEnumerable<RecipeIngredientResponseDto> Ingredients { get; }
 
         public RecipeResponseDto(string id, 
             string name,
             string description, 
-            string authorId 
-            // IEnumerable<RecipeIngredient> ingredients
+            string authorId,
+            IEnumerable<RecipeIngredient> ingredients
             )
         {
             Id = id;
             Name = name;
             Description = description;
             AuthorId = authorId;
-            // Ingredients = ingredients.Select<RecipeIngredient, RecipeIngredientResponseDto>(x => x);
+            Ingredients = ingredients.Select<RecipeIngredient, RecipeIngredientResponseDto>(x => x);
         }
     }
 }

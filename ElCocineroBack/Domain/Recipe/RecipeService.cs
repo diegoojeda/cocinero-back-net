@@ -21,10 +21,10 @@ namespace ElCocineroBack.Domain.Recipe
             return _recipeRepository.FindAllAsync();
         }
 
-        public Task<Recipe> SaveAsync(Recipe recipe)
+        public async Task<Recipe> SaveAsync(Recipe recipe)
         {
-            var inserted = _recipeRepository.SaveAsync(recipe);
-            _unitOfWork.CompleteAsync();
+            var inserted = await _recipeRepository.SaveAsync(recipe);
+            await _unitOfWork.CompleteAsync();
             return inserted;
         }
 

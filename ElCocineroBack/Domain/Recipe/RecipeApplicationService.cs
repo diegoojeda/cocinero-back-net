@@ -1,3 +1,4 @@
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
@@ -26,9 +27,9 @@ namespace ElCocineroBack.Domain.Recipe
         {
             var author = await _authorService.FindAsync(body.AuthorId);
             var newRecipeId = new RecipeId();
-            // var ingredients = body.Ingredients.Select(x =>
-            //     new RecipeIngredient.RecipeIngredient(newRecipeId, x.Id, x.Amount, x.Unit));
-            return await _recipeService.SaveAsync(new Recipe(newRecipeId, body.Name, body.Description, author, new List<RecipeIngredient.RecipeIngredient>()));
+            var ingredients = body.Ingredients.Select(x =>
+                new RecipeIngredient.RecipeIngredient(newRecipeId, x.Id ?? Guid.NewGuid().ToString(), x.Amount, x.Unit));
+            return await _recipeService.SaveAsync(new Recipe(newRecipeId, body.Name, body.Description, author, ingredients));
         }
     }
 }

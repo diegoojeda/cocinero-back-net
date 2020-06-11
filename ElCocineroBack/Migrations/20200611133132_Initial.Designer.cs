@@ -8,8 +8,8 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 namespace ElCocineroBack.Migrations
 {
     [DbContext(typeof(AppDbContext))]
-    [Migration("20200606174738_AddRecipeIngredients")]
-    partial class AddRecipeIngredients
+    [Migration("20200611133132_Initial")]
+    partial class Initial
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
@@ -41,6 +41,28 @@ namespace ElCocineroBack.Migrations
                     b.HasKey("IngredientKey");
 
                     b.ToTable("Ingredients");
+
+                    b.HasData(
+                        new
+                        {
+                            IngredientKey = "0c03d869-6b0c-46f7-b28f-10d62bee5129",
+                            Name = "Harina"
+                        },
+                        new
+                        {
+                            IngredientKey = "8c1cce22-c1cf-4297-95c1-15f9bd754d7b",
+                            Name = "Pollo"
+                        },
+                        new
+                        {
+                            IngredientKey = "ce9c1969-a011-45a6-9fc4-79c79c321e73",
+                            Name = "Manzanas"
+                        },
+                        new
+                        {
+                            IngredientKey = "d55b6100-6ab1-48d1-b781-94d7316285e6",
+                            Name = "Platanos"
+                        });
                 });
 
             modelBuilder.Entity("ElCocineroBack.Domain.Recipe.RecipeIngredient.RecipeIngredientState", b =>

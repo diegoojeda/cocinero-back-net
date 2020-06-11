@@ -46,10 +46,9 @@ namespace ElCocineroBack.Domain.Recipe.RecipeIngredient
         {
             return new RecipeIngredientResponseDto
             {
-                IngredientId = recipeIngredient.IngredientId,
+                Ingredient = recipeIngredient.State.Ingredient.ToIngredient(),
                 Amount = recipeIngredient.Amount,
                 Unit = recipeIngredient.Unit,
-                Name = recipeIngredient.State.Ingredient.Name
             };
         }
     }

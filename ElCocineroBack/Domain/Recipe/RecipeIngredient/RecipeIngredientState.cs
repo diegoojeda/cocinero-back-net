@@ -1,14 +1,15 @@
 using System.ComponentModel.DataAnnotations.Schema;
+using ElCocineroBack.Domain.Ingredient;
 
 namespace ElCocineroBack.Domain.Recipe.RecipeIngredient
 {
     public class RecipeIngredientState
     {
         public string RecipeId { get; set; }
+        public RecipeState Recipe;
         public string IngredientId { get; set; }
+        public IngredientState Ingredient;
         
-        public Recipe Recipe;
-        public Ingredient.Ingredient Ingredient;
         public int Amount { get; set; }
         public string Unit { get; set; }
 
