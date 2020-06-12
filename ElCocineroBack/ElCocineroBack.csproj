@@ -22,4 +22,8 @@
       </Content>
     </ItemGroup>
 
+    <ItemGroup>
+      <Folder Include="Domain\Recipe\RecipeIngredient" />
+    </ItemGroup>
+
 </Project>

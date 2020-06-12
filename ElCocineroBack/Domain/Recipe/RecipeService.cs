@@ -20,22 +20,14 @@ namespace ElCocineroBack.Domain.Recipe
 
         public Recipe Save(Recipe recipe)
         {
-            var inserted = _recipeRepository.Save(recipe);
+            _recipeRepository.Save(recipe);
             _unitOfWork.Complete();
-            return inserted;
+            return _recipeRepository.FindById(recipe.Id);
         }
 
         public IEnumerable<Recipe> FindAllForAuthor(string authorId)
         {
             return _recipeRepository.FindAllForAuthor(authorId);
-        }
-
-        public IEnumerable<RecipeIngredient.RecipeIngredient> SaveIngredientsAsync(
-            IEnumerable<RecipeIngredient.RecipeIngredient> ingredients)
-        {
-            _recipeRepository.SaveIngredients(ingredients);
-            _unitOfWork.Complete();
-            return new List<RecipeIngredient.RecipeIngredient>();//TODO
         }
     }
 }

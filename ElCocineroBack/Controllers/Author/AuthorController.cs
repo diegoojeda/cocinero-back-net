@@ -29,7 +29,7 @@ namespace ElCocineroBack.Controllers.Author
         }
 
         [HttpGet("{authorId}/recipes")]
-        [ProducesResponseType(typeof(List<RecipeResponseDto>), 200)]
+        [ProducesResponseType(typeof(IEnumerable<RecipeResponseDto>), 200)]
         public IActionResult FindAllRecipesForAuthor(string authorId)
         {
             try

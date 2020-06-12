@@ -1,9 +1,10 @@
 using ElCocineroBack.Controllers.Recipe.Request;
 using ElCocineroBack.Controllers.Recipe.Response;
 using ElCocineroBack.Domain.Ingredient;
+using ElCocineroBack.Domain.Recipe;
 using ElCocineroBack.Domain.ValueObjects;
 
-namespace ElCocineroBack.Domain.Recipe.RecipeIngredient
+namespace ElCocineroBack.Domain.RecipeIngredient
 {
     using Amount = PositiveInteger;
     using IngredientUnit = NonNullString;

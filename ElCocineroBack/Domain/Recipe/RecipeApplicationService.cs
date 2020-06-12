@@ -3,8 +3,8 @@ using System.Linq;
 using ElCocineroBack.Controllers.Recipe.Request;
 using ElCocineroBack.Domain.Author;
 using ElCocineroBack.Domain.Author.Exceptions;
-using ElCocineroBack.Domain.Ingredient;
 using ElCocineroBack.Domain.Ingredient.Exceptions;
+using ElCocineroBack.Domain.RecipeIngredient;
 
 namespace ElCocineroBack.Domain.Recipe
 {
@@ -12,14 +12,14 @@ namespace ElCocineroBack.Domain.Recipe
     {
         private readonly AuthorService _authorService;
         private readonly RecipeService _recipeService;
-        private readonly IngredientService _ingredientService;
+        private readonly RecipeIngredientService _recipeIngredientService;
 
         public RecipeApplicationService(AuthorService authorService, RecipeService recipeService,
-            IngredientService ingredientService)
+            RecipeIngredientService recipeIngredientService)
         {
             _authorService = authorService;
             _recipeService = recipeService;
-            _ingredientService = ingredientService;
+            _recipeIngredientService = recipeIngredientService;
         }
 
         public IEnumerable<Recipe> GetAllRecipes()
@@ -49,7 +49,11 @@ namespace ElCocineroBack.Domain.Recipe
                     x.Amount,
                     x.Unit
                 )
-            ).ToList();
+            );
+
+            var recipeIngredients = ingredients.ToList();
+
+            // _recipeIngredientService.SaveAll(recipeIngredients);
 
             var insertedRecipe = _recipeService.Save(
                 new Recipe(
@@ -57,11 +61,9 @@ namespace ElCocineroBack.Domain.Recipe
                     body.Name,
                     body.Description,
                     author,
-                    new List<RecipeIngredient.RecipeIngredient>()
+                    recipeIngredients
                 )
             );
-
-            _recipeService.SaveIngredientsAsync(ingredients);
 
             return insertedRecipe;
         }

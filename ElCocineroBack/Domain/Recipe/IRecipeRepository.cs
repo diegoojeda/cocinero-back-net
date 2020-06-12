@@ -1,5 +1,4 @@
 using System.Collections.Generic;
-using System.Threading.Tasks;
 
 namespace ElCocineroBack.Domain.Recipe
 {
@@ -8,6 +7,6 @@ namespace ElCocineroBack.Domain.Recipe
         IEnumerable<Recipe> FindAll();
         Recipe Save(Recipe recipe);
         IEnumerable<Recipe> FindAllForAuthor(string authorId);
-        IEnumerable<RecipeIngredient.RecipeIngredient> SaveIngredients(IEnumerable<RecipeIngredient.RecipeIngredient> ingredients);
+        Recipe FindById(RecipeId recipeId);
     }
 }

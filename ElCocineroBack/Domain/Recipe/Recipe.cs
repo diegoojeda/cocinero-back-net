@@ -35,7 +35,7 @@ namespace ElCocineroBack.Domain.Recipe
                 Description = description,
                 Author = author.State,
                 AuthorId = author.Id,
-                Ingredients = ingredients.Select(x => x.State).ToList()
+                Ingredients = ingredients.Select(x => x.State)
             };
         }
 

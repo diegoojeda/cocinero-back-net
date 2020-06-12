@@ -10,7 +10,7 @@ namespace ElCocineroBack.Domain.Author
 
         public string Name { get; set; }
 
-        public List<RecipeState> Recipes { get; set; }
+        public IEnumerable<RecipeState> Recipes { get; set; }
 
         public Author ToAuthor()
         {

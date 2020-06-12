@@ -3,7 +3,7 @@ using System.Security.Principal;
 using ElCocineroBack.Domain.Author;
 using ElCocineroBack.Domain.Ingredient;
 using ElCocineroBack.Domain.Recipe;
-using ElCocineroBack.Domain.Recipe.RecipeIngredient;
+using ElCocineroBack.Domain.RecipeIngredient;
 using Microsoft.EntityFrameworkCore;
 using IIdentity = ElCocineroBack.Domain.ValueObjects.IIdentity;
 

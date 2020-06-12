@@ -1,7 +1,7 @@
-using System.ComponentModel.DataAnnotations.Schema;
 using ElCocineroBack.Domain.Ingredient;
+using ElCocineroBack.Domain.Recipe;
 
-namespace ElCocineroBack.Domain.Recipe.RecipeIngredient
+namespace ElCocineroBack.Domain.RecipeIngredient
 {
     public class RecipeIngredientState
     {

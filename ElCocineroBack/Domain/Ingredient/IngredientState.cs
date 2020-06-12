@@ -1,6 +1,6 @@
 using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
-using ElCocineroBack.Domain.Recipe.RecipeIngredient;
+using ElCocineroBack.Domain.RecipeIngredient;
 
 namespace ElCocineroBack.Domain.Ingredient
 {

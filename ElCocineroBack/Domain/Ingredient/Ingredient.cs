@@ -12,7 +12,7 @@ namespace ElCocineroBack.Domain.Ingredient
     {
         public IngredientId Id => new IngredientId(State.IngredientKey);
         public IngredientName Name => new IngredientName(State.Name);
-        private IEnumerable<Recipe.RecipeIngredient.RecipeIngredient> Recipes =>
+        private IEnumerable<RecipeIngredient.RecipeIngredient> Recipes =>
             State.Recipes.Select(x => x.ToRecipeIngredient());
 
         public IngredientState State { get; }

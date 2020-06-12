@@ -1,7 +1,6 @@
 using System.Collections.Generic;
 using System.Linq;
 using ElCocineroBack.Domain.Recipe;
-using ElCocineroBack.Domain.Recipe.RecipeIngredient;
 using Microsoft.EntityFrameworkCore;
 
 namespace ElCocineroBack.Infrastructure
@@ -23,8 +22,7 @@ namespace ElCocineroBack.Infrastructure
 
         public Recipe Save(Recipe recipe)
         {
-            var saved = _context.Recipes.Add(recipe.State);
-            return saved.Entity.ToRecipe();
+            return _context.Recipes.Add(recipe.State).Entity.ToRecipe();
         }
 
         public IEnumerable<Recipe> FindAllForAuthor(string authorId)
@@ -36,14 +34,13 @@ namespace ElCocineroBack.Infrastructure
                 .Include(x => x.Ingredients)
                 .Select(x => x.ToRecipe());
         }
-        
-        public IEnumerable<RecipeIngredient> SaveIngredients(IEnumerable<RecipeIngredient> ingredients)
+
+        public Recipe FindById(RecipeId recipeId)
         {
-            _context
-                .RecipeIngredients
-                .AddRangeAsync(ingredients.Select(x => x.State));
-            return new List<RecipeIngredient>();//TODO
-            
+            return _context
+                .Recipes
+                .Find(recipeId.Id)
+                .ToRecipe();
         }
     }
 }

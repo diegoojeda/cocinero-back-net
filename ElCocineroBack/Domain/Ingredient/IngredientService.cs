@@ -25,10 +25,5 @@ namespace ElCocineroBack.Domain.Ingredient
             _unitOfWork.Complete();
             return inserted;
         }
-
-        public void SaveAll(IEnumerable<Ingredient> ingredientsToInsert)
-        {
-            throw new NotImplementedException();
-        }
     }
 }
