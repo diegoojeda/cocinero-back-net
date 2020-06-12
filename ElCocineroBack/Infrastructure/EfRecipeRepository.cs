@@ -1,8 +1,5 @@
-using System;
-using System.Collections;
 using System.Collections.Generic;
 using System.Linq;
-using System.Threading.Tasks;
 using ElCocineroBack.Domain.Recipe;
 using ElCocineroBack.Domain.Recipe.RecipeIngredient;
 using Microsoft.EntityFrameworkCore;
@@ -15,38 +12,37 @@ namespace ElCocineroBack.Infrastructure
         {
         }
 
-        public async Task<IEnumerable<Recipe>> FindAllAsync()
+        public IEnumerable<Recipe> FindAll()
         {
-            return await _context
+            return _context
                 .Recipes
                 .Include(x => x.Author)
                 .Include(x => x.Ingredients)
-                .Select(x => x.ToRecipe())
-                .ToListAsync();
+                .Select(x => x.ToRecipe());
         }
 
-        public async Task<Recipe> SaveAsync(Recipe recipe)
+        public Recipe Save(Recipe recipe)
         {
-            var saved = await _context.Recipes.AddAsync(recipe.State);
+            var saved = _context.Recipes.Add(recipe.State);
             return saved.Entity.ToRecipe();
         }
 
-        public async Task<IEnumerable<Recipe>> FindAllForAuthorAsync(string authorId)
+        public IEnumerable<Recipe> FindAllForAuthor(string authorId)
         {
-            return await _context
+            return _context
                 .Recipes
                 .Where(x => x.AuthorId == authorId)
                 .Include(x => x.Author)
                 .Include(x => x.Ingredients)
-                .Select(x => x.ToRecipe())
-                .ToListAsync();
+                .Select(x => x.ToRecipe());
         }
-
-        public async Task SaveIngredientsAsync(IEnumerable<RecipeIngredient> ingredients)
+        
+        public IEnumerable<RecipeIngredient> SaveIngredients(IEnumerable<RecipeIngredient> ingredients)
         {
-            await _context
+            _context
                 .RecipeIngredients
                 .AddRangeAsync(ingredients.Select(x => x.State));
+            return new List<RecipeIngredient>();//TODO
             
         }
     }

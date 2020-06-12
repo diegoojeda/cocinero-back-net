@@ -18,23 +18,23 @@ namespace ElCocineroBack.Domain.Author
             _recipeService = recipeService;
         }
 
-        public async Task<Author> FindAsync(AuthorId authorId)
+        public Author Find(AuthorId authorId)
         {
-            return await _authorService.FindAsync(authorId);
+            return _authorService.Find(authorId);
         }
 
-        public async Task<Author> SaveAsync(Author author)
+        public Author Save(Author author)
         {
-            return await _authorService.SaveAsync(author);
+            return _authorService.SaveAsync(author);
         }
 
-        public async Task<IEnumerable<RecipeResponseDto>> FindAllRecipes(string authorId)
+        public IEnumerable<RecipeResponseDto> FindAllRecipes(string authorId)
         {
-            if (! await _authorService.Any(authorId))
+            if (! _authorService.Any(authorId))
             {
                 throw new AuthorNotFoundException(authorId);
             }
-            return (await _recipeService.FindAllForAuthorAsync(authorId))
+            return _recipeService.FindAllForAuthor(authorId)
                 .Select<Recipe.Recipe, RecipeResponseDto>(x => x);
         }
     }

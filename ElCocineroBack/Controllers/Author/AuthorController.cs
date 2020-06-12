@@ -23,18 +23,18 @@ namespace ElCocineroBack.Controllers.Author
 
         [HttpPost]
         [ProducesResponseType(typeof(AuthorResponseDto), 200)]
-        public async Task<AuthorResponseDto> SaveAsync([FromBody] CreateAuthorRequestDto body)
+        public AuthorResponseDto SaveAsync([FromBody] CreateAuthorRequestDto body)
         {
-            return await _authorService.SaveAsync(body);
+            return _authorService.Save(body);
         }
 
         [HttpGet("{authorId}/recipes")]
         [ProducesResponseType(typeof(List<RecipeResponseDto>), 200)]
-        public async Task<IActionResult> FindAllRecipesForAuthor(string authorId)
+        public IActionResult FindAllRecipesForAuthor(string authorId)
         {
             try
             {
-                return Ok(await _authorService.FindAllRecipes(authorId));
+                return Ok(_authorService.FindAllRecipes(authorId));
             }
             catch (AuthorNotFoundException anfe)
             {

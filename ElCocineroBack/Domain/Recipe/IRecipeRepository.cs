@@ -5,9 +5,9 @@ namespace ElCocineroBack.Domain.Recipe
 {
     public interface IRecipeRepository
     {
-        Task<IEnumerable<Recipe>> FindAllAsync();
-        Task<Recipe> SaveAsync(Recipe recipe);
-        Task<IEnumerable<Recipe>> FindAllForAuthorAsync(string authorId);
-        Task SaveIngredientsAsync(IEnumerable<RecipeIngredient.RecipeIngredient> ingredients);
+        IEnumerable<Recipe> FindAll();
+        Recipe Save(Recipe recipe);
+        IEnumerable<Recipe> FindAllForAuthor(string authorId);
+        IEnumerable<RecipeIngredient.RecipeIngredient> SaveIngredients(IEnumerable<RecipeIngredient.RecipeIngredient> ingredients);
     }
 }

@@ -1,6 +1,5 @@
 using System.Collections.Generic;
 using System.Linq;
-using System.Threading.Tasks;
 using ElCocineroBack.Domain.Ingredient;
 using Microsoft.EntityFrameworkCore;
 
@@ -12,28 +11,26 @@ namespace ElCocineroBack.Infrastructure
         {
         }
 
-        public async Task<IEnumerable<Ingredient>> FindAllAsync()
+        public IEnumerable<Ingredient> FindAll()
         {
-            return await _context
+            return _context
                 .Ingredients
-                .Select(x => x.ToIngredient())
-                .ToListAsync();
+                .Select(x => x.ToIngredient());
         }
 
-        public async Task<IEnumerable<Ingredient>> FindAllAsync(IEnumerable<IngredientId> ids)
+        public IEnumerable<Ingredient> FindAllByIds(IEnumerable<IngredientId> ids)
         {
             var idsString = ids.Select(x => x.Id);
-            return await _context
+            return _context
                 .Ingredients
                 .Where(x => idsString.Contains(x.IngredientKey))
                 .Include(x => x.Recipes)
-                .Select(x => x.ToIngredient())
-                .ToListAsync();
+                .Select(x => x.ToIngredient());
         }
 
-        public async Task<Ingredient> SaveAsync(Ingredient ingredient)
+        public Ingredient Save(Ingredient ingredient)
         {
-            return (await _context.Ingredients.AddAsync(ingredient.State)).Entity.ToIngredient();
+            return _context.Ingredients.Add(ingredient.State).Entity.ToIngredient();
         }
     }
 }

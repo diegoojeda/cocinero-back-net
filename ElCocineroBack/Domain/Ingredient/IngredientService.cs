@@ -1,8 +1,5 @@
 using System;
-using System.Collections;
 using System.Collections.Generic;
-using System.Threading.Tasks;
-using ElCocineroBack.Controllers.Recipe.Request;
 
 namespace ElCocineroBack.Domain.Ingredient
 {
@@ -17,26 +14,21 @@ namespace ElCocineroBack.Domain.Ingredient
             _unitOfWork = unitOfWork;
         }
 
-        public Task<IEnumerable<Ingredient>> FindAllAsync()
+        public IEnumerable<Ingredient> FindAll()
         {
-            return _ingredientRepository.FindAllAsync();
+            return _ingredientRepository.FindAll();
         }
 
-        public Task<IEnumerable<Ingredient>> FindAllAsync(IEnumerable<IngredientId> ids)
+        public Ingredient Save(Ingredient ingredient)
         {
-            return _ingredientRepository.FindAllAsync(ids);
-        }
-
-        public Task<Ingredient> SaveAsync(Ingredient ingredient)
-        {
-            var inserted = _ingredientRepository.SaveAsync(ingredient);
-            _unitOfWork.CompleteAsync();
+            var inserted = _ingredientRepository.Save(ingredient);
+            _unitOfWork.Complete();
             return inserted;
         }
 
-        public void SaveAllAsync(IEnumerable<Ingredient> ingredientsToInsert)
+        public void SaveAll(IEnumerable<Ingredient> ingredientsToInsert)
         {
-            throw new System.NotImplementedException();
+            throw new NotImplementedException();
         }
     }
 }

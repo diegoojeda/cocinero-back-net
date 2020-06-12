@@ -11,20 +11,20 @@ namespace ElCocineroBack.Infrastructure
         {
         }
 
-        public async Task<Author> FindAsync(AuthorId authorId)
+        public Author Find(AuthorId authorId)
         {
-            return (await _context.Authors.FindAsync(authorId.Id)).ToAuthor();
+            return _context.Authors.Find(authorId.Id).ToAuthor();
         }
 
-        public async Task<Author> AddAsync(Author author)
+        public Author Add(Author author)
         {
-            var inserted = await _context.Authors.AddAsync(author.State);
+            var inserted = _context.Authors.Add(author.State);
             return inserted.Entity.ToAuthor();
         }
 
-        public Task<bool> Any(string authorId)
+        public bool Any(string authorId)
         {
-            return _context.Authors.AnyAsync(x => x.AuthorKey == authorId);
+            return _context.Authors.Any(x => x.AuthorKey == authorId);
         }
     }
 }

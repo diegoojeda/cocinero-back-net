@@ -22,17 +22,17 @@ namespace ElCocineroBack.Controllers.Ingredient
 
         [HttpGet]
         [ProducesResponseType(typeof(IEnumerable<IngredientResponseDto>), 200)]
-        public async Task<IEnumerable<IngredientResponseDto>> GetAllIngredientsAsync()
+        public IEnumerable<IngredientResponseDto> GetAllIngredients()
         {
-            return (await _ingredientService.FindAllAsync())
+            return _ingredientService.FindAll()
                 .Select<Domain.Ingredient.Ingredient, IngredientResponseDto>(x => x);
         }
 
         [HttpPost]
         [ProducesResponseType(typeof(IngredientResponseDto), 200)]
-        public async Task<IngredientResponseDto> SaveIngredientAsync([FromBody] CreateIngredientRequestDto body)
+        public IngredientResponseDto SaveIngredient([FromBody] CreateIngredientRequestDto body)
         {
-            return (await _ingredientService.SaveAsync(body));
+            return _ingredientService.Save(body);
         }
     }
 }

@@ -1,7 +1,5 @@
-using System;
 using System.Collections.Generic;
 using System.Linq;
-using System.Threading.Tasks;
 using ElCocineroBack.Controllers.Recipe.Request;
 using ElCocineroBack.Domain.Author;
 using ElCocineroBack.Domain.Author.Exceptions;
@@ -24,14 +22,14 @@ namespace ElCocineroBack.Domain.Recipe
             _ingredientService = ingredientService;
         }
 
-        public Task<IEnumerable<Recipe>> GetAllRecipes()
+        public IEnumerable<Recipe> GetAllRecipes()
         {
-            return _recipeService.FindAllAsync();
+            return _recipeService.FindAll();
         }
 
-        public async Task<Recipe> SaveAsync(CreateRecipeRequestDto body)
+        public Recipe Save(CreateRecipeRequestDto body)
         {
-            var author = await _authorService.FindAsync(body.AuthorId);
+            var author = _authorService.Find(body.AuthorId);
             if (author == null)
             {
                 throw new AuthorNotFoundException(body.AuthorId);
@@ -53,7 +51,7 @@ namespace ElCocineroBack.Domain.Recipe
                 )
             ).ToList();
 
-            var insertedRecipe = await _recipeService.SaveAsync(
+            var insertedRecipe = _recipeService.Save(
                 new Recipe(
                     recipeId,
                     body.Name,
@@ -63,7 +61,7 @@ namespace ElCocineroBack.Domain.Recipe
                 )
             );
 
-            await _recipeService.SaveIngredientsAsync(ingredients);
+            _recipeService.SaveIngredientsAsync(ingredients);
 
             return insertedRecipe;
         }

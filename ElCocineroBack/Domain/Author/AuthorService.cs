@@ -16,22 +16,22 @@ namespace ElCocineroBack.Domain.Author
             this._unitOfWork = unitOfWork;
         }
 
-        public async Task<Author> FindAsync(AuthorId authorId)
+        public Author Find(AuthorId authorId)
         {
-            return await _authorRepository.FindAsync(authorId);
+            return _authorRepository.Find(authorId);
         }
 
-        public async Task<Author> SaveAsync(Author author)
+        public Author SaveAsync(Author author)
         {
-            var inserted = await _authorRepository.AddAsync(author);
-            await _unitOfWork.CompleteAsync();
+            var inserted = _authorRepository.Add(author);
+            _unitOfWork.Complete();
 
             return inserted;
         }
 
-        public async Task<bool> Any(string authorId)
+        public bool Any(string authorId)
         {
-            return await _authorRepository.Any(authorId);
+            return _authorRepository.Any(authorId);
         }
     }
 }

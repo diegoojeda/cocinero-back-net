@@ -1,4 +1,3 @@
-using System.Threading.Tasks;
 using ElCocineroBack.Domain;
 
 namespace ElCocineroBack.Infrastructure
@@ -12,9 +11,9 @@ namespace ElCocineroBack.Infrastructure
             _context = context;
         }
 
-        public async Task CompleteAsync()
+        public void Complete()
         {
-            await _context.SaveChangesAsync();
+            _context.SaveChanges();
         }
     }
 }

@@ -4,6 +4,6 @@ namespace ElCocineroBack.Domain
 {
     public interface IUnitOfWork
     {
-        Task CompleteAsync();
+        void Complete();
     }
 }

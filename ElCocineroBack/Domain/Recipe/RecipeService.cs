@@ -1,8 +1,4 @@
-using System;
-using System.Collections;
 using System.Collections.Generic;
-using System.Threading.Tasks;
-using ElCocineroBack.Controllers;
 
 namespace ElCocineroBack.Domain.Recipe
 {
@@ -17,28 +13,29 @@ namespace ElCocineroBack.Domain.Recipe
             _unitOfWork = unitOfWork;
         }
 
-        public Task<IEnumerable<Recipe>> FindAllAsync()
+        public IEnumerable<Recipe> FindAll()
         {
-            return _recipeRepository.FindAllAsync();
+            return _recipeRepository.FindAll();
         }
 
-        public async Task<Recipe> SaveAsync(Recipe recipe)
+        public Recipe Save(Recipe recipe)
         {
-            var inserted = await _recipeRepository.SaveAsync(recipe);
-            await _unitOfWork.CompleteAsync();
+            var inserted = _recipeRepository.Save(recipe);
+            _unitOfWork.Complete();
             return inserted;
         }
 
-        public Task<IEnumerable<Recipe>> FindAllForAuthorAsync(string authorId)
+        public IEnumerable<Recipe> FindAllForAuthor(string authorId)
         {
-            return _recipeRepository.FindAllForAuthorAsync(authorId);
+            return _recipeRepository.FindAllForAuthor(authorId);
         }
 
-        public async Task SaveIngredientsAsync(
+        public IEnumerable<RecipeIngredient.RecipeIngredient> SaveIngredientsAsync(
             IEnumerable<RecipeIngredient.RecipeIngredient> ingredients)
         {
-            await _recipeRepository.SaveIngredientsAsync(ingredients);
-            await _unitOfWork.CompleteAsync();
+            _recipeRepository.SaveIngredients(ingredients);
+            _unitOfWork.Complete();
+            return new List<RecipeIngredient.RecipeIngredient>();//TODO
         }
     }
 }

@@ -1,6 +1,5 @@
 using System.Collections.Generic;
 using System.Linq;
-using System.Threading.Tasks;
 using ElCocineroBack.Controllers.Recipe.Request;
 using ElCocineroBack.Controllers.Recipe.Response;
 using ElCocineroBack.Domain.Recipe;
@@ -22,16 +21,16 @@ namespace ElCocineroBack.Controllers.Recipe
 
         [HttpGet]
         [ProducesResponseType(typeof(IEnumerable<RecipeResponseDto>), 200)]
-        public async Task<IEnumerable<RecipeResponseDto>> GetAllRecipesAsync()
+        public IEnumerable<RecipeResponseDto> GetAllRecipes()
         {
-            return (await _recipeService.GetAllRecipes()).Select<Domain.Recipe.Recipe, RecipeResponseDto>(x => x);
+            return _recipeService.GetAllRecipes().Select<Domain.Recipe.Recipe, RecipeResponseDto>(x => x);
         }
 
         [HttpPost]
         [ProducesResponseType(typeof(RecipeResponseDto), 200)]
-        public async Task<RecipeResponseDto> CreateRecipeAsync([FromBody] CreateRecipeRequestDto body)
+        public RecipeResponseDto CreateRecipe([FromBody] CreateRecipeRequestDto body)
         {
-            return await _recipeService.SaveAsync(body);
+            return _recipeService.Save(body);
         }
     }
 }

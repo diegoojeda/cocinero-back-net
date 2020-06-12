@@ -6,8 +6,8 @@ namespace ElCocineroBack.Domain.Ingredient
 {
     public interface IIngredientRepository
     {
-        Task<IEnumerable<Ingredient>> FindAllAsync();
-        Task<IEnumerable<Ingredient>> FindAllAsync(IEnumerable<IngredientId> ids);
-        Task<Ingredient> SaveAsync(Ingredient ingredient);
+        IEnumerable<Ingredient> FindAll();
+        IEnumerable<Ingredient> FindAllByIds(IEnumerable<IngredientId> ids);
+        Ingredient Save(Ingredient ingredient);
     }
 }
