@@ -1,5 +1,6 @@
 using System;
 using System.Collections.Generic;
+using System.Linq;
 
 namespace ElCocineroBack.Domain.Ingredient
 {
@@ -24,6 +25,11 @@ namespace ElCocineroBack.Domain.Ingredient
             var inserted = _ingredientRepository.Save(ingredient);
             _unitOfWork.Complete();
             return inserted;
+        }
+
+        public IEnumerable<Ingredient> FindAllByIds(IEnumerable<string> ingredientIds)
+        {
+            return _ingredientRepository.FindAllByIds(ingredientIds.Select<string, IngredientId>(x => x));
         }
     }
 }

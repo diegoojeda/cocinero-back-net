@@ -39,19 +39,7 @@ namespace ElCocineroBack.Infrastructure
             modelBuilder
                 .Entity<RecipeIngredientState>()
                 .HasKey(x => new {x.RecipeId, x.IngredientId});
-
-            modelBuilder
-                .Entity<RecipeIngredientState>()
-                .HasOne(x => x.Ingredient)
-                .WithMany(x => x.Recipes)
-                .HasForeignKey(x => x.IngredientId);
-
-            modelBuilder
-                .Entity<RecipeIngredientState>()
-                .HasOne(x => x.Recipe)
-                .WithMany(x => x.Ingredients)
-                .HasForeignKey(x => x.RecipeId);
-
+            
             base.OnModelCreating(modelBuilder);
         }
     }

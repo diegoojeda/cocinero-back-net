@@ -10,8 +10,6 @@ namespace ElCocineroBack.Domain.RecipeIngredient
 
     public class RecipeIngredient
     {
-        private RecipeId RecipeId => State.RecipeId;
-        private IngredientId IngredientId => State.IngredientId;
         private Amount Amount => State.Amount;
         private IngredientUnit Unit => State.Unit;
 
@@ -41,7 +39,7 @@ namespace ElCocineroBack.Domain.RecipeIngredient
         {
             return new RecipeIngredientResponseDto
             {
-                Ingredient = recipeIngredient.State.Ingredient.ToIngredient(),
+                IngredientId = recipeIngredient.State.IngredientId,
                 Amount = recipeIngredient.Amount,
                 Unit = recipeIngredient.Unit
             };

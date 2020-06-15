@@ -57,7 +57,7 @@ namespace ElCocineroBack.Domain.Recipe
         }
 
         public static Recipe Create(string bodyName, string bodyDescription, Author.Author author,
-            IEnumerable<RecipeIngredientDto> bodyIngredients)
+            IEnumerable<RecipeIngredientDto> bodyIngredients, IEnumerable<Ingredient.Ingredient> allIngredients)
         {
             var recipeId = Guid.NewGuid().ToString();
 
