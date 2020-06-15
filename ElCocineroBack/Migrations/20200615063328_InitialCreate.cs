@@ -57,29 +57,36 @@ namespace ElCocineroBack.Migrations
                     RecipeId = table.Column<string>(type: "TEXT", nullable: false),
                     IngredientId = table.Column<string>(type: "TEXT", nullable: false),
                     Amount = table.Column<int>(type: "INTEGER", nullable: false),
-                    Unit = table.Column<string>(type: "TEXT", nullable: true)
+                    Unit = table.Column<string>(type: "TEXT", nullable: true),
+                    IngredientStateIngredientKey = table.Column<string>(type: "TEXT", nullable: true),
+                    RecipeStateRecipeKey = table.Column<string>(type: "TEXT", nullable: true)
                 },
                 constraints: table =>
                 {
                     table.PrimaryKey("PK_RecipeIngredients", x => new { x.RecipeId, x.IngredientId });
                     table.ForeignKey(
-                        name: "FK_RecipeIngredients_Ingredients_IngredientId",
-                        column: x => x.IngredientId,
+                        name: "FK_RecipeIngredients_Ingredients_IngredientStateIngredientKey",
+                        column: x => x.IngredientStateIngredientKey,
                         principalTable: "Ingredients",
                         principalColumn: "IngredientKey",
-                        onDelete: ReferentialAction.Cascade);
+                        onDelete: ReferentialAction.Restrict);
                     table.ForeignKey(
-                        name: "FK_RecipeIngredients_Recipes_RecipeId",
-                        column: x => x.RecipeId,
+                        name: "FK_RecipeIngredients_Recipes_RecipeStateRecipeKey",
+                        column: x => x.RecipeStateRecipeKey,
                         principalTable: "Recipes",
                         principalColumn: "RecipeKey",
-                        onDelete: ReferentialAction.Cascade);
+                        onDelete: ReferentialAction.Restrict);
                 });
 
             migrationBuilder.CreateIndex(
-                name: "IX_RecipeIngredients_IngredientId",
+                name: "IX_RecipeIngredients_IngredientStateIngredientKey",
                 table: "RecipeIngredients",
-                column: "IngredientId");
+                column: "IngredientStateIngredientKey");
+
+            migrationBuilder.CreateIndex(
+                name: "IX_RecipeIngredients_RecipeStateRecipeKey",
+                table: "RecipeIngredients",
+                column: "RecipeStateRecipeKey");
 
             migrationBuilder.CreateIndex(
                 name: "IX_Recipes_AuthorId",

@@ -31,12 +31,6 @@ namespace ElCocineroBack.Infrastructure
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {
             modelBuilder
-                .Entity<RecipeState>()
-                .HasOne(x => x.Author)
-                .WithMany(x => x.Recipes)
-                .HasForeignKey(p => p.AuthorId);
-
-            modelBuilder
                 .Entity<RecipeIngredientState>()
                 .HasKey(x => new {x.RecipeId, x.IngredientId});
             

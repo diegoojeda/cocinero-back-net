@@ -5,7 +5,6 @@ using ElCocineroBack.Domain.Author;
 using ElCocineroBack.Domain.Author.Exceptions;
 using ElCocineroBack.Domain.Ingredient;
 using ElCocineroBack.Domain.Ingredient.Exceptions;
-using ElCocineroBack.Domain.RecipeIngredient;
 
 namespace ElCocineroBack.Domain.Recipe
 {
@@ -13,14 +12,14 @@ namespace ElCocineroBack.Domain.Recipe
     {
         private readonly AuthorService _authorService;
         private readonly RecipeService _recipeService;
-        private readonly IngredientService _ingredientsService;
+        public IngredientService IngredientsService { get; }
 
         public RecipeApplicationService(AuthorService authorService, RecipeService recipeService,
             IngredientService ingredientService)
         {
             _authorService = authorService;
             _recipeService = recipeService;
-            _ingredientsService = ingredientService;
+            IngredientsService = ingredientService;
         }
 
         public IEnumerable<Recipe> GetAllRecipes()
@@ -40,17 +39,13 @@ namespace ElCocineroBack.Domain.Recipe
             {
                 throw new InvalidIngredientsException();
             }
-            
-            var ingredientIds = body.Ingredients.Select(x => x.Id);
-            var allIngredients  =_ingredientsService.FindAllByIds(ingredientIds);
-            
+
             var insertedRecipe = _recipeService.Save(
                 Recipe.Create(
                     body.Name,
                     body.Description,
                     author,
-                    body.Ingredients, 
-                    allIngredients)
+                    body.Ingredients)
             );
             return insertedRecipe;
         }

@@ -8,7 +8,7 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 namespace ElCocineroBack.Migrations
 {
     [DbContext(typeof(AppDbContext))]
-    [Migration("20200612064243_InitialCreate")]
+    [Migration("20200615063328_InitialCreate")]
     partial class InitialCreate
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
@@ -75,12 +75,20 @@ namespace ElCocineroBack.Migrations
                     b.Property<int>("Amount")
                         .HasColumnType("INTEGER");
 
+                    b.Property<string>("IngredientStateIngredientKey")
+                        .HasColumnType("TEXT");
+
+                    b.Property<string>("RecipeStateRecipeKey")
+                        .HasColumnType("TEXT");
+
                     b.Property<string>("Unit")
                         .HasColumnType("TEXT");
 
                     b.HasKey("RecipeId", "IngredientId");
 
-                    b.HasIndex("IngredientId");
+                    b.HasIndex("IngredientStateIngredientKey");
+
+                    b.HasIndex("RecipeStateRecipeKey");
 
                     b.ToTable("RecipeIngredients");
                 });
@@ -94,17 +102,13 @@ namespace ElCocineroBack.Migrations
 
             modelBuilder.Entity("ElCocineroBack.Domain.RecipeIngredient.RecipeIngredientState", b =>
                 {
-                    b.HasOne("ElCocineroBack.Domain.Ingredient.IngredientState", "Ingredient")
+                    b.HasOne("ElCocineroBack.Domain.Ingredient.IngredientState", null)
                         .WithMany("Recipes")
-                        .HasForeignKey("IngredientId")
-                        .OnDelete(DeleteBehavior.Cascade)
-                        .IsRequired();
+                        .HasForeignKey("IngredientStateIngredientKey");
 
-                    b.HasOne("ElCocineroBack.Domain.Recipe.RecipeState", "Recipe")
+                    b.HasOne("ElCocineroBack.Domain.Recipe.RecipeState", null)
                         .WithMany("Ingredients")
-                        .HasForeignKey("RecipeId")
-                        .OnDelete(DeleteBehavior.Cascade)
-                        .IsRequired();
+                        .HasForeignKey("RecipeStateRecipeKey");
                 });
 #pragma warning restore 612, 618
         }
