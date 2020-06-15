@@ -1,6 +1,7 @@
 using System;
 using System.Collections.Generic;
 using System.Linq;
+using ElCocineroBack.Controllers.Recipe.Request;
 using ElCocineroBack.Controllers.Recipe.Response;
 using ElCocineroBack.Domain.ValueObjects;
 
@@ -35,7 +36,7 @@ namespace ElCocineroBack.Domain.Recipe
                 Description = description,
                 Author = author.State,
                 AuthorId = author.Id,
-                Ingredients = ingredients.Select(x => x.State)
+                Ingredients = ingredients.Select(x => x.State).ToList()
             };
         }
 
@@ -53,6 +54,23 @@ namespace ElCocineroBack.Domain.Recipe
                 recipe.Author.Id.Id,
                 recipe.Ingredients
             );
+        }
+
+        public static Recipe Create(string bodyName, string bodyDescription, Author.Author author,
+            IEnumerable<RecipeIngredientDto> bodyIngredients)
+        {
+            var recipeId = Guid.NewGuid().ToString();
+
+            var ingredients = bodyIngredients.Select(x =>
+                new RecipeIngredient.RecipeIngredient(
+                    recipeId,
+                    x.Id,
+                    x.Amount,
+                    x.Unit
+                )
+            ).ToList();
+            
+            return new Recipe(recipeId, bodyName, bodyDescription, author, ingredients);
         }
     }
 }

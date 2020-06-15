@@ -40,31 +40,15 @@ namespace ElCocineroBack.Domain.Recipe
                 throw new InvalidIngredientsException();
             }
 
-            var recipeId = new RecipeId();
-
-            var ingredients = body.Ingredients.Select(x =>
-                new RecipeIngredient.RecipeIngredient(
-                    recipeId,
-                    x.Id,
-                    x.Amount,
-                    x.Unit
-                )
-            );
-
-            var recipeIngredients = ingredients.ToList();
-
-            // _recipeIngredientService.SaveAll(recipeIngredients);
-
+            // body.Ingredients.Select(x => ingredientsService.getById)
+            
             var insertedRecipe = _recipeService.Save(
-                new Recipe(
-                    recipeId,
+                Recipe.Create(
                     body.Name,
                     body.Description,
                     author,
-                    recipeIngredients
-                )
+                    body.Ingredients)
             );
-
             return insertedRecipe;
         }
     }

@@ -24,7 +24,7 @@ namespace ElCocineroBack.Infrastructure
         {
             return _context.Recipes.Add(recipe.State).Entity.ToRecipe();
         }
-
+        
         public IEnumerable<Recipe> FindAllForAuthor(string authorId)
         {
             return _context
@@ -39,8 +39,8 @@ namespace ElCocineroBack.Infrastructure
         {
             return _context
                 .Recipes
-                .Find(recipeId.Id)
-                .ToRecipe();
+                .FirstOrDefault(x => x.RecipeKey == recipeId)
+                ?.ToRecipe();
         }
     }
 }

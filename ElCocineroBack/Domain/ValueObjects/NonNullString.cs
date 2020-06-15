@@ -1,8 +1,8 @@
-using Microsoft.EntityFrameworkCore;
+using System.ComponentModel.DataAnnotations.Schema;
 
 namespace ElCocineroBack.Domain.ValueObjects
 {
-    [Owned]
+    [ComplexType]
     public class NonNullString
     {
         private string value { get; }

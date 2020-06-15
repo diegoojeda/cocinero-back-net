@@ -26,7 +26,7 @@ namespace ElCocineroBack.Controllers.Recipe.Response
             Name = name;
             Description = description;
             AuthorId = authorId;
-            Ingredients = ingredients.Select<RecipeIngredient, RecipeIngredientResponseDto>(x => x);
+            Ingredients = ingredients.ToList().Select<RecipeIngredient, RecipeIngredientResponseDto>(x => x);
         }
     }
 }

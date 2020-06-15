@@ -1,4 +1,3 @@
-using ElCocineroBack.Controllers.Recipe.Request;
 using ElCocineroBack.Controllers.Recipe.Response;
 using ElCocineroBack.Domain.Ingredient;
 using ElCocineroBack.Domain.Recipe;
@@ -38,18 +37,13 @@ namespace ElCocineroBack.Domain.RecipeIngredient
             State = state;
         }
 
-        public static RecipeIngredient FromDto(RecipeIngredientDto dto, RecipeId recipeId)
-        {
-            return new RecipeIngredient(recipeId, dto.Id, dto.Amount, dto.Unit);
-        }
-
         public static implicit operator RecipeIngredientResponseDto(RecipeIngredient recipeIngredient)
         {
             return new RecipeIngredientResponseDto
             {
                 Ingredient = recipeIngredient.State.Ingredient.ToIngredient(),
                 Amount = recipeIngredient.Amount,
-                Unit = recipeIngredient.Unit,
+                Unit = recipeIngredient.Unit
             };
         }
     }
