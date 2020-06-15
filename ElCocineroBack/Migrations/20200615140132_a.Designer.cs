@@ -8,8 +8,8 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 namespace ElCocineroBack.Migrations
 {
     [DbContext(typeof(AppDbContext))]
-    [Migration("20200615063328_InitialCreate")]
-    partial class InitialCreate
+    [Migration("20200615140132_a")]
+    partial class a
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
@@ -17,35 +17,38 @@ namespace ElCocineroBack.Migrations
             modelBuilder
                 .HasAnnotation("ProductVersion", "5.0.0-preview.4.20220.10");
 
-            modelBuilder.Entity("ElCocineroBack.Domain.Author.AuthorState", b =>
+            modelBuilder.Entity("ElCocineroBack.Domain.Author.Author", b =>
                 {
-                    b.Property<string>("AuthorKey")
+                    b.Property<string>("Id")
                         .HasColumnType("TEXT");
 
                     b.Property<string>("Name")
                         .HasColumnType("TEXT");
 
-                    b.HasKey("AuthorKey");
+                    b.HasKey("Id");
 
                     b.ToTable("Authors");
                 });
 
-            modelBuilder.Entity("ElCocineroBack.Domain.Ingredient.IngredientState", b =>
+            modelBuilder.Entity("ElCocineroBack.Domain.Ingredient.Ingredient", b =>
                 {
-                    b.Property<string>("IngredientKey")
+                    b.Property<string>("Id")
+                        .HasColumnType("TEXT");
+
+                    b.Property<string>("Key")
                         .HasColumnType("TEXT");
 
                     b.Property<string>("Name")
                         .HasColumnType("TEXT");
 
-                    b.HasKey("IngredientKey");
+                    b.HasKey("Id");
 
                     b.ToTable("Ingredients");
                 });
 
-            modelBuilder.Entity("ElCocineroBack.Domain.Recipe.RecipeState", b =>
+            modelBuilder.Entity("ElCocineroBack.Domain.Recipe.Recipe", b =>
                 {
-                    b.Property<string>("RecipeKey")
+                    b.Property<string>("Id")
                         .HasColumnType("TEXT");
 
                     b.Property<string>("AuthorId")
@@ -57,14 +60,14 @@ namespace ElCocineroBack.Migrations
                     b.Property<string>("Name")
                         .HasColumnType("TEXT");
 
-                    b.HasKey("RecipeKey");
+                    b.HasKey("Id");
 
                     b.HasIndex("AuthorId");
 
                     b.ToTable("Recipes");
                 });
 
-            modelBuilder.Entity("ElCocineroBack.Domain.RecipeIngredient.RecipeIngredientState", b =>
+            modelBuilder.Entity("ElCocineroBack.Domain.RecipeIngredient.RecipeIngredient", b =>
                 {
                     b.Property<string>("RecipeId")
                         .HasColumnType("TEXT");
@@ -75,40 +78,36 @@ namespace ElCocineroBack.Migrations
                     b.Property<int>("Amount")
                         .HasColumnType("INTEGER");
 
-                    b.Property<string>("IngredientStateIngredientKey")
-                        .HasColumnType("TEXT");
-
-                    b.Property<string>("RecipeStateRecipeKey")
-                        .HasColumnType("TEXT");
-
                     b.Property<string>("Unit")
                         .HasColumnType("TEXT");
 
                     b.HasKey("RecipeId", "IngredientId");
 
-                    b.HasIndex("IngredientStateIngredientKey");
-
-                    b.HasIndex("RecipeStateRecipeKey");
+                    b.HasIndex("IngredientId");
 
                     b.ToTable("RecipeIngredients");
                 });
 
-            modelBuilder.Entity("ElCocineroBack.Domain.Recipe.RecipeState", b =>
+            modelBuilder.Entity("ElCocineroBack.Domain.Recipe.Recipe", b =>
                 {
-                    b.HasOne("ElCocineroBack.Domain.Author.AuthorState", "Author")
+                    b.HasOne("ElCocineroBack.Domain.Author.Author", "Author")
                         .WithMany("Recipes")
                         .HasForeignKey("AuthorId");
                 });
 
-            modelBuilder.Entity("ElCocineroBack.Domain.RecipeIngredient.RecipeIngredientState", b =>
+            modelBuilder.Entity("ElCocineroBack.Domain.RecipeIngredient.RecipeIngredient", b =>
                 {
-                    b.HasOne("ElCocineroBack.Domain.Ingredient.IngredientState", null)
+                    b.HasOne("ElCocineroBack.Domain.Ingredient.Ingredient", "Ingredient")
                         .WithMany("Recipes")
-                        .HasForeignKey("IngredientStateIngredientKey");
+                        .HasForeignKey("IngredientId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
 
-                    b.HasOne("ElCocineroBack.Domain.Recipe.RecipeState", null)
+                    b.HasOne("ElCocineroBack.Domain.Recipe.Recipe", "Recipe")
                         .WithMany("Ingredients")
-                        .HasForeignKey("RecipeStateRecipeKey");
+                        .HasForeignKey("RecipeId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
                 });
 #pragma warning restore 612, 618
         }

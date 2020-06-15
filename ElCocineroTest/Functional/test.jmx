@@ -121,7 +121,10 @@
               <collectionProp name="Arguments.arguments">
                 <elementProp name="" elementType="HTTPArgument">
                   <boolProp name="HTTPArgument.always_encode">false</boolProp>
-                  <stringProp name="Argument.value">{&quot;name&quot;: &quot;Flour&quot;}</stringProp>
+                  <stringProp name="Argument.value">{&#xd;
+	&quot;name&quot;: &quot;Flour&quot;,&#xd;
+	&quot;key&quot;: &quot;flour&quot;&#xd;
+}</stringProp>
                   <stringProp name="Argument.metadata">=</stringProp>
                 </elementProp>
               </collectionProp>
@@ -164,7 +167,10 @@
               <collectionProp name="Arguments.arguments">
                 <elementProp name="" elementType="HTTPArgument">
                   <boolProp name="HTTPArgument.always_encode">false</boolProp>
-                  <stringProp name="Argument.value">{&quot;name&quot;: &quot;Chicken&quot;}</stringProp>
+                  <stringProp name="Argument.value">{&#xd;
+	&quot;name&quot;: &quot;Chicken&quot;,&#xd;
+	&quot;key&quot;:&quot;chicken&quot;&#xd;
+}</stringProp>
                   <stringProp name="Argument.metadata">=</stringProp>
                 </elementProp>
               </collectionProp>
@@ -207,7 +213,10 @@
               <collectionProp name="Arguments.arguments">
                 <elementProp name="" elementType="HTTPArgument">
                   <boolProp name="HTTPArgument.always_encode">false</boolProp>
-                  <stringProp name="Argument.value">{&quot;name&quot;: &quot;Bread&quot;}</stringProp>
+                  <stringProp name="Argument.value">{&#xd;
+	&quot;name&quot;: &quot;Bread&quot;,&#xd;
+	&quot;key&quot;: &quot;bread&quot;&#xd;
+}</stringProp>
                   <stringProp name="Argument.metadata">=</stringProp>
                 </elementProp>
               </collectionProp>
@@ -250,7 +259,10 @@
               <collectionProp name="Arguments.arguments">
                 <elementProp name="" elementType="HTTPArgument">
                   <boolProp name="HTTPArgument.always_encode">false</boolProp>
-                  <stringProp name="Argument.value">{&quot;name&quot;: &quot;Olive Oil&quot;}</stringProp>
+                  <stringProp name="Argument.value">{&#xd;
+	&quot;name&quot;: &quot;Olive Oil&quot;,&#xd;
+	&quot;key&quot;: &quot;olive-oil&quot;&#xd;
+}</stringProp>
                   <stringProp name="Argument.metadata">=</stringProp>
                 </elementProp>
               </collectionProp>
@@ -293,7 +305,10 @@
               <collectionProp name="Arguments.arguments">
                 <elementProp name="" elementType="HTTPArgument">
                   <boolProp name="HTTPArgument.always_encode">false</boolProp>
-                  <stringProp name="Argument.value">{&quot;name&quot;: &quot;Beans&quot;}</stringProp>
+                  <stringProp name="Argument.value">{&#xd;
+	&quot;name&quot;: &quot;Beans&quot;,&#xd;
+	&quot;key&quot;:&quot;beans&quot;&#xd;
+}</stringProp>
                   <stringProp name="Argument.metadata">=</stringProp>
                 </elementProp>
               </collectionProp>
@@ -336,7 +351,10 @@
               <collectionProp name="Arguments.arguments">
                 <elementProp name="" elementType="HTTPArgument">
                   <boolProp name="HTTPArgument.always_encode">false</boolProp>
-                  <stringProp name="Argument.value">{&quot;name&quot;: &quot;Lettuce&quot;}</stringProp>
+                  <stringProp name="Argument.value">{&#xd;
+	&quot;name&quot;: &quot;Lettuce&quot;,&#xd;
+	&quot;key&quot;:&quot;lettuce&quot;&#xd;
+}</stringProp>
                   <stringProp name="Argument.metadata">=</stringProp>
                 </elementProp>
               </collectionProp>

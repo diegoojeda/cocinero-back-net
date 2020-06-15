@@ -14,7 +14,7 @@ namespace ElCocineroBack.Infrastructure
         {
             _context
                 .RecipeIngredients
-                .AddRange(recipeIngredients.Select(x => x.State));
+                .AddRange(recipeIngredients.Select(x => x));
         }
     }
 }

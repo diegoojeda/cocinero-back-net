@@ -1,48 +1,38 @@
 using System.Collections.Generic;
-using System.Linq;
+using System.ComponentModel.DataAnnotations;
 using ElCocineroBack.Controllers.Ingredient.Request;
 using ElCocineroBack.Controllers.Ingredient.Response;
-using ElCocineroBack.Domain.ValueObjects;
+using ElCocineroBack.Domain.RecipeIngredient;
 
 namespace ElCocineroBack.Domain.Ingredient
 {
-    using IngredientName = NonNullString;
-
     public class Ingredient
     {
-        public IngredientId Id => new IngredientId(State.IngredientKey);
-        public IngredientName Name => new IngredientName(State.Name);
-        private IEnumerable<RecipeIngredient.RecipeIngredient> Recipes =>
-            State.Recipes.Select(x => x.ToRecipeIngredient());
+        [Key] public string Id { get; set; }
+        public string Name { get; set; }
+        public string Key { get; set; }
+        public virtual IEnumerable<RecipeIngredient.RecipeIngredient> Recipes { get; set; }
 
-        public IngredientState State { get; }
-
-        public Ingredient(IngredientId id, IngredientName name)
+        public Ingredient(string id, string name, string key)
         {
-            State = new IngredientState
-            {
-                IngredientKey = id.Id,
-                Name = name
-            };
-        }
-
-        public Ingredient(IngredientState state)
-        {
-            State = state;
+            Id = id;
+            Name = name;
+            Key = key;
         }
 
         public static implicit operator IngredientResponseDto(Ingredient ingredient)
         {
             return new IngredientResponseDto
             {
-                Id = ingredient.Id.Id,
-                Name = ingredient.Name
+                Id = ingredient.Id,
+                Name = ingredient.Name,
+                Key = ingredient.Key
             };
         }
 
         public static implicit operator Ingredient(CreateIngredientRequestDto ingredient)
         {
-            return new Ingredient(new IngredientId(), ingredient.Name);
+            return new Ingredient(new IngredientId(), ingredient.Name, ingredient.Key);
         }
     }
 }

@@ -2,7 +2,7 @@
 
 namespace ElCocineroBack.Migrations
 {
-    public partial class InitialCreate : Migration
+    public partial class a : Migration
     {
         protected override void Up(MigrationBuilder migrationBuilder)
         {
@@ -10,43 +10,44 @@ namespace ElCocineroBack.Migrations
                 name: "Authors",
                 columns: table => new
                 {
-                    AuthorKey = table.Column<string>(type: "TEXT", nullable: false),
+                    Id = table.Column<string>(type: "TEXT", nullable: false),
                     Name = table.Column<string>(type: "TEXT", nullable: true)
                 },
                 constraints: table =>
                 {
-                    table.PrimaryKey("PK_Authors", x => x.AuthorKey);
+                    table.PrimaryKey("PK_Authors", x => x.Id);
                 });
 
             migrationBuilder.CreateTable(
                 name: "Ingredients",
                 columns: table => new
                 {
-                    IngredientKey = table.Column<string>(type: "TEXT", nullable: false),
-                    Name = table.Column<string>(type: "TEXT", nullable: true)
+                    Id = table.Column<string>(type: "TEXT", nullable: false),
+                    Name = table.Column<string>(type: "TEXT", nullable: true),
+                    Key = table.Column<string>(type: "TEXT", nullable: true)
                 },
                 constraints: table =>
                 {
-                    table.PrimaryKey("PK_Ingredients", x => x.IngredientKey);
+                    table.PrimaryKey("PK_Ingredients", x => x.Id);
                 });
 
             migrationBuilder.CreateTable(
                 name: "Recipes",
                 columns: table => new
                 {
-                    RecipeKey = table.Column<string>(type: "TEXT", nullable: false),
+                    Id = table.Column<string>(type: "TEXT", nullable: false),
                     Name = table.Column<string>(type: "TEXT", nullable: true),
                     Description = table.Column<string>(type: "TEXT", nullable: true),
                     AuthorId = table.Column<string>(type: "TEXT", nullable: true)
                 },
                 constraints: table =>
                 {
-                    table.PrimaryKey("PK_Recipes", x => x.RecipeKey);
+                    table.PrimaryKey("PK_Recipes", x => x.Id);
                     table.ForeignKey(
                         name: "FK_Recipes_Authors_AuthorId",
                         column: x => x.AuthorId,
                         principalTable: "Authors",
-                        principalColumn: "AuthorKey",
+                        principalColumn: "Id",
                         onDelete: ReferentialAction.Restrict);
                 });
 
@@ -57,36 +58,29 @@ namespace ElCocineroBack.Migrations
                     RecipeId = table.Column<string>(type: "TEXT", nullable: false),
                     IngredientId = table.Column<string>(type: "TEXT", nullable: false),
                     Amount = table.Column<int>(type: "INTEGER", nullable: false),
-                    Unit = table.Column<string>(type: "TEXT", nullable: true),
-                    IngredientStateIngredientKey = table.Column<string>(type: "TEXT", nullable: true),
-                    RecipeStateRecipeKey = table.Column<string>(type: "TEXT", nullable: true)
+                    Unit = table.Column<string>(type: "TEXT", nullable: true)
                 },
                 constraints: table =>
                 {
                     table.PrimaryKey("PK_RecipeIngredients", x => new { x.RecipeId, x.IngredientId });
                     table.ForeignKey(
-                        name: "FK_RecipeIngredients_Ingredients_IngredientStateIngredientKey",
-                        column: x => x.IngredientStateIngredientKey,
+                        name: "FK_RecipeIngredients_Ingredients_IngredientId",
+                        column: x => x.IngredientId,
                         principalTable: "Ingredients",
-                        principalColumn: "IngredientKey",
-                        onDelete: ReferentialAction.Restrict);
+                        principalColumn: "Id",
+                        onDelete: ReferentialAction.Cascade);
                     table.ForeignKey(
-                        name: "FK_RecipeIngredients_Recipes_RecipeStateRecipeKey",
-                        column: x => x.RecipeStateRecipeKey,
+                        name: "FK_RecipeIngredients_Recipes_RecipeId",
+                        column: x => x.RecipeId,
                         principalTable: "Recipes",
-                        principalColumn: "RecipeKey",
-                        onDelete: ReferentialAction.Restrict);
+                        principalColumn: "Id",
+                        onDelete: ReferentialAction.Cascade);
                 });
 
             migrationBuilder.CreateIndex(
-                name: "IX_RecipeIngredients_IngredientStateIngredientKey",
+                name: "IX_RecipeIngredients_IngredientId",
                 table: "RecipeIngredients",
-                column: "IngredientStateIngredientKey");
-
-            migrationBuilder.CreateIndex(
-                name: "IX_RecipeIngredients_RecipeStateRecipeKey",
-                table: "RecipeIngredients",
-                column: "RecipeStateRecipeKey");
+                column: "IngredientId");
 
             migrationBuilder.CreateIndex(
                 name: "IX_Recipes_AuthorId",

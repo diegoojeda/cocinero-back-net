@@ -1,48 +1,34 @@
 using System;
 using System.Collections.Generic;
+using System.ComponentModel.DataAnnotations;
 using System.Linq;
 using ElCocineroBack.Controllers.Recipe.Request;
 using ElCocineroBack.Controllers.Recipe.Response;
-using ElCocineroBack.Domain.ValueObjects;
 
 namespace ElCocineroBack.Domain.Recipe
 {
-    using RecipeName = NonNullString;
-    using RecipeDescription = NonNullString;
-
     public class Recipe
     {
-        public RecipeId Id => new RecipeId(State.RecipeKey);
-        private RecipeName Name => new NonNullString(State.Name);
-        private RecipeDescription Description => new NonNullString(State.Description);
-        private Author.Author Author => State.Author.ToAuthor();
+        [Key] public string Id { get; set; }
+        public string Name { get; set; }
+        public string Description { get; set; }
+        public string AuthorId { get; set; }
+        public virtual Author.Author Author { get; set; }
+        public virtual IEnumerable<RecipeIngredient.RecipeIngredient> Ingredients { get; set; }
 
-        private IEnumerable<RecipeIngredient.RecipeIngredient> Ingredients =>
-            State.Ingredients.Select(x => x.ToRecipeIngredient());
-
-        public RecipeState State { get; }
-
-        public Recipe(
-            RecipeId id,
-            NonNullString name,
-            NonNullString description,
-            Author.Author author,
-            IEnumerable<RecipeIngredient.RecipeIngredient> ingredients)
+        public Recipe()
         {
-            State = new RecipeState
-            {
-                RecipeKey = id,
-                Name = name,
-                Description = description,
-                Author = author.State,
-                AuthorId = author.Id,
-                Ingredients = ingredients.Select(x => x.State).ToList()
-            };
+            Ingredients = new List<RecipeIngredient.RecipeIngredient>();
         }
 
-        internal Recipe(RecipeState state)
+        public Recipe(string id, string name, string description, string authorId,
+            IEnumerable<RecipeIngredient.RecipeIngredient> ingredients)
         {
-            State = state;
+            Id = id;
+            Name = name;
+            Description = description;
+            AuthorId = authorId;
+            Ingredients = ingredients;
         }
 
         public static implicit operator RecipeResponseDto(Recipe recipe)
@@ -51,26 +37,30 @@ namespace ElCocineroBack.Domain.Recipe
                 recipe.Id,
                 recipe.Name,
                 recipe.Description,
-                recipe.Author.Id.Id,
+                recipe.Author.Id,
                 recipe.Ingredients
             );
         }
 
-        public static Recipe Create(string bodyName, string bodyDescription, Author.Author author,
-            IEnumerable<RecipeIngredientDto> bodyIngredients)
+        public static Recipe Create(string name, string description, Author.Author author,
+            IEnumerable<RecipeIngredientDto> ingredients, IEnumerable<Ingredient.Ingredient> fullIngredients)
         {
             var recipeId = Guid.NewGuid().ToString();
 
-            var ingredients = bodyIngredients.Select(x =>
-                new RecipeIngredient.RecipeIngredient(
-                    recipeId,
-                    x.Id,
-                    x.Amount,
-                    x.Unit
-                )
-            ).ToList();
-            
-            return new Recipe(recipeId, bodyName, bodyDescription, author, ingredients);
+            var recipeIngredients = fullIngredients
+                .SelectMany(x =>
+                    ingredients
+                        .Where(y => y.Id == x.Id)
+                        .Select(y =>
+                            new RecipeIngredient.RecipeIngredient(
+                                recipeId,
+                                x.Id,
+                                y.Amount,
+                                y.Unit
+                            ))
+                ).ToList();
+
+            return new Recipe(recipeId, name, description, author, recipeIngredients);
         }
     }
 }

@@ -1,4 +1,3 @@
-using System.Configuration;
 using ElCocineroBack.Domain;
 using ElCocineroBack.Domain.Author;
 using ElCocineroBack.Domain.Ingredient;
@@ -7,11 +6,9 @@ using ElCocineroBack.Domain.RecipeIngredient;
 using ElCocineroBack.Infrastructure;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
-using Microsoft.AspNetCore.Http;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
-using Microsoft.Extensions.DependencyInjection.Extensions;
 using Microsoft.Extensions.Hosting;
 
 namespace ElCocineroBack
@@ -60,6 +57,7 @@ namespace ElCocineroBack
             app.UseRouting();
 
             app.UseEndpoints(endpoints => { endpoints.MapControllers(); });
+            app.UseStaticFiles();
         }
     }
 }

@@ -13,18 +13,18 @@ namespace ElCocineroBack.Infrastructure
 
         public Author Find(AuthorId authorId)
         {
-            return _context.Authors.Find(authorId.Id).ToAuthor();
+            return _context.Authors.Find(authorId.Id);
         }
 
         public Author Add(Author author)
         {
-            var inserted = _context.Authors.Add(author.State);
-            return inserted.Entity.ToAuthor();
+            var inserted = _context.Authors.Add(author);
+            return inserted.Entity;
         }
 
         public bool Any(string authorId)
         {
-            return _context.Authors.Any(x => x.AuthorKey == authorId);
+            return _context.Authors.Any(x => x.Id == authorId);
         }
     }
 }

@@ -1,45 +1,31 @@
 using ElCocineroBack.Controllers.Recipe.Response;
-using ElCocineroBack.Domain.Ingredient;
-using ElCocineroBack.Domain.Recipe;
-using ElCocineroBack.Domain.ValueObjects;
 
 namespace ElCocineroBack.Domain.RecipeIngredient
 {
-    using Amount = PositiveInteger;
-    using IngredientUnit = NonNullString;
-
     public class RecipeIngredient
     {
-        private Amount Amount => State.Amount;
-        private IngredientUnit Unit => State.Unit;
+        public string RecipeId { get; set; }
+        public string IngredientId { get; set; }
+        public virtual Ingredient.Ingredient Ingredient { get; set; }
+        public virtual Recipe.Recipe Recipe { get; set; }
 
-        public RecipeIngredientState State;
+        public int Amount { get; set; }
+        public string Unit { get; set; }
 
-        public RecipeIngredient(
-            RecipeId recipeId,
-            IngredientId ingredientId,
-            PositiveInteger amount,
-            IngredientUnit unit)
+        public RecipeIngredient(string recipeId, string ingredientId, int amount, string unit)
         {
-            State = new RecipeIngredientState
-            {
-                RecipeId = recipeId.Id,
-                IngredientId = ingredientId.Id,
-                Amount = amount.Value,
-                Unit = unit
-            };
-        }
-
-        public RecipeIngredient(RecipeIngredientState state)
-        {
-            State = state;
+            RecipeId = recipeId;
+            IngredientId = ingredientId;
+            Amount = amount;
+            Unit = unit;
         }
 
         public static implicit operator RecipeIngredientResponseDto(RecipeIngredient recipeIngredient)
         {
             return new RecipeIngredientResponseDto
             {
-                IngredientId = recipeIngredient.State.IngredientId,
+                IngredientId = recipeIngredient.IngredientId,
+                IngredientKey = recipeIngredient.Ingredient.Key,
                 Amount = recipeIngredient.Amount,
                 Unit = recipeIngredient.Unit
             };

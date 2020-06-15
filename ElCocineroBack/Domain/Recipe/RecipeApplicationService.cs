@@ -12,6 +12,7 @@ namespace ElCocineroBack.Domain.Recipe
     {
         private readonly AuthorService _authorService;
         private readonly RecipeService _recipeService;
+        private readonly IngredientService _ingredientService;
         public IngredientService IngredientsService { get; }
 
         public RecipeApplicationService(AuthorService authorService, RecipeService recipeService,
@@ -19,6 +20,7 @@ namespace ElCocineroBack.Domain.Recipe
         {
             _authorService = authorService;
             _recipeService = recipeService;
+            _ingredientService = ingredientService;
             IngredientsService = ingredientService;
         }
 
@@ -40,12 +42,15 @@ namespace ElCocineroBack.Domain.Recipe
                 throw new InvalidIngredientsException();
             }
 
+            var fullIngredients = _ingredientService.FindAllByIds(body.Ingredients.Select(x => x.Id));
+
             var insertedRecipe = _recipeService.Save(
                 Recipe.Create(
                     body.Name,
                     body.Description,
                     author,
-                    body.Ingredients)
+                    body.Ingredients,
+                    fullIngredients)
             );
             return insertedRecipe;
         }

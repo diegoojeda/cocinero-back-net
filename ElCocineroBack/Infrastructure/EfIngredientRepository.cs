@@ -15,7 +15,7 @@ namespace ElCocineroBack.Infrastructure
         {
             return _context
                 .Ingredients
-                .Select(x => x.ToIngredient());
+                .Select(x => x);
         }
 
         public IEnumerable<Ingredient> FindAllByIds(IEnumerable<IngredientId> ids)
@@ -23,14 +23,14 @@ namespace ElCocineroBack.Infrastructure
             var idsString = ids.Select(x => x.Id);
             return _context
                 .Ingredients
-                .Where(x => idsString.Contains(x.IngredientKey))
+                .Where(x => idsString.Contains(x.Id))
                 .Include(x => x.Recipes)
-                .Select(x => x.ToIngredient());
+                .Select(x => x);
         }
 
         public Ingredient Save(Ingredient ingredient)
         {
-            return _context.Ingredients.Add(ingredient.State).Entity.ToIngredient();
+            return _context.Ingredients.Add(ingredient).Entity;
         }
     }
 }

@@ -11,12 +11,12 @@ namespace ElCocineroBack.Infrastructure
 {
     public class AppDbContext : DbContext
     {
-        public DbSet<RecipeState> Recipes { get; set; }
-        public DbSet<AuthorState> Authors { get; set; }
+        public DbSet<Recipe> Recipes { get; set; }
+        public DbSet<Author> Authors { get; set; }
 
-        public DbSet<IngredientState> Ingredients { get; set; }
+        public DbSet<Ingredient> Ingredients { get; set; }
 
-        public DbSet<RecipeIngredientState> RecipeIngredients { get; set; }
+        public DbSet<RecipeIngredient> RecipeIngredients { get; set; }
 
         public AppDbContext(DbContextOptions<AppDbContext> options) : base(options)
         {
@@ -25,13 +25,14 @@ namespace ElCocineroBack.Infrastructure
         protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
         {
             optionsBuilder.EnableSensitiveDataLogging();
+            optionsBuilder.UseLazyLoadingProxies();
             base.OnConfiguring(optionsBuilder);
         }
 
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {
             modelBuilder
-                .Entity<RecipeIngredientState>()
+                .Entity<RecipeIngredient>()
                 .HasKey(x => new {x.RecipeId, x.IngredientId});
             
             base.OnModelCreating(modelBuilder);

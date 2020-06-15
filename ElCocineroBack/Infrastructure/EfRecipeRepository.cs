@@ -17,12 +17,12 @@ namespace ElCocineroBack.Infrastructure
                 .Recipes
                 .Include(x => x.Author)
                 .Include(x => x.Ingredients)
-                .Select(x => x.ToRecipe());
+                .Select(x => x);
         }
 
         public Recipe Save(Recipe recipe)
         {
-            return _context.Recipes.Add(recipe.State).Entity.ToRecipe();
+            return _context.Recipes.Add(recipe).Entity;
         }
         
         public IEnumerable<Recipe> FindAllForAuthor(string authorId)
@@ -32,15 +32,14 @@ namespace ElCocineroBack.Infrastructure
                 .Where(x => x.AuthorId == authorId)
                 .Include(x => x.Author)
                 .Include(x => x.Ingredients)
-                .Select(x => x.ToRecipe());
+                .Select(x => x);
         }
 
         public Recipe FindById(RecipeId recipeId)
         {
             return _context
                 .Recipes
-                .FirstOrDefault(x => x.RecipeKey == recipeId)
-                ?.ToRecipe();
+                .FirstOrDefault(x => x.Id == recipeId);
         }
     }
 }

@@ -1,47 +1,40 @@
 using System.Collections.Generic;
-using System.Linq;
+using System.ComponentModel.DataAnnotations;
 using ElCocineroBack.Controllers.Author.Request;
 using ElCocineroBack.Controllers.Author.Response;
-using ElCocineroBack.Domain.Recipe;
 using ElCocineroBack.Domain.ValueObjects;
 
 namespace ElCocineroBack.Domain.Author
 {
-    using AuthorName = NonNullString;
-
     public class Author
     {
-        public AuthorId Id => new AuthorId(State.AuthorKey);
+        [Key] public string Id { get; set; }
 
-        private AuthorName Name => new NonNullString(State.Name);
+        public string Name { get; set; }
 
-        private IEnumerable<Recipe.Recipe> Recipes => State.Recipes.Select(x => new Recipe.Recipe(x));
+        public virtual IEnumerable<Recipe.Recipe> Recipes { get; set; }
 
-        public AuthorState State { get; }
-
-        public Author(AuthorId id, NonNullString name)
+        public Author(string id, string name)
         {
-            State = new AuthorState {AuthorKey = id.Id, Name = name, Recipes = new List<RecipeState>()};
-        }
-
-        internal Author(AuthorState state)
-        {
-            State = state;
+            Id = id;
+            Name = name;
+            Recipes = new List<Recipe.Recipe>();
         }
 
         public static implicit operator string(Author author)
         {
-            return author.Id.ToString();
+            return author.Id;
         }
 
         public static implicit operator AuthorResponseDto(Author author)
         {
-            return new AuthorResponseDto(author.Id.Id, author.Name);
+            return new AuthorResponseDto(author.Id, author.Name);
         }
 
         public static implicit operator Author(CreateAuthorRequestDto author)
         {
             return new Author(new AuthorId(), new NonNullString(author.Name));
         }
+        
     }
 }
