@@ -8,7 +8,7 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 namespace ElCocineroBack.Migrations
 {
     [DbContext(typeof(AppDbContext))]
-    [Migration("20200616055919_a")]
+    [Migration("20200616064628_a")]
     partial class a
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
@@ -19,20 +19,20 @@ namespace ElCocineroBack.Migrations
 
             modelBuilder.Entity("ElCocineroBack.Domain.Author.Author", b =>
                 {
-                    b.Property<string>("Id")
+                    b.Property<string>("AuthorId")
                         .HasColumnType("TEXT");
 
                     b.Property<string>("Name")
                         .HasColumnType("TEXT");
 
-                    b.HasKey("Id");
+                    b.HasKey("AuthorId");
 
                     b.ToTable("Authors");
                 });
 
             modelBuilder.Entity("ElCocineroBack.Domain.Ingredient.Ingredient", b =>
                 {
-                    b.Property<string>("Id")
+                    b.Property<string>("IngredientId")
                         .HasColumnType("TEXT");
 
                     b.Property<string>("Key")
@@ -41,14 +41,14 @@ namespace ElCocineroBack.Migrations
                     b.Property<string>("Name")
                         .HasColumnType("TEXT");
 
-                    b.HasKey("Id");
+                    b.HasKey("IngredientId");
 
                     b.ToTable("Ingredients");
                 });
 
             modelBuilder.Entity("ElCocineroBack.Domain.Recipe.Recipe", b =>
                 {
-                    b.Property<string>("Id")
+                    b.Property<string>("RecipeId")
                         .HasColumnType("TEXT");
 
                     b.Property<string>("AuthorId")
@@ -60,7 +60,7 @@ namespace ElCocineroBack.Migrations
                     b.Property<string>("Name")
                         .HasColumnType("TEXT");
 
-                    b.HasKey("Id");
+                    b.HasKey("RecipeId");
 
                     b.HasIndex("AuthorId");
 

@@ -24,7 +24,7 @@ namespace ElCocineroBack.Infrastructure
 
         public bool Any(string authorId)
         {
-            return _context.Authors.Any(x => x.Id == authorId);
+            return _context.Authors.Any(x => x.AuthorId == authorId);
         }
     }
 }

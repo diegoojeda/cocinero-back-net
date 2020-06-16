@@ -1,21 +1,22 @@
 using System.Collections.Generic;
-using System.ComponentModel.DataAnnotations;
 using ElCocineroBack.Controllers.Ingredient.Request;
 using ElCocineroBack.Controllers.Ingredient.Response;
-using ElCocineroBack.Domain.RecipeIngredient;
 
 namespace ElCocineroBack.Domain.Ingredient
 {
     public class Ingredient
     {
-        [Key] public string Id { get; set; }
+        public string IngredientId { get; set; }
         public string Name { get; set; }
         public string Key { get; set; }
         public virtual IEnumerable<RecipeIngredient.RecipeIngredient> Recipes { get; set; }
 
-        public Ingredient(string id, string name, string key)
+        public Ingredient(
+            string ingredientId,
+            string name,
+            string key)
         {
-            Id = id;
+            IngredientId = ingredientId;
             Name = name;
             Key = key;
         }
@@ -24,7 +25,7 @@ namespace ElCocineroBack.Domain.Ingredient
         {
             return new IngredientResponseDto
             {
-                Id = ingredient.Id,
+                Id = ingredient.IngredientId,
                 Name = ingredient.Name,
                 Key = ingredient.Key
             };
@@ -32,7 +33,10 @@ namespace ElCocineroBack.Domain.Ingredient
 
         public static implicit operator Ingredient(CreateIngredientRequestDto ingredient)
         {
-            return new Ingredient(new IngredientId(), ingredient.Name, ingredient.Key);
+            return new Ingredient(new IngredientId(), ingredient.Name, ingredient.Key)
+            {
+                Recipes = new List<RecipeIngredient.RecipeIngredient>()
+            };
         }
     }
 }

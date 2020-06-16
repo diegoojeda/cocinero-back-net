@@ -43,7 +43,7 @@ namespace ElCocineroBack.Infrastructure
 
             modelBuilder
                 .Entity<Recipe>()
-                .HasKey(x => x.Id);
+                .HasKey(x => x.RecipeId);
 
             base.OnModelCreating(modelBuilder);
         }

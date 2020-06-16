@@ -23,7 +23,7 @@ namespace ElCocineroBack.Domain.Recipe
         {
             _recipeRepository.Save(recipe);
             _unitOfWork.Complete();
-            return _recipeRepository.FindById(recipe.Id);
+            return _recipeRepository.FindById(recipe.RecipeId);
         }
 
         public IEnumerable<Recipe> FindAllForAuthor(string authorId)

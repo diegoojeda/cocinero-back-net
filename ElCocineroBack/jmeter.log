@@ -1,478 +1,66 @@
-2020-06-15 15:39:35,552 INFO o.a.j.u.JMeterUtils: Setting Locale to en_EN
-2020-06-15 15:39:35,573 INFO o.a.j.JMeter: Loading user properties from: /usr/local/Cellar/jmeter/5.3/libexec/bin/user.properties
-2020-06-15 15:39:35,574 INFO o.a.j.JMeter: Loading system properties from: /usr/local/Cellar/jmeter/5.3/libexec/bin/system.properties
-2020-06-15 15:39:35,576 INFO o.a.j.JMeter: Copyright (c) 1998-2020 The Apache Software Foundation
-2020-06-15 15:39:35,576 INFO o.a.j.JMeter: Version 5.3
-2020-06-15 15:39:35,576 INFO o.a.j.JMeter: java.version=1.8.0_252
-2020-06-15 15:39:35,576 INFO o.a.j.JMeter: java.vm.name=OpenJDK 64-Bit Server VM
-2020-06-15 15:39:35,576 INFO o.a.j.JMeter: os.name=Mac OS X
-2020-06-15 15:39:35,576 INFO o.a.j.JMeter: os.arch=x86_64
-2020-06-15 15:39:35,576 INFO o.a.j.JMeter: os.version=10.15.5
-2020-06-15 15:39:35,576 INFO o.a.j.JMeter: file.encoding=UTF-8
-2020-06-15 15:39:35,576 INFO o.a.j.JMeter: java.awt.headless=null
-2020-06-15 15:39:35,576 INFO o.a.j.JMeter: Max memory     =1073741824
-2020-06-15 15:39:35,576 INFO o.a.j.JMeter: Available Processors =16
-2020-06-15 15:39:35,580 INFO o.a.j.JMeter: Default Locale=English (EN)
-2020-06-15 15:39:35,581 INFO o.a.j.JMeter: JMeter  Locale=English (EN)
-2020-06-15 15:39:35,581 INFO o.a.j.JMeter: JMeterHome=/usr/local/Cellar/jmeter/5.3/libexec
-2020-06-15 15:39:35,581 INFO o.a.j.JMeter: user.dir  =/Users/diegoojedagarcia/Projects/Personal/cocinero/ElCocineroBack/ElCocineroBack
-2020-06-15 15:39:35,581 INFO o.a.j.JMeter: PWD       =/Users/diegoojedagarcia/Projects/Personal/cocinero/ElCocineroBack/ElCocineroBack
-2020-06-15 15:39:35,582 INFO o.a.j.JMeter: IP: 127.0.0.1 Name: MacBook-Pro-de-Diego.local FullName: localhost
-2020-06-15 15:39:35,914 INFO o.a.j.JMeter: Setting LAF to: com.github.weisj.darklaf.DarkLaf:com.github.weisj.darklaf.theme.DarculaTheme
-2020-06-15 15:39:36,752 INFO o.a.j.JMeter: Loaded icon properties from org/apache/jmeter/images/icon.properties
-2020-06-15 15:39:37,738 INFO o.j.r.JARSourceHTTP: Requesting https://jmeter-plugins.org/repo/?installID=mac_os_x-92d21ad5cdf9eb3df09b91f21c881ad4-gui
-2020-06-15 15:39:39,526 INFO o.j.r.PluginManager: Plugins Status: [jpgc-plugins-manager=1.3, jmeter-core=5.3, jmeter-ftp=5.3, jmeter-http=5.3, jmeter-jdbc=5.3, jmeter-jms=5.3, jmeter-junit=5.3, jmeter-java=5.3, jmeter-ldap=5.3, jmeter-mail=5.3, jmeter-mongodb=5.3, jmeter-native=5.3, jmeter-tcp=5.3, jmeter-components=5.3]
-2020-06-15 15:39:39,527 INFO o.j.r.PluginManagerMenuItem: Plugins Manager has upgrades: [jpgc-plugins-manager]
-2020-06-15 15:39:45,276 INFO o.a.j.s.FileServer: Default base='/Users/diegoojedagarcia/Projects/Personal/cocinero/ElCocineroBack/ElCocineroBack'
-2020-06-15 15:39:45,280 INFO o.a.j.g.a.Load: Loading file: /Users/diegoojedagarcia/Projects/Personal/cocinero/ElCocineroBack/ElCocineroTest/Functional/test.jmx
-2020-06-15 15:39:45,280 INFO o.a.j.s.FileServer: Set new base='/Users/diegoojedagarcia/Projects/Personal/cocinero/ElCocineroBack/ElCocineroTest/Functional'
-2020-06-15 15:39:45,404 INFO o.a.j.s.SaveService: Testplan (JMX) version: 2.2. Testlog (JTL) version: 2.2
-2020-06-15 15:39:45,415 INFO o.a.j.s.SaveService: Using SaveService properties file encoding UTF-8
-2020-06-15 15:39:45,416 INFO o.a.j.s.SaveService: Using SaveService properties version 5.0
-2020-06-15 15:39:45,419 INFO o.a.j.s.SaveService: Loading file: /Users/diegoojedagarcia/Projects/Personal/cocinero/ElCocineroBack/ElCocineroTest/Functional/test.jmx
-2020-06-15 15:39:45,568 INFO o.a.j.p.h.s.HTTPSamplerBase: Parser for text/html is org.apache.jmeter.protocol.http.parser.LagartoBasedHtmlParser
-2020-06-15 15:39:45,568 INFO o.a.j.p.h.s.HTTPSamplerBase: Parser for application/xhtml+xml is org.apache.jmeter.protocol.http.parser.LagartoBasedHtmlParser
-2020-06-15 15:39:45,568 INFO o.a.j.p.h.s.HTTPSamplerBase: Parser for application/xml is org.apache.jmeter.protocol.http.parser.LagartoBasedHtmlParser
-2020-06-15 15:39:45,568 INFO o.a.j.p.h.s.HTTPSamplerBase: Parser for text/xml is org.apache.jmeter.protocol.http.parser.LagartoBasedHtmlParser
-2020-06-15 15:39:45,568 INFO o.a.j.p.h.s.HTTPSamplerBase: Parser for text/vnd.wap.wml is org.apache.jmeter.protocol.http.parser.RegexpHTMLParser
-2020-06-15 15:39:45,568 INFO o.a.j.p.h.s.HTTPSamplerBase: Parser for text/css is org.apache.jmeter.protocol.http.parser.CssParser
-2020-06-15 15:39:45,975 INFO o.a.j.s.SampleResult: Note: Sample TimeStamps are START times
-2020-06-15 15:39:45,975 INFO o.a.j.s.SampleResult: sampleresult.default.encoding is set to ISO-8859-1
-2020-06-15 15:39:45,975 INFO o.a.j.s.SampleResult: sampleresult.useNanoTime=true
-2020-06-15 15:39:45,975 INFO o.a.j.s.SampleResult: sampleresult.nanoThreadSleep=5000
-2020-06-15 15:39:46,305 INFO o.a.j.s.FileServer: Set new base='/Users/diegoojedagarcia/Projects/Personal/cocinero/ElCocineroBack/ElCocineroTest/Functional'
-2020-06-15 15:40:06,627 INFO o.a.j.e.StandardJMeterEngine: Running the test!
-2020-06-15 15:40:06,628 INFO o.a.j.s.SampleEvent: List of sample_variables: []
-2020-06-15 15:40:06,628 INFO o.a.j.s.SampleEvent: List of sample_variables: []
-2020-06-15 15:40:06,629 INFO o.a.j.e.u.CompoundVariable: Note: Function class names must contain the string: '.functions.'
-2020-06-15 15:40:06,629 INFO o.a.j.e.u.CompoundVariable: Note: Function class names must not contain the string: '.gui.'
-2020-06-15 15:40:06,898 INFO o.a.j.g.u.JMeterMenuBar: setRunning(true, *local*)
-2020-06-15 15:40:06,991 INFO o.a.j.e.StandardJMeterEngine: Starting ThreadGroup: 1 : Base
-2020-06-15 15:40:06,992 INFO o.a.j.e.StandardJMeterEngine: Starting 1 threads for group Base.
-2020-06-15 15:40:06,992 INFO o.a.j.e.StandardJMeterEngine: Thread will continue on error
-2020-06-15 15:40:06,992 INFO o.a.j.t.ThreadGroup: Starting thread group... number=1 threads=1 ramp-up=1 delayedStart=false
-2020-06-15 15:40:07,000 INFO o.a.j.t.ThreadGroup: Started thread group number 1
-2020-06-15 15:40:07,001 INFO o.a.j.e.StandardJMeterEngine: All thread groups have been started
-2020-06-15 15:40:07,003 INFO o.a.j.t.JMeterThread: Thread started: Base 1-1
-2020-06-15 15:40:07,010 INFO o.a.j.p.h.s.HTTPHCAbstractImpl: Local host = MacBook-Pro-de-Diego.local
-2020-06-15 15:40:07,016 INFO o.a.j.p.h.s.HTTPHC4Impl: HTTP request retry count = 0
-2020-06-15 15:40:08,044 ERROR o.a.j.u.BeanShellInterpreter: Error invoking bsh method: eval	In file: inline evaluation of: ``vars.put("globalAuthorId", 3f642c7a-e43a-4842-9188-adba348dce3c);'' Encountered "( \"globalAuthorId\" , 3f 642" at line 1, column 9.
+2020-06-16 08:43:20,421 INFO o.a.j.u.JMeterUtils: Setting Locale to en_EN
+2020-06-16 08:43:20,437 INFO o.a.j.JMeter: Loading user properties from: /usr/local/Cellar/jmeter/5.3/libexec/bin/user.properties
+2020-06-16 08:43:20,437 INFO o.a.j.JMeter: Loading system properties from: /usr/local/Cellar/jmeter/5.3/libexec/bin/system.properties
+2020-06-16 08:43:20,438 INFO o.a.j.JMeter: Copyright (c) 1998-2020 The Apache Software Foundation
+2020-06-16 08:43:20,438 INFO o.a.j.JMeter: Version 5.3
+2020-06-16 08:43:20,438 INFO o.a.j.JMeter: java.version=1.8.0_252
+2020-06-16 08:43:20,438 INFO o.a.j.JMeter: java.vm.name=OpenJDK 64-Bit Server VM
+2020-06-16 08:43:20,438 INFO o.a.j.JMeter: os.name=Mac OS X
+2020-06-16 08:43:20,438 INFO o.a.j.JMeter: os.arch=x86_64
+2020-06-16 08:43:20,439 INFO o.a.j.JMeter: os.version=10.15.5
+2020-06-16 08:43:20,439 INFO o.a.j.JMeter: file.encoding=UTF-8
+2020-06-16 08:43:20,439 INFO o.a.j.JMeter: java.awt.headless=null
+2020-06-16 08:43:20,439 INFO o.a.j.JMeter: Max memory     =1073741824
+2020-06-16 08:43:20,439 INFO o.a.j.JMeter: Available Processors =16
+2020-06-16 08:43:20,443 INFO o.a.j.JMeter: Default Locale=English (EN)
+2020-06-16 08:43:20,443 INFO o.a.j.JMeter: JMeter  Locale=English (EN)
+2020-06-16 08:43:20,443 INFO o.a.j.JMeter: JMeterHome=/usr/local/Cellar/jmeter/5.3/libexec
+2020-06-16 08:43:20,443 INFO o.a.j.JMeter: user.dir  =/Users/diegoojedagarcia/Projects/Personal/cocinero/ElCocineroBack/ElCocineroBack
+2020-06-16 08:43:20,444 INFO o.a.j.JMeter: PWD       =/Users/diegoojedagarcia/Projects/Personal/cocinero/ElCocineroBack/ElCocineroBack
+2020-06-16 08:43:20,445 INFO o.a.j.JMeter: IP: 192.168.1.135 Name: MacBook-Pro-de-Diego.local FullName: 192.168.1.135
+2020-06-16 08:43:20,831 INFO o.a.j.JMeter: Setting LAF to: com.github.weisj.darklaf.DarkLaf:com.github.weisj.darklaf.theme.DarculaTheme
+2020-06-16 08:43:21,539 INFO o.a.j.JMeter: Loaded icon properties from org/apache/jmeter/images/icon.properties
+2020-06-16 08:43:22,387 INFO o.j.r.JARSourceHTTP: Found cached repo
+2020-06-16 08:43:22,530 INFO o.j.r.PluginManager: Plugins Status: [jpgc-plugins-manager=1.3, jmeter-core=5.3, jmeter-ftp=5.3, jmeter-http=5.3, jmeter-jdbc=5.3, jmeter-jms=5.3, jmeter-junit=5.3, jmeter-java=5.3, jmeter-ldap=5.3, jmeter-mail=5.3, jmeter-mongodb=5.3, jmeter-native=5.3, jmeter-tcp=5.3, jmeter-components=5.3]
+2020-06-16 08:43:22,531 INFO o.j.r.PluginManagerMenuItem: Plugins Manager has upgrades: [jpgc-plugins-manager]
+2020-06-16 08:43:30,383 INFO o.a.j.s.FileServer: Default base='/Users/diegoojedagarcia/Projects/Personal/cocinero/ElCocineroBack/ElCocineroBack'
+2020-06-16 08:43:30,390 INFO o.a.j.g.a.Load: Loading file: /Users/diegoojedagarcia/Projects/Personal/cocinero/ElCocineroBack/ElCocineroTest/Functional/test.jmx
+2020-06-16 08:43:30,390 INFO o.a.j.s.FileServer: Set new base='/Users/diegoojedagarcia/Projects/Personal/cocinero/ElCocineroBack/ElCocineroTest/Functional'
+2020-06-16 08:43:30,492 INFO o.a.j.s.SaveService: Testplan (JMX) version: 2.2. Testlog (JTL) version: 2.2
+2020-06-16 08:43:30,502 INFO o.a.j.s.SaveService: Using SaveService properties file encoding UTF-8
+2020-06-16 08:43:30,503 INFO o.a.j.s.SaveService: Using SaveService properties version 5.0
+2020-06-16 08:43:30,505 INFO o.a.j.s.SaveService: Loading file: /Users/diegoojedagarcia/Projects/Personal/cocinero/ElCocineroBack/ElCocineroTest/Functional/test.jmx
+2020-06-16 08:43:30,631 INFO o.a.j.p.h.s.HTTPSamplerBase: Parser for text/html is org.apache.jmeter.protocol.http.parser.LagartoBasedHtmlParser
+2020-06-16 08:43:30,631 INFO o.a.j.p.h.s.HTTPSamplerBase: Parser for application/xhtml+xml is org.apache.jmeter.protocol.http.parser.LagartoBasedHtmlParser
+2020-06-16 08:43:30,631 INFO o.a.j.p.h.s.HTTPSamplerBase: Parser for application/xml is org.apache.jmeter.protocol.http.parser.LagartoBasedHtmlParser
+2020-06-16 08:43:30,631 INFO o.a.j.p.h.s.HTTPSamplerBase: Parser for text/xml is org.apache.jmeter.protocol.http.parser.LagartoBasedHtmlParser
+2020-06-16 08:43:30,631 INFO o.a.j.p.h.s.HTTPSamplerBase: Parser for text/vnd.wap.wml is org.apache.jmeter.protocol.http.parser.RegexpHTMLParser
+2020-06-16 08:43:30,632 INFO o.a.j.p.h.s.HTTPSamplerBase: Parser for text/css is org.apache.jmeter.protocol.http.parser.CssParser
+2020-06-16 08:43:31,003 INFO o.a.j.s.SampleResult: Note: Sample TimeStamps are START times
+2020-06-16 08:43:31,003 INFO o.a.j.s.SampleResult: sampleresult.default.encoding is set to ISO-8859-1
+2020-06-16 08:43:31,003 INFO o.a.j.s.SampleResult: sampleresult.useNanoTime=true
+2020-06-16 08:43:31,003 INFO o.a.j.s.SampleResult: sampleresult.nanoThreadSleep=5000
+2020-06-16 08:43:31,228 INFO o.a.j.s.FileServer: Set new base='/Users/diegoojedagarcia/Projects/Personal/cocinero/ElCocineroBack/ElCocineroTest/Functional'
+2020-06-16 08:43:34,569 INFO o.a.j.e.StandardJMeterEngine: Running the test!
+2020-06-16 08:43:34,570 INFO o.a.j.s.SampleEvent: List of sample_variables: []
+2020-06-16 08:43:34,570 INFO o.a.j.s.SampleEvent: List of sample_variables: []
+2020-06-16 08:43:34,571 INFO o.a.j.e.u.CompoundVariable: Note: Function class names must contain the string: '.functions.'
+2020-06-16 08:43:34,571 INFO o.a.j.e.u.CompoundVariable: Note: Function class names must not contain the string: '.gui.'
+2020-06-16 08:43:34,780 INFO o.a.j.g.u.JMeterMenuBar: setRunning(true, *local*)
+2020-06-16 08:43:34,933 INFO o.a.j.e.StandardJMeterEngine: Starting ThreadGroup: 1 : Base
+2020-06-16 08:43:34,933 INFO o.a.j.e.StandardJMeterEngine: Starting 1 threads for group Base.
+2020-06-16 08:43:34,933 INFO o.a.j.e.StandardJMeterEngine: Thread will continue on error
+2020-06-16 08:43:34,934 INFO o.a.j.t.ThreadGroup: Starting thread group... number=1 threads=1 ramp-up=1 delayedStart=false
+2020-06-16 08:43:34,941 INFO o.a.j.t.ThreadGroup: Started thread group number 1
+2020-06-16 08:43:34,941 INFO o.a.j.e.StandardJMeterEngine: All thread groups have been started
+2020-06-16 08:43:34,943 INFO o.a.j.t.JMeterThread: Thread started: Base 1-1
+2020-06-16 08:43:34,949 INFO o.a.j.p.h.s.HTTPHCAbstractImpl: Local host = MacBook-Pro-de-Diego.local
+2020-06-16 08:43:34,953 INFO o.a.j.p.h.s.HTTPHC4Impl: HTTP request retry count = 0
+2020-06-16 08:43:35,519 ERROR o.a.j.u.BeanShellInterpreter: Error invoking bsh method: eval	In file: inline evaluation of: ``vars.put("globalAuthorId", );'' Encountered "( \"globalAuthorId\" , )" at line 1, column 9.
 
-2020-06-15 15:40:08,044 WARN o.a.j.e.BeanShellPostProcessor: Problem in BeanShell script: org.apache.jorphan.util.JMeterException: Error invoking bsh method: eval	In file: inline evaluation of: ``vars.put("globalAuthorId", 3f642c7a-e43a-4842-9188-adba348dce3c);'' Encountered "( \"globalAuthorId\" , 3f 642" at line 1, column 9.
+2020-06-16 08:43:35,520 WARN o.a.j.e.BeanShellPostProcessor: Problem in BeanShell script: org.apache.jorphan.util.JMeterException: Error invoking bsh method: eval	In file: inline evaluation of: ``vars.put("globalAuthorId", );'' Encountered "( \"globalAuthorId\" , )" at line 1, column 9.
 
-2020-06-15 15:40:08,498 INFO o.a.j.t.JMeterThread: Thread is done: Base 1-1
-2020-06-15 15:40:08,499 INFO o.a.j.t.JMeterThread: Thread finished: Base 1-1
-2020-06-15 15:40:08,500 INFO o.a.j.e.StandardJMeterEngine: Notifying test listeners of end of test
-2020-06-15 15:40:08,500 INFO o.a.j.g.u.JMeterMenuBar: setRunning(false, *local*)
-2020-06-15 15:51:50,998 INFO o.a.j.e.StandardJMeterEngine: Running the test!
-2020-06-15 15:51:50,998 INFO o.a.j.s.SampleEvent: List of sample_variables: []
-2020-06-15 15:51:51,000 INFO o.a.j.g.u.JMeterMenuBar: setRunning(true, *local*)
-2020-06-15 15:51:51,095 INFO o.a.j.e.StandardJMeterEngine: Starting ThreadGroup: 1 : Base
-2020-06-15 15:51:51,095 INFO o.a.j.e.StandardJMeterEngine: Starting 1 threads for group Base.
-2020-06-15 15:51:51,095 INFO o.a.j.e.StandardJMeterEngine: Thread will continue on error
-2020-06-15 15:51:51,095 INFO o.a.j.t.ThreadGroup: Starting thread group... number=1 threads=1 ramp-up=1 delayedStart=false
-2020-06-15 15:51:51,100 INFO o.a.j.t.ThreadGroup: Started thread group number 1
-2020-06-15 15:51:51,100 INFO o.a.j.e.StandardJMeterEngine: All thread groups have been started
-2020-06-15 15:51:51,101 INFO o.a.j.t.JMeterThread: Thread started: Base 1-1
-2020-06-15 15:51:51,929 ERROR o.a.j.u.BeanShellInterpreter: Error invoking bsh method: eval	In file: inline evaluation of: ``vars.put("globalAuthorId", f725786f-3815-45d8-b40b-540ea3167cc9);'' Encountered "( \"globalAuthorId\" , f725786f - 3815 - 45d 8" at line 1, column 9.
-
-2020-06-15 15:51:51,929 WARN o.a.j.e.BeanShellPostProcessor: Problem in BeanShell script: org.apache.jorphan.util.JMeterException: Error invoking bsh method: eval	In file: inline evaluation of: ``vars.put("globalAuthorId", f725786f-3815-45d8-b40b-540ea3167cc9);'' Encountered "( \"globalAuthorId\" , f725786f - 3815 - 45d 8" at line 1, column 9.
-
-2020-06-15 15:51:52,396 INFO o.a.j.t.JMeterThread: Thread is done: Base 1-1
-2020-06-15 15:51:52,396 INFO o.a.j.t.JMeterThread: Thread finished: Base 1-1
-2020-06-15 15:51:52,396 INFO o.a.j.e.StandardJMeterEngine: Notifying test listeners of end of test
-2020-06-15 15:51:52,397 INFO o.a.j.g.u.JMeterMenuBar: setRunning(false, *local*)
-2020-06-15 15:52:20,906 INFO o.a.j.e.StandardJMeterEngine: Running the test!
-2020-06-15 15:52:20,906 INFO o.a.j.s.SampleEvent: List of sample_variables: []
-2020-06-15 15:52:20,908 INFO o.a.j.g.u.JMeterMenuBar: setRunning(true, *local*)
-2020-06-15 15:52:20,998 INFO o.a.j.e.StandardJMeterEngine: Starting ThreadGroup: 1 : Base
-2020-06-15 15:52:20,998 INFO o.a.j.e.StandardJMeterEngine: Starting 1 threads for group Base.
-2020-06-15 15:52:20,998 INFO o.a.j.e.StandardJMeterEngine: Thread will continue on error
-2020-06-15 15:52:20,998 INFO o.a.j.t.ThreadGroup: Starting thread group... number=1 threads=1 ramp-up=1 delayedStart=false
-2020-06-15 15:52:21,003 INFO o.a.j.t.ThreadGroup: Started thread group number 1
-2020-06-15 15:52:21,003 INFO o.a.j.e.StandardJMeterEngine: All thread groups have been started
-2020-06-15 15:52:21,003 INFO o.a.j.t.JMeterThread: Thread started: Base 1-1
-2020-06-15 15:52:21,784 ERROR o.a.j.u.BeanShellInterpreter: Error invoking bsh method: eval	In file: inline evaluation of: ``vars.put("globalAuthorId", bb368a8b-14ac-46c3-b5df-9e3c7707f39b);'' Encountered "( \"globalAuthorId\" , bb368a8b - 14 ac" at line 1, column 9.
-
-2020-06-15 15:52:21,784 WARN o.a.j.e.BeanShellPostProcessor: Problem in BeanShell script: org.apache.jorphan.util.JMeterException: Error invoking bsh method: eval	In file: inline evaluation of: ``vars.put("globalAuthorId", bb368a8b-14ac-46c3-b5df-9e3c7707f39b);'' Encountered "( \"globalAuthorId\" , bb368a8b - 14 ac" at line 1, column 9.
-
-2020-06-15 15:52:22,223 INFO o.a.j.t.JMeterThread: Thread is done: Base 1-1
-2020-06-15 15:52:22,223 INFO o.a.j.t.JMeterThread: Thread finished: Base 1-1
-2020-06-15 15:52:22,223 INFO o.a.j.e.StandardJMeterEngine: Notifying test listeners of end of test
-2020-06-15 15:52:22,224 INFO o.a.j.g.u.JMeterMenuBar: setRunning(false, *local*)
-2020-06-15 15:53:35,672 INFO o.a.j.e.StandardJMeterEngine: Running the test!
-2020-06-15 15:53:35,672 INFO o.a.j.s.SampleEvent: List of sample_variables: []
-2020-06-15 15:53:35,674 INFO o.a.j.g.u.JMeterMenuBar: setRunning(true, *local*)
-2020-06-15 15:53:35,769 INFO o.a.j.e.StandardJMeterEngine: Starting ThreadGroup: 1 : Base
-2020-06-15 15:53:35,770 INFO o.a.j.e.StandardJMeterEngine: Starting 1 threads for group Base.
-2020-06-15 15:53:35,770 INFO o.a.j.e.StandardJMeterEngine: Thread will continue on error
-2020-06-15 15:53:35,770 INFO o.a.j.t.ThreadGroup: Starting thread group... number=1 threads=1 ramp-up=1 delayedStart=false
-2020-06-15 15:53:35,775 INFO o.a.j.t.ThreadGroup: Started thread group number 1
-2020-06-15 15:53:35,775 INFO o.a.j.e.StandardJMeterEngine: All thread groups have been started
-2020-06-15 15:53:35,775 INFO o.a.j.t.JMeterThread: Thread started: Base 1-1
-2020-06-15 15:53:36,563 ERROR o.a.j.u.BeanShellInterpreter: Error invoking bsh method: eval	In file: inline evaluation of: ``vars.put("globalAuthorId", bfa0df31-f20d-4b25-a03c-4a2c9506ab98);'' Encountered "( \"globalAuthorId\" , bfa0df31 - f20d - 4 b25" at line 1, column 9.
-
-2020-06-15 15:53:36,563 WARN o.a.j.e.BeanShellPostProcessor: Problem in BeanShell script: org.apache.jorphan.util.JMeterException: Error invoking bsh method: eval	In file: inline evaluation of: ``vars.put("globalAuthorId", bfa0df31-f20d-4b25-a03c-4a2c9506ab98);'' Encountered "( \"globalAuthorId\" , bfa0df31 - f20d - 4 b25" at line 1, column 9.
-
-2020-06-15 15:53:37,001 INFO o.a.j.t.JMeterThread: Thread is done: Base 1-1
-2020-06-15 15:53:37,001 INFO o.a.j.t.JMeterThread: Thread finished: Base 1-1
-2020-06-15 15:53:37,001 INFO o.a.j.e.StandardJMeterEngine: Notifying test listeners of end of test
-2020-06-15 15:53:37,001 INFO o.a.j.g.u.JMeterMenuBar: setRunning(false, *local*)
-2020-06-15 15:54:14,037 INFO o.a.j.e.StandardJMeterEngine: Running the test!
-2020-06-15 15:54:14,037 INFO o.a.j.s.SampleEvent: List of sample_variables: []
-2020-06-15 15:54:14,038 INFO o.a.j.g.u.JMeterMenuBar: setRunning(true, *local*)
-2020-06-15 15:54:14,130 INFO o.a.j.e.StandardJMeterEngine: Starting ThreadGroup: 1 : Base
-2020-06-15 15:54:14,130 INFO o.a.j.e.StandardJMeterEngine: Starting 1 threads for group Base.
-2020-06-15 15:54:14,130 INFO o.a.j.e.StandardJMeterEngine: Thread will continue on error
-2020-06-15 15:54:14,130 INFO o.a.j.t.ThreadGroup: Starting thread group... number=1 threads=1 ramp-up=1 delayedStart=false
-2020-06-15 15:54:14,135 INFO o.a.j.t.ThreadGroup: Started thread group number 1
-2020-06-15 15:54:14,135 INFO o.a.j.e.StandardJMeterEngine: All thread groups have been started
-2020-06-15 15:54:14,135 INFO o.a.j.t.JMeterThread: Thread started: Base 1-1
-2020-06-15 15:54:15,092 ERROR o.a.j.u.BeanShellInterpreter: Error invoking bsh method: eval	In file: inline evaluation of: ``vars.put("globalAuthorId", 30086edf-3795-4874-8818-0c87fda4ac1f);'' Encountered "( \"globalAuthorId\" , 30086 edf" at line 1, column 9.
-
-2020-06-15 15:54:15,092 WARN o.a.j.e.BeanShellPostProcessor: Problem in BeanShell script: org.apache.jorphan.util.JMeterException: Error invoking bsh method: eval	In file: inline evaluation of: ``vars.put("globalAuthorId", 30086edf-3795-4874-8818-0c87fda4ac1f);'' Encountered "( \"globalAuthorId\" , 30086 edf" at line 1, column 9.
-
-2020-06-15 15:59:29,308 INFO o.a.j.t.JMeterThread: Thread is done: Base 1-1
-2020-06-15 15:59:29,309 INFO o.a.j.t.JMeterThread: Thread finished: Base 1-1
-2020-06-15 15:59:29,309 INFO o.a.j.e.StandardJMeterEngine: Notifying test listeners of end of test
-2020-06-15 15:59:29,309 INFO o.a.j.g.u.JMeterMenuBar: setRunning(false, *local*)
-2020-06-15 15:59:56,363 INFO o.a.j.e.StandardJMeterEngine: Running the test!
-2020-06-15 15:59:56,363 INFO o.a.j.s.SampleEvent: List of sample_variables: []
-2020-06-15 15:59:56,364 INFO o.a.j.g.u.JMeterMenuBar: setRunning(true, *local*)
-2020-06-15 15:59:56,479 INFO o.a.j.e.StandardJMeterEngine: Starting ThreadGroup: 1 : Base
-2020-06-15 15:59:56,479 INFO o.a.j.e.StandardJMeterEngine: Starting 1 threads for group Base.
-2020-06-15 15:59:56,479 INFO o.a.j.e.StandardJMeterEngine: Thread will continue on error
-2020-06-15 15:59:56,479 INFO o.a.j.t.ThreadGroup: Starting thread group... number=1 threads=1 ramp-up=1 delayedStart=false
-2020-06-15 15:59:56,484 INFO o.a.j.t.ThreadGroup: Started thread group number 1
-2020-06-15 15:59:56,484 INFO o.a.j.e.StandardJMeterEngine: All thread groups have been started
-2020-06-15 15:59:56,484 INFO o.a.j.t.JMeterThread: Thread started: Base 1-1
-2020-06-15 15:59:57,294 ERROR o.a.j.u.BeanShellInterpreter: Error invoking bsh method: eval	In file: inline evaluation of: ``vars.put("globalAuthorId", 3675c016-0df7-4ebc-aa87-3f39f7d61c73);'' Encountered "( \"globalAuthorId\" , 3675 c016" at line 1, column 9.
-
-2020-06-15 15:59:57,294 WARN o.a.j.e.BeanShellPostProcessor: Problem in BeanShell script: org.apache.jorphan.util.JMeterException: Error invoking bsh method: eval	In file: inline evaluation of: ``vars.put("globalAuthorId", 3675c016-0df7-4ebc-aa87-3f39f7d61c73);'' Encountered "( \"globalAuthorId\" , 3675 c016" at line 1, column 9.
-
-2020-06-15 15:59:57,774 INFO o.a.j.t.JMeterThread: Thread is done: Base 1-1
-2020-06-15 15:59:57,774 INFO o.a.j.t.JMeterThread: Thread finished: Base 1-1
-2020-06-15 15:59:57,774 INFO o.a.j.e.StandardJMeterEngine: Notifying test listeners of end of test
-2020-06-15 15:59:57,774 INFO o.a.j.g.u.JMeterMenuBar: setRunning(false, *local*)
-2020-06-15 16:01:50,718 INFO o.a.j.e.StandardJMeterEngine: Running the test!
-2020-06-15 16:01:50,718 INFO o.a.j.s.SampleEvent: List of sample_variables: []
-2020-06-15 16:01:50,720 INFO o.a.j.g.u.JMeterMenuBar: setRunning(true, *local*)
-2020-06-15 16:01:50,811 INFO o.a.j.e.StandardJMeterEngine: Starting ThreadGroup: 1 : Base
-2020-06-15 16:01:50,811 INFO o.a.j.e.StandardJMeterEngine: Starting 1 threads for group Base.
-2020-06-15 16:01:50,811 INFO o.a.j.e.StandardJMeterEngine: Thread will continue on error
-2020-06-15 16:01:50,811 INFO o.a.j.t.ThreadGroup: Starting thread group... number=1 threads=1 ramp-up=1 delayedStart=false
-2020-06-15 16:01:50,816 INFO o.a.j.t.ThreadGroup: Started thread group number 1
-2020-06-15 16:01:50,816 INFO o.a.j.e.StandardJMeterEngine: All thread groups have been started
-2020-06-15 16:01:50,816 INFO o.a.j.t.JMeterThread: Thread started: Base 1-1
-2020-06-15 16:01:51,663 ERROR o.a.j.u.BeanShellInterpreter: Error invoking bsh method: eval	In file: inline evaluation of: ``vars.put("globalAuthorId", c43bfe51-21f4-43fe-8199-4acb47e0f9c8);'' Encountered "( \"globalAuthorId\" , c43bfe51 - 21f 4" at line 1, column 9.
-
-2020-06-15 16:01:51,663 WARN o.a.j.e.BeanShellPostProcessor: Problem in BeanShell script: org.apache.jorphan.util.JMeterException: Error invoking bsh method: eval	In file: inline evaluation of: ``vars.put("globalAuthorId", c43bfe51-21f4-43fe-8199-4acb47e0f9c8);'' Encountered "( \"globalAuthorId\" , c43bfe51 - 21f 4" at line 1, column 9.
-
-2020-06-15 16:01:52,139 INFO o.a.j.t.JMeterThread: Thread is done: Base 1-1
-2020-06-15 16:01:52,139 INFO o.a.j.t.JMeterThread: Thread finished: Base 1-1
-2020-06-15 16:01:52,139 INFO o.a.j.e.StandardJMeterEngine: Notifying test listeners of end of test
-2020-06-15 16:01:52,139 INFO o.a.j.g.u.JMeterMenuBar: setRunning(false, *local*)
-2020-06-15 16:03:11,165 INFO o.a.j.e.StandardJMeterEngine: Running the test!
-2020-06-15 16:03:11,165 INFO o.a.j.s.SampleEvent: List of sample_variables: []
-2020-06-15 16:03:11,166 INFO o.a.j.g.u.JMeterMenuBar: setRunning(true, *local*)
-2020-06-15 16:03:11,251 INFO o.a.j.e.StandardJMeterEngine: Starting ThreadGroup: 1 : Base
-2020-06-15 16:03:11,251 INFO o.a.j.e.StandardJMeterEngine: Starting 1 threads for group Base.
-2020-06-15 16:03:11,251 INFO o.a.j.e.StandardJMeterEngine: Thread will continue on error
-2020-06-15 16:03:11,251 INFO o.a.j.t.ThreadGroup: Starting thread group... number=1 threads=1 ramp-up=1 delayedStart=false
-2020-06-15 16:03:11,256 INFO o.a.j.t.ThreadGroup: Started thread group number 1
-2020-06-15 16:03:11,256 INFO o.a.j.e.StandardJMeterEngine: All thread groups have been started
-2020-06-15 16:03:11,256 INFO o.a.j.t.JMeterThread: Thread started: Base 1-1
-2020-06-15 16:03:11,263 ERROR o.a.j.u.BeanShellInterpreter: Error invoking bsh method: eval	In file: inline evaluation of: ``vars.put("globalAuthorId", );'' Encountered "( \"globalAuthorId\" , )" at line 1, column 9.
-
-2020-06-15 16:03:11,263 WARN o.a.j.e.BeanShellPostProcessor: Problem in BeanShell script: org.apache.jorphan.util.JMeterException: Error invoking bsh method: eval	In file: inline evaluation of: ``vars.put("globalAuthorId", );'' Encountered "( \"globalAuthorId\" , )" at line 1, column 9.
-
-2020-06-15 16:03:11,278 INFO o.a.j.t.JMeterThread: Thread is done: Base 1-1
-2020-06-15 16:03:11,278 INFO o.a.j.t.JMeterThread: Thread finished: Base 1-1
-2020-06-15 16:03:11,278 INFO o.a.j.e.StandardJMeterEngine: Notifying test listeners of end of test
-2020-06-15 16:03:11,278 INFO o.a.j.g.u.JMeterMenuBar: setRunning(false, *local*)
-2020-06-15 16:03:14,877 INFO o.a.j.e.StandardJMeterEngine: Running the test!
-2020-06-15 16:03:14,877 INFO o.a.j.s.SampleEvent: List of sample_variables: []
-2020-06-15 16:03:14,878 INFO o.a.j.g.u.JMeterMenuBar: setRunning(true, *local*)
-2020-06-15 16:03:14,959 INFO o.a.j.e.StandardJMeterEngine: Starting ThreadGroup: 1 : Base
-2020-06-15 16:03:14,959 INFO o.a.j.e.StandardJMeterEngine: Starting 1 threads for group Base.
-2020-06-15 16:03:14,959 INFO o.a.j.e.StandardJMeterEngine: Thread will continue on error
-2020-06-15 16:03:14,959 INFO o.a.j.t.ThreadGroup: Starting thread group... number=1 threads=1 ramp-up=1 delayedStart=false
-2020-06-15 16:03:14,963 INFO o.a.j.t.ThreadGroup: Started thread group number 1
-2020-06-15 16:03:14,963 INFO o.a.j.e.StandardJMeterEngine: All thread groups have been started
-2020-06-15 16:03:14,963 INFO o.a.j.t.JMeterThread: Thread started: Base 1-1
-2020-06-15 16:03:15,879 ERROR o.a.j.u.BeanShellInterpreter: Error invoking bsh method: eval	In file: inline evaluation of: ``vars.put("globalAuthorId", 93512202-0908-4053-8c99-485bced31a96);'' Encountered "( \"globalAuthorId\" , 93512202 - 0 908" at line 1, column 9.
-
-2020-06-15 16:03:15,880 WARN o.a.j.e.BeanShellPostProcessor: Problem in BeanShell script: org.apache.jorphan.util.JMeterException: Error invoking bsh method: eval	In file: inline evaluation of: ``vars.put("globalAuthorId", 93512202-0908-4053-8c99-485bced31a96);'' Encountered "( \"globalAuthorId\" , 93512202 - 0 908" at line 1, column 9.
-
-2020-06-15 16:05:18,794 INFO o.a.j.t.JMeterThread: Thread is done: Base 1-1
-2020-06-15 16:05:18,795 INFO o.a.j.t.JMeterThread: Thread finished: Base 1-1
-2020-06-15 16:05:18,795 INFO o.a.j.e.StandardJMeterEngine: Notifying test listeners of end of test
-2020-06-15 16:05:18,795 INFO o.a.j.g.u.JMeterMenuBar: setRunning(false, *local*)
-2020-06-15 16:06:15,284 INFO o.a.j.e.StandardJMeterEngine: Running the test!
-2020-06-15 16:06:15,284 INFO o.a.j.s.SampleEvent: List of sample_variables: []
-2020-06-15 16:06:15,285 INFO o.a.j.g.u.JMeterMenuBar: setRunning(true, *local*)
-2020-06-15 16:06:15,379 INFO o.a.j.e.StandardJMeterEngine: Starting ThreadGroup: 1 : Base
-2020-06-15 16:06:15,379 INFO o.a.j.e.StandardJMeterEngine: Starting 1 threads for group Base.
-2020-06-15 16:06:15,379 INFO o.a.j.e.StandardJMeterEngine: Thread will continue on error
-2020-06-15 16:06:15,379 INFO o.a.j.t.ThreadGroup: Starting thread group... number=1 threads=1 ramp-up=1 delayedStart=false
-2020-06-15 16:06:15,383 INFO o.a.j.t.ThreadGroup: Started thread group number 1
-2020-06-15 16:06:15,384 INFO o.a.j.e.StandardJMeterEngine: All thread groups have been started
-2020-06-15 16:06:15,384 INFO o.a.j.t.JMeterThread: Thread started: Base 1-1
-2020-06-15 16:06:16,276 ERROR o.a.j.u.BeanShellInterpreter: Error invoking bsh method: eval	In file: inline evaluation of: ``vars.put("globalAuthorId", 0255caf9-99a3-45d6-8e0e-9370250e9c84);'' Encountered "( \"globalAuthorId\" , 0255 caf9" at line 1, column 9.
-
-2020-06-15 16:06:16,276 WARN o.a.j.e.BeanShellPostProcessor: Problem in BeanShell script: org.apache.jorphan.util.JMeterException: Error invoking bsh method: eval	In file: inline evaluation of: ``vars.put("globalAuthorId", 0255caf9-99a3-45d6-8e0e-9370250e9c84);'' Encountered "( \"globalAuthorId\" , 0255 caf9" at line 1, column 9.
-
-2020-06-15 16:07:21,564 INFO o.a.j.t.JMeterThread: Thread is done: Base 1-1
-2020-06-15 16:07:21,564 INFO o.a.j.t.JMeterThread: Thread finished: Base 1-1
-2020-06-15 16:07:21,564 INFO o.a.j.e.StandardJMeterEngine: Notifying test listeners of end of test
-2020-06-15 16:07:21,565 INFO o.a.j.g.u.JMeterMenuBar: setRunning(false, *local*)
-2020-06-15 16:07:32,041 INFO o.a.j.e.StandardJMeterEngine: Running the test!
-2020-06-15 16:07:32,042 INFO o.a.j.s.SampleEvent: List of sample_variables: []
-2020-06-15 16:07:32,042 INFO o.a.j.g.u.JMeterMenuBar: setRunning(true, *local*)
-2020-06-15 16:07:32,203 INFO o.a.j.e.StandardJMeterEngine: Starting ThreadGroup: 1 : Base
-2020-06-15 16:07:32,203 INFO o.a.j.e.StandardJMeterEngine: Starting 1 threads for group Base.
-2020-06-15 16:07:32,203 INFO o.a.j.e.StandardJMeterEngine: Thread will continue on error
-2020-06-15 16:07:32,203 INFO o.a.j.t.ThreadGroup: Starting thread group... number=1 threads=1 ramp-up=1 delayedStart=false
-2020-06-15 16:07:32,208 INFO o.a.j.t.ThreadGroup: Started thread group number 1
-2020-06-15 16:07:32,208 INFO o.a.j.e.StandardJMeterEngine: All thread groups have been started
-2020-06-15 16:07:32,208 INFO o.a.j.t.JMeterThread: Thread started: Base 1-1
-2020-06-15 16:07:32,970 ERROR o.a.j.u.BeanShellInterpreter: Error invoking bsh method: eval	In file: inline evaluation of: ``vars.put("globalAuthorId", b80a74d7-bb79-4626-8478-79a9304ec3f8);'' Encountered "( \"globalAuthorId\" , b80a74d7 - bb79 - 4626 - 8478 - 79 a9304ec3f8" at line 1, column 9.
-
-2020-06-15 16:07:32,970 WARN o.a.j.e.BeanShellPostProcessor: Problem in BeanShell script: org.apache.jorphan.util.JMeterException: Error invoking bsh method: eval	In file: inline evaluation of: ``vars.put("globalAuthorId", b80a74d7-bb79-4626-8478-79a9304ec3f8);'' Encountered "( \"globalAuthorId\" , b80a74d7 - bb79 - 4626 - 8478 - 79 a9304ec3f8" at line 1, column 9.
-
-2020-06-15 16:07:33,425 INFO o.a.j.t.JMeterThread: Thread is done: Base 1-1
-2020-06-15 16:07:33,425 INFO o.a.j.t.JMeterThread: Thread finished: Base 1-1
-2020-06-15 16:07:33,425 INFO o.a.j.e.StandardJMeterEngine: Notifying test listeners of end of test
-2020-06-15 16:07:33,425 INFO o.a.j.g.u.JMeterMenuBar: setRunning(false, *local*)
-2020-06-15 16:10:53,970 INFO o.a.j.e.StandardJMeterEngine: Running the test!
-2020-06-15 16:10:53,971 INFO o.a.j.s.SampleEvent: List of sample_variables: []
-2020-06-15 16:10:53,972 INFO o.a.j.g.u.JMeterMenuBar: setRunning(true, *local*)
-2020-06-15 16:10:54,062 INFO o.a.j.e.StandardJMeterEngine: Starting ThreadGroup: 1 : Base
-2020-06-15 16:10:54,062 INFO o.a.j.e.StandardJMeterEngine: Starting 1 threads for group Base.
-2020-06-15 16:10:54,062 INFO o.a.j.e.StandardJMeterEngine: Thread will continue on error
-2020-06-15 16:10:54,063 INFO o.a.j.t.ThreadGroup: Starting thread group... number=1 threads=1 ramp-up=1 delayedStart=false
-2020-06-15 16:10:54,067 INFO o.a.j.t.ThreadGroup: Started thread group number 1
-2020-06-15 16:10:54,067 INFO o.a.j.e.StandardJMeterEngine: All thread groups have been started
-2020-06-15 16:10:54,067 INFO o.a.j.t.JMeterThread: Thread started: Base 1-1
-2020-06-15 16:10:54,935 ERROR o.a.j.u.BeanShellInterpreter: Error invoking bsh method: eval	In file: inline evaluation of: ``vars.put("globalAuthorId", a1045f87-6894-4d7a-99be-7b6b23f3667a);'' Encountered "( \"globalAuthorId\" , a1045f87 - 6894 - 4d 7" at line 1, column 9.
-
-2020-06-15 16:10:54,935 WARN o.a.j.e.BeanShellPostProcessor: Problem in BeanShell script: org.apache.jorphan.util.JMeterException: Error invoking bsh method: eval	In file: inline evaluation of: ``vars.put("globalAuthorId", a1045f87-6894-4d7a-99be-7b6b23f3667a);'' Encountered "( \"globalAuthorId\" , a1045f87 - 6894 - 4d 7" at line 1, column 9.
-
-2020-06-15 16:10:55,400 INFO o.a.j.t.JMeterThread: Thread is done: Base 1-1
-2020-06-15 16:10:55,400 INFO o.a.j.t.JMeterThread: Thread finished: Base 1-1
-2020-06-15 16:10:55,400 INFO o.a.j.e.StandardJMeterEngine: Notifying test listeners of end of test
-2020-06-15 16:10:55,400 INFO o.a.j.g.u.JMeterMenuBar: setRunning(false, *local*)
-2020-06-15 16:13:20,112 INFO o.a.j.e.StandardJMeterEngine: Running the test!
-2020-06-15 16:13:20,113 INFO o.a.j.s.SampleEvent: List of sample_variables: []
-2020-06-15 16:13:20,114 INFO o.a.j.g.u.JMeterMenuBar: setRunning(true, *local*)
-2020-06-15 16:13:20,208 INFO o.a.j.e.StandardJMeterEngine: Starting ThreadGroup: 1 : Base
-2020-06-15 16:13:20,209 INFO o.a.j.e.StandardJMeterEngine: Starting 1 threads for group Base.
-2020-06-15 16:13:20,209 INFO o.a.j.e.StandardJMeterEngine: Thread will continue on error
-2020-06-15 16:13:20,209 INFO o.a.j.t.ThreadGroup: Starting thread group... number=1 threads=1 ramp-up=1 delayedStart=false
-2020-06-15 16:13:20,215 INFO o.a.j.t.ThreadGroup: Started thread group number 1
-2020-06-15 16:13:20,215 INFO o.a.j.e.StandardJMeterEngine: All thread groups have been started
-2020-06-15 16:13:20,215 INFO o.a.j.t.JMeterThread: Thread started: Base 1-1
-2020-06-15 16:13:21,163 ERROR o.a.j.u.BeanShellInterpreter: Error invoking bsh method: eval	In file: inline evaluation of: ``vars.put("globalAuthorId", 57a037e8-8eb0-4133-864c-a00040ac75b0);'' Encountered "( \"globalAuthorId\" , 57 a037e8" at line 1, column 9.
-
-2020-06-15 16:13:21,163 WARN o.a.j.e.BeanShellPostProcessor: Problem in BeanShell script: org.apache.jorphan.util.JMeterException: Error invoking bsh method: eval	In file: inline evaluation of: ``vars.put("globalAuthorId", 57a037e8-8eb0-4133-864c-a00040ac75b0);'' Encountered "( \"globalAuthorId\" , 57 a037e8" at line 1, column 9.
-
-2020-06-15 16:17:56,428 INFO o.a.j.t.JMeterThread: Thread is done: Base 1-1
-2020-06-15 16:17:56,428 INFO o.a.j.t.JMeterThread: Thread finished: Base 1-1
-2020-06-15 16:17:56,428 INFO o.a.j.e.StandardJMeterEngine: Notifying test listeners of end of test
-2020-06-15 16:17:56,428 INFO o.a.j.g.u.JMeterMenuBar: setRunning(false, *local*)
-2020-06-15 16:19:09,017 INFO o.a.j.e.StandardJMeterEngine: Running the test!
-2020-06-15 16:19:09,018 INFO o.a.j.s.SampleEvent: List of sample_variables: []
-2020-06-15 16:19:09,018 INFO o.a.j.g.u.JMeterMenuBar: setRunning(true, *local*)
-2020-06-15 16:19:09,155 INFO o.a.j.e.StandardJMeterEngine: Starting ThreadGroup: 1 : Base
-2020-06-15 16:19:09,155 INFO o.a.j.e.StandardJMeterEngine: Starting 1 threads for group Base.
-2020-06-15 16:19:09,155 INFO o.a.j.e.StandardJMeterEngine: Thread will continue on error
-2020-06-15 16:19:09,155 INFO o.a.j.t.ThreadGroup: Starting thread group... number=1 threads=1 ramp-up=1 delayedStart=false
-2020-06-15 16:19:09,160 INFO o.a.j.t.ThreadGroup: Started thread group number 1
-2020-06-15 16:19:09,160 INFO o.a.j.e.StandardJMeterEngine: All thread groups have been started
-2020-06-15 16:19:09,160 INFO o.a.j.t.JMeterThread: Thread started: Base 1-1
-2020-06-15 16:19:10,500 ERROR o.a.j.u.BeanShellInterpreter: Error invoking bsh method: eval	In file: inline evaluation of: ``vars.put("globalAuthorId", );'' Encountered "( \"globalAuthorId\" , )" at line 1, column 9.
-
-2020-06-15 16:19:10,500 WARN o.a.j.e.BeanShellPostProcessor: Problem in BeanShell script: org.apache.jorphan.util.JMeterException: Error invoking bsh method: eval	In file: inline evaluation of: ``vars.put("globalAuthorId", );'' Encountered "( \"globalAuthorId\" , )" at line 1, column 9.
-
-2020-06-15 16:19:10,626 INFO o.a.j.t.JMeterThread: Thread is done: Base 1-1
-2020-06-15 16:19:10,626 INFO o.a.j.t.JMeterThread: Thread finished: Base 1-1
-2020-06-15 16:19:10,626 INFO o.a.j.e.StandardJMeterEngine: Notifying test listeners of end of test
-2020-06-15 16:19:10,627 INFO o.a.j.g.u.JMeterMenuBar: setRunning(false, *local*)
-2020-06-15 16:19:19,185 INFO o.a.j.e.StandardJMeterEngine: Running the test!
-2020-06-15 16:19:19,185 INFO o.a.j.s.SampleEvent: List of sample_variables: []
-2020-06-15 16:19:19,186 INFO o.a.j.g.u.JMeterMenuBar: setRunning(true, *local*)
-2020-06-15 16:19:19,278 INFO o.a.j.e.StandardJMeterEngine: Starting ThreadGroup: 1 : Base
-2020-06-15 16:19:19,278 INFO o.a.j.e.StandardJMeterEngine: Starting 1 threads for group Base.
-2020-06-15 16:19:19,278 INFO o.a.j.e.StandardJMeterEngine: Thread will continue on error
-2020-06-15 16:19:19,278 INFO o.a.j.t.ThreadGroup: Starting thread group... number=1 threads=1 ramp-up=1 delayedStart=false
-2020-06-15 16:19:19,283 INFO o.a.j.t.ThreadGroup: Started thread group number 1
-2020-06-15 16:19:19,283 INFO o.a.j.e.StandardJMeterEngine: All thread groups have been started
-2020-06-15 16:19:19,283 INFO o.a.j.t.JMeterThread: Thread started: Base 1-1
-2020-06-15 16:19:19,887 ERROR o.a.j.u.BeanShellInterpreter: Error invoking bsh method: eval	In file: inline evaluation of: ``vars.put("globalAuthorId", );'' Encountered "( \"globalAuthorId\" , )" at line 1, column 9.
-
-2020-06-15 16:19:19,887 WARN o.a.j.e.BeanShellPostProcessor: Problem in BeanShell script: org.apache.jorphan.util.JMeterException: Error invoking bsh method: eval	In file: inline evaluation of: ``vars.put("globalAuthorId", );'' Encountered "( \"globalAuthorId\" , )" at line 1, column 9.
-
-2020-06-15 16:19:20,008 INFO o.a.j.t.JMeterThread: Thread is done: Base 1-1
-2020-06-15 16:19:20,008 INFO o.a.j.t.JMeterThread: Thread finished: Base 1-1
-2020-06-15 16:19:20,008 INFO o.a.j.e.StandardJMeterEngine: Notifying test listeners of end of test
-2020-06-15 16:19:20,008 INFO o.a.j.g.u.JMeterMenuBar: setRunning(false, *local*)
-2020-06-15 16:19:51,014 INFO o.a.j.e.StandardJMeterEngine: Running the test!
-2020-06-15 16:19:51,014 INFO o.a.j.s.SampleEvent: List of sample_variables: []
-2020-06-15 16:19:51,015 INFO o.a.j.g.u.JMeterMenuBar: setRunning(true, *local*)
-2020-06-15 16:19:51,125 INFO o.a.j.e.StandardJMeterEngine: Starting ThreadGroup: 1 : Base
-2020-06-15 16:19:51,125 INFO o.a.j.e.StandardJMeterEngine: Starting 1 threads for group Base.
-2020-06-15 16:19:51,125 INFO o.a.j.e.StandardJMeterEngine: Thread will continue on error
-2020-06-15 16:19:51,126 INFO o.a.j.t.ThreadGroup: Starting thread group... number=1 threads=1 ramp-up=1 delayedStart=false
-2020-06-15 16:19:51,132 INFO o.a.j.t.ThreadGroup: Started thread group number 1
-2020-06-15 16:19:51,132 INFO o.a.j.e.StandardJMeterEngine: All thread groups have been started
-2020-06-15 16:19:51,132 INFO o.a.j.t.JMeterThread: Thread started: Base 1-1
-2020-06-15 16:19:51,729 ERROR o.a.j.u.BeanShellInterpreter: Error invoking bsh method: eval	In file: inline evaluation of: ``vars.put("globalAuthorId", );'' Encountered "( \"globalAuthorId\" , )" at line 1, column 9.
-
-2020-06-15 16:19:51,729 WARN o.a.j.e.BeanShellPostProcessor: Problem in BeanShell script: org.apache.jorphan.util.JMeterException: Error invoking bsh method: eval	In file: inline evaluation of: ``vars.put("globalAuthorId", );'' Encountered "( \"globalAuthorId\" , )" at line 1, column 9.
-
-2020-06-15 16:19:51,848 INFO o.a.j.t.JMeterThread: Thread is done: Base 1-1
-2020-06-15 16:19:51,848 INFO o.a.j.t.JMeterThread: Thread finished: Base 1-1
-2020-06-15 16:19:51,848 INFO o.a.j.e.StandardJMeterEngine: Notifying test listeners of end of test
-2020-06-15 16:19:51,848 INFO o.a.j.g.u.JMeterMenuBar: setRunning(false, *local*)
-2020-06-15 16:20:23,886 INFO o.a.j.e.StandardJMeterEngine: Running the test!
-2020-06-15 16:20:23,886 INFO o.a.j.s.SampleEvent: List of sample_variables: []
-2020-06-15 16:20:23,887 INFO o.a.j.g.u.JMeterMenuBar: setRunning(true, *local*)
-2020-06-15 16:20:23,979 INFO o.a.j.e.StandardJMeterEngine: Starting ThreadGroup: 1 : Base
-2020-06-15 16:20:23,979 INFO o.a.j.e.StandardJMeterEngine: Starting 1 threads for group Base.
-2020-06-15 16:20:23,979 INFO o.a.j.e.StandardJMeterEngine: Thread will continue on error
-2020-06-15 16:20:23,979 INFO o.a.j.t.ThreadGroup: Starting thread group... number=1 threads=1 ramp-up=1 delayedStart=false
-2020-06-15 16:20:23,983 INFO o.a.j.t.ThreadGroup: Started thread group number 1
-2020-06-15 16:20:23,983 INFO o.a.j.e.StandardJMeterEngine: All thread groups have been started
-2020-06-15 16:20:23,983 INFO o.a.j.t.JMeterThread: Thread started: Base 1-1
-2020-06-15 16:20:24,924 ERROR o.a.j.u.BeanShellInterpreter: Error invoking bsh method: eval	In file: inline evaluation of: ``vars.put("globalAuthorId", d8e205ab-b5d9-4bbc-adf1-9f3f08a4f5c4);'' Encountered "( \"globalAuthorId\" , d8e205ab - b5d9 - 4 bbc" at line 1, column 9.
-
-2020-06-15 16:20:24,924 WARN o.a.j.e.BeanShellPostProcessor: Problem in BeanShell script: org.apache.jorphan.util.JMeterException: Error invoking bsh method: eval	In file: inline evaluation of: ``vars.put("globalAuthorId", d8e205ab-b5d9-4bbc-adf1-9f3f08a4f5c4);'' Encountered "( \"globalAuthorId\" , d8e205ab - b5d9 - 4 bbc" at line 1, column 9.
-
-2020-06-15 16:20:25,425 INFO o.a.j.t.JMeterThread: Thread is done: Base 1-1
-2020-06-15 16:20:25,425 INFO o.a.j.t.JMeterThread: Thread finished: Base 1-1
-2020-06-15 16:20:25,425 INFO o.a.j.e.StandardJMeterEngine: Notifying test listeners of end of test
-2020-06-15 16:20:25,426 INFO o.a.j.g.u.JMeterMenuBar: setRunning(false, *local*)
-2020-06-15 16:22:34,332 INFO o.a.j.e.StandardJMeterEngine: Running the test!
-2020-06-15 16:22:34,332 INFO o.a.j.s.SampleEvent: List of sample_variables: []
-2020-06-15 16:22:34,333 INFO o.a.j.g.u.JMeterMenuBar: setRunning(true, *local*)
-2020-06-15 16:22:34,431 INFO o.a.j.e.StandardJMeterEngine: Starting ThreadGroup: 1 : Base
-2020-06-15 16:22:34,431 INFO o.a.j.e.StandardJMeterEngine: Starting 1 threads for group Base.
-2020-06-15 16:22:34,431 INFO o.a.j.e.StandardJMeterEngine: Thread will continue on error
-2020-06-15 16:22:34,431 INFO o.a.j.t.ThreadGroup: Starting thread group... number=1 threads=1 ramp-up=1 delayedStart=false
-2020-06-15 16:22:34,435 INFO o.a.j.t.ThreadGroup: Started thread group number 1
-2020-06-15 16:22:34,435 INFO o.a.j.e.StandardJMeterEngine: All thread groups have been started
-2020-06-15 16:22:34,435 INFO o.a.j.t.JMeterThread: Thread started: Base 1-1
-2020-06-15 16:22:35,354 ERROR o.a.j.u.BeanShellInterpreter: Error invoking bsh method: eval	In file: inline evaluation of: ``vars.put("globalAuthorId", 30844a2b-d9ce-4f44-a8ac-ad1f5a039ebd);'' Encountered "( \"globalAuthorId\" , 30844 a2b" at line 1, column 9.
-
-2020-06-15 16:22:35,354 WARN o.a.j.e.BeanShellPostProcessor: Problem in BeanShell script: org.apache.jorphan.util.JMeterException: Error invoking bsh method: eval	In file: inline evaluation of: ``vars.put("globalAuthorId", 30844a2b-d9ce-4f44-a8ac-ad1f5a039ebd);'' Encountered "( \"globalAuthorId\" , 30844 a2b" at line 1, column 9.
-
-2020-06-15 16:22:35,843 INFO o.a.j.t.JMeterThread: Thread is done: Base 1-1
-2020-06-15 16:22:35,843 INFO o.a.j.t.JMeterThread: Thread finished: Base 1-1
-2020-06-15 16:22:35,843 INFO o.a.j.e.StandardJMeterEngine: Notifying test listeners of end of test
-2020-06-15 16:22:35,844 INFO o.a.j.g.u.JMeterMenuBar: setRunning(false, *local*)
-2020-06-15 16:25:53,238 INFO o.a.j.e.StandardJMeterEngine: Running the test!
-2020-06-15 16:25:53,239 INFO o.a.j.s.SampleEvent: List of sample_variables: []
-2020-06-15 16:25:53,239 INFO o.a.j.g.u.JMeterMenuBar: setRunning(true, *local*)
-2020-06-15 16:25:53,335 INFO o.a.j.e.StandardJMeterEngine: Starting ThreadGroup: 1 : Base
-2020-06-15 16:25:53,335 INFO o.a.j.e.StandardJMeterEngine: Starting 1 threads for group Base.
-2020-06-15 16:25:53,335 INFO o.a.j.e.StandardJMeterEngine: Thread will continue on error
-2020-06-15 16:25:53,335 INFO o.a.j.t.ThreadGroup: Starting thread group... number=1 threads=1 ramp-up=1 delayedStart=false
-2020-06-15 16:25:53,340 INFO o.a.j.t.ThreadGroup: Started thread group number 1
-2020-06-15 16:25:53,340 INFO o.a.j.e.StandardJMeterEngine: All thread groups have been started
-2020-06-15 16:25:53,340 INFO o.a.j.t.JMeterThread: Thread started: Base 1-1
-2020-06-15 16:25:54,229 ERROR o.a.j.u.BeanShellInterpreter: Error invoking bsh method: eval	In file: inline evaluation of: ``vars.put("globalAuthorId", f441c87f-e3aa-4dbb-80bd-bd55fba38bd6);'' Encountered "( \"globalAuthorId\" , f441c87f - e3aa - 4d bb" at line 1, column 9.
-
-2020-06-15 16:25:54,229 WARN o.a.j.e.BeanShellPostProcessor: Problem in BeanShell script: org.apache.jorphan.util.JMeterException: Error invoking bsh method: eval	In file: inline evaluation of: ``vars.put("globalAuthorId", f441c87f-e3aa-4dbb-80bd-bd55fba38bd6);'' Encountered "( \"globalAuthorId\" , f441c87f - e3aa - 4d bb" at line 1, column 9.
-
-2020-06-15 16:25:54,687 INFO o.a.j.t.JMeterThread: Thread is done: Base 1-1
-2020-06-15 16:25:54,687 INFO o.a.j.t.JMeterThread: Thread finished: Base 1-1
-2020-06-15 16:25:54,687 INFO o.a.j.e.StandardJMeterEngine: Notifying test listeners of end of test
-2020-06-15 16:25:54,687 INFO o.a.j.g.u.JMeterMenuBar: setRunning(false, *local*)
-2020-06-15 16:26:27,580 INFO o.a.j.e.StandardJMeterEngine: Running the test!
-2020-06-15 16:26:27,581 INFO o.a.j.s.SampleEvent: List of sample_variables: []
-2020-06-15 16:26:27,581 INFO o.a.j.g.u.JMeterMenuBar: setRunning(true, *local*)
-2020-06-15 16:26:27,682 INFO o.a.j.e.StandardJMeterEngine: Starting ThreadGroup: 1 : Base
-2020-06-15 16:26:27,682 INFO o.a.j.e.StandardJMeterEngine: Starting 1 threads for group Base.
-2020-06-15 16:26:27,682 INFO o.a.j.e.StandardJMeterEngine: Thread will continue on error
-2020-06-15 16:26:27,682 INFO o.a.j.t.ThreadGroup: Starting thread group... number=1 threads=1 ramp-up=1 delayedStart=false
-2020-06-15 16:26:27,686 INFO o.a.j.t.ThreadGroup: Started thread group number 1
-2020-06-15 16:26:27,686 INFO o.a.j.e.StandardJMeterEngine: All thread groups have been started
-2020-06-15 16:26:27,687 INFO o.a.j.t.JMeterThread: Thread started: Base 1-1
-2020-06-15 16:26:28,575 ERROR o.a.j.u.BeanShellInterpreter: Error invoking bsh method: eval	In file: inline evaluation of: ``vars.put("globalAuthorId", 57b56e94-45a8-4121-a4bf-53c2897bf4bb);'' Encountered "( \"globalAuthorId\" , 57 b56e94" at line 1, column 9.
-
-2020-06-15 16:26:28,575 WARN o.a.j.e.BeanShellPostProcessor: Problem in BeanShell script: org.apache.jorphan.util.JMeterException: Error invoking bsh method: eval	In file: inline evaluation of: ``vars.put("globalAuthorId", 57b56e94-45a8-4121-a4bf-53c2897bf4bb);'' Encountered "( \"globalAuthorId\" , 57 b56e94" at line 1, column 9.
-
-2020-06-15 16:26:29,063 INFO o.a.j.t.JMeterThread: Thread is done: Base 1-1
-2020-06-15 16:26:29,063 INFO o.a.j.t.JMeterThread: Thread finished: Base 1-1
-2020-06-15 16:26:29,063 INFO o.a.j.e.StandardJMeterEngine: Notifying test listeners of end of test
-2020-06-15 16:26:29,063 INFO o.a.j.g.u.JMeterMenuBar: setRunning(false, *local*)
-2020-06-15 16:27:29,976 INFO o.a.j.e.StandardJMeterEngine: Running the test!
-2020-06-15 16:27:29,976 INFO o.a.j.s.SampleEvent: List of sample_variables: []
-2020-06-15 16:27:29,976 INFO o.a.j.g.u.JMeterMenuBar: setRunning(true, *local*)
-2020-06-15 16:27:30,081 INFO o.a.j.e.StandardJMeterEngine: Starting ThreadGroup: 1 : Base
-2020-06-15 16:27:30,081 INFO o.a.j.e.StandardJMeterEngine: Starting 1 threads for group Base.
-2020-06-15 16:27:30,081 INFO o.a.j.e.StandardJMeterEngine: Thread will continue on error
-2020-06-15 16:27:30,081 INFO o.a.j.t.ThreadGroup: Starting thread group... number=1 threads=1 ramp-up=1 delayedStart=false
-2020-06-15 16:27:30,085 INFO o.a.j.t.ThreadGroup: Started thread group number 1
-2020-06-15 16:27:30,085 INFO o.a.j.e.StandardJMeterEngine: All thread groups have been started
-2020-06-15 16:27:30,085 INFO o.a.j.t.JMeterThread: Thread started: Base 1-1
-2020-06-15 16:27:31,290 ERROR o.a.j.u.BeanShellInterpreter: Error invoking bsh method: eval	In file: inline evaluation of: ``vars.put("globalAuthorId", 7b7569ca-b59e-4a77-bfeb-7ed063d7cb19);'' Encountered "( \"globalAuthorId\" , 7 b7569ca" at line 1, column 9.
-
-2020-06-15 16:27:31,290 WARN o.a.j.e.BeanShellPostProcessor: Problem in BeanShell script: org.apache.jorphan.util.JMeterException: Error invoking bsh method: eval	In file: inline evaluation of: ``vars.put("globalAuthorId", 7b7569ca-b59e-4a77-bfeb-7ed063d7cb19);'' Encountered "( \"globalAuthorId\" , 7 b7569ca" at line 1, column 9.
-
-2020-06-15 16:27:56,323 INFO o.a.j.t.JMeterThread: Thread is done: Base 1-1
-2020-06-15 16:27:56,323 INFO o.a.j.t.JMeterThread: Thread finished: Base 1-1
-2020-06-15 16:27:56,324 INFO o.a.j.e.StandardJMeterEngine: Notifying test listeners of end of test
-2020-06-15 16:27:56,324 INFO o.a.j.g.u.JMeterMenuBar: setRunning(false, *local*)
-2020-06-15 16:28:22,337 INFO o.a.j.e.StandardJMeterEngine: Running the test!
-2020-06-15 16:28:22,337 INFO o.a.j.s.SampleEvent: List of sample_variables: []
-2020-06-15 16:28:22,338 INFO o.a.j.g.u.JMeterMenuBar: setRunning(true, *local*)
-2020-06-15 16:28:22,471 INFO o.a.j.e.StandardJMeterEngine: Starting ThreadGroup: 1 : Base
-2020-06-15 16:28:22,472 INFO o.a.j.e.StandardJMeterEngine: Starting 1 threads for group Base.
-2020-06-15 16:28:22,472 INFO o.a.j.e.StandardJMeterEngine: Thread will continue on error
-2020-06-15 16:28:22,472 INFO o.a.j.t.ThreadGroup: Starting thread group... number=1 threads=1 ramp-up=1 delayedStart=false
-2020-06-15 16:28:22,476 INFO o.a.j.t.ThreadGroup: Started thread group number 1
-2020-06-15 16:28:22,476 INFO o.a.j.e.StandardJMeterEngine: All thread groups have been started
-2020-06-15 16:28:22,476 INFO o.a.j.t.JMeterThread: Thread started: Base 1-1
-2020-06-15 16:28:23,602 ERROR o.a.j.u.BeanShellInterpreter: Error invoking bsh method: eval	In file: inline evaluation of: ``vars.put("globalAuthorId", 68af5f89-d30d-413a-b76f-9a359176c539);'' Encountered "( \"globalAuthorId\" , 68 af5f89" at line 1, column 9.
-
-2020-06-15 16:28:23,602 WARN o.a.j.e.BeanShellPostProcessor: Problem in BeanShell script: org.apache.jorphan.util.JMeterException: Error invoking bsh method: eval	In file: inline evaluation of: ``vars.put("globalAuthorId", 68af5f89-d30d-413a-b76f-9a359176c539);'' Encountered "( \"globalAuthorId\" , 68 af5f89" at line 1, column 9.
-
-2020-06-15 16:29:28,392 INFO o.a.j.t.JMeterThread: Thread is done: Base 1-1
-2020-06-15 16:29:28,392 INFO o.a.j.t.JMeterThread: Thread finished: Base 1-1
-2020-06-15 16:29:28,392 INFO o.a.j.e.StandardJMeterEngine: Notifying test listeners of end of test
-2020-06-15 16:29:28,392 INFO o.a.j.g.u.JMeterMenuBar: setRunning(false, *local*)
-2020-06-15 16:29:34,974 INFO o.a.j.e.StandardJMeterEngine: Running the test!
-2020-06-15 16:29:34,975 INFO o.a.j.s.SampleEvent: List of sample_variables: []
-2020-06-15 16:29:34,975 INFO o.a.j.g.u.JMeterMenuBar: setRunning(true, *local*)
-2020-06-15 16:29:35,161 INFO o.a.j.e.StandardJMeterEngine: Starting ThreadGroup: 1 : Base
-2020-06-15 16:29:35,161 INFO o.a.j.e.StandardJMeterEngine: Starting 1 threads for group Base.
-2020-06-15 16:29:35,161 INFO o.a.j.e.StandardJMeterEngine: Thread will continue on error
-2020-06-15 16:29:35,161 INFO o.a.j.t.ThreadGroup: Starting thread group... number=1 threads=1 ramp-up=1 delayedStart=false
-2020-06-15 16:29:35,165 INFO o.a.j.t.ThreadGroup: Started thread group number 1
-2020-06-15 16:29:35,165 INFO o.a.j.e.StandardJMeterEngine: All thread groups have been started
-2020-06-15 16:29:35,166 INFO o.a.j.t.JMeterThread: Thread started: Base 1-1
-2020-06-15 16:29:36,068 ERROR o.a.j.u.BeanShellInterpreter: Error invoking bsh method: eval	Sourced file: inline evaluation of: ``vars.put("globalAuthorId", 996910e4-b92b-4594-bde2-accd644e4634);'' : illegal use of undefined variable, class, or 'void' literal
-2020-06-15 16:29:36,068 WARN o.a.j.e.BeanShellPostProcessor: Problem in BeanShell script: org.apache.jorphan.util.JMeterException: Error invoking bsh method: eval	Sourced file: inline evaluation of: ``vars.put("globalAuthorId", 996910e4-b92b-4594-bde2-accd644e4634);'' : illegal use of undefined variable, class, or 'void' literal
-2020-06-15 16:29:36,596 INFO o.a.j.t.JMeterThread: Thread is done: Base 1-1
-2020-06-15 16:29:36,596 INFO o.a.j.t.JMeterThread: Thread finished: Base 1-1
-2020-06-15 16:29:36,597 INFO o.a.j.e.StandardJMeterEngine: Notifying test listeners of end of test
-2020-06-15 16:29:36,597 INFO o.a.j.g.u.JMeterMenuBar: setRunning(false, *local*)
-2020-06-15 16:34:13,095 INFO o.a.j.e.StandardJMeterEngine: Running the test!
-2020-06-15 16:34:13,095 INFO o.a.j.s.SampleEvent: List of sample_variables: []
-2020-06-15 16:34:13,096 INFO o.a.j.g.u.JMeterMenuBar: setRunning(true, *local*)
-2020-06-15 16:34:13,206 INFO o.a.j.e.StandardJMeterEngine: Starting ThreadGroup: 1 : Base
-2020-06-15 16:34:13,206 INFO o.a.j.e.StandardJMeterEngine: Starting 1 threads for group Base.
-2020-06-15 16:34:13,206 INFO o.a.j.e.StandardJMeterEngine: Thread will continue on error
-2020-06-15 16:34:13,206 INFO o.a.j.t.ThreadGroup: Starting thread group... number=1 threads=1 ramp-up=1 delayedStart=false
-2020-06-15 16:34:13,211 INFO o.a.j.t.ThreadGroup: Started thread group number 1
-2020-06-15 16:34:13,211 INFO o.a.j.e.StandardJMeterEngine: All thread groups have been started
-2020-06-15 16:34:13,211 INFO o.a.j.t.JMeterThread: Thread started: Base 1-1
-2020-06-15 16:34:14,110 ERROR o.a.j.u.BeanShellInterpreter: Error invoking bsh method: eval	In file: inline evaluation of: ``vars.put("globalAuthorId", 4b62fd22-36f5-4247-a557-32388fa48632);'' Encountered "( \"globalAuthorId\" , 4 b62fd22" at line 1, column 9.
-
-2020-06-15 16:34:14,110 WARN o.a.j.e.BeanShellPostProcessor: Problem in BeanShell script: org.apache.jorphan.util.JMeterException: Error invoking bsh method: eval	In file: inline evaluation of: ``vars.put("globalAuthorId", 4b62fd22-36f5-4247-a557-32388fa48632);'' Encountered "( \"globalAuthorId\" , 4 b62fd22" at line 1, column 9.
-
-2020-06-15 16:34:14,600 INFO o.a.j.t.JMeterThread: Thread is done: Base 1-1
-2020-06-15 16:34:14,600 INFO o.a.j.t.JMeterThread: Thread finished: Base 1-1
-2020-06-15 16:34:14,600 INFO o.a.j.e.StandardJMeterEngine: Notifying test listeners of end of test
-2020-06-15 16:34:14,600 INFO o.a.j.g.u.JMeterMenuBar: setRunning(false, *local*)
+2020-06-16 08:43:35,667 INFO o.a.j.t.JMeterThread: Thread is done: Base 1-1
+2020-06-16 08:43:35,668 INFO o.a.j.t.JMeterThread: Thread finished: Base 1-1
+2020-06-16 08:43:35,669 INFO o.a.j.e.StandardJMeterEngine: Notifying test listeners of end of test
+2020-06-16 08:43:35,669 INFO o.a.j.g.u.JMeterMenuBar: setRunning(false, *local*)

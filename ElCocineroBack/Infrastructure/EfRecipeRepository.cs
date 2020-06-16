@@ -15,9 +15,6 @@ namespace ElCocineroBack.Infrastructure
         {
             return _context
                 .Recipes;
-            // .Include(x => x.Author)
-            // .Include(x => x.Ingredients)
-            // .Select(x => x);
         }
 
         public Recipe Save(Recipe recipe)
@@ -30,16 +27,13 @@ namespace ElCocineroBack.Infrastructure
             return _context
                 .Recipes
                 .Where(x => x.AuthorId == authorId);
-            // .Include(x => x.Author)
-            // .Include(x => x.Ingredients)
-            // .Select(x => x);
         }
 
         public Recipe FindById(RecipeId recipeId)
         {
             return _context
                 .Recipes
-                .FirstOrDefault(x => x.Id == recipeId);
+                .FirstOrDefault(x => x.RecipeId == recipeId);
         }
     }
 }

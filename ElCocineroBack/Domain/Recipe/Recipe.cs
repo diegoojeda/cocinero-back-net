@@ -8,7 +8,7 @@ namespace ElCocineroBack.Domain.Recipe
 {
     public class Recipe
     {
-        public string Id { get; set; }
+        public string RecipeId { get; set; }
         public string Name { get; set; }
         public string Description { get; set; }
         public string AuthorId { get; set; }
@@ -16,12 +16,13 @@ namespace ElCocineroBack.Domain.Recipe
         public virtual IEnumerable<RecipeIngredient.RecipeIngredient> Ingredients { get; set; }
         public virtual IEnumerable<RecipeStep.RecipeStep> Steps { get; set; }
 
-        public Recipe(string id,
+        public Recipe(
+            string recipeId,
             string name,
             string description,
             string authorId)
         {
-            Id = id;
+            RecipeId = recipeId;
             Name = name;
             Description = description;
             AuthorId = authorId;
@@ -30,7 +31,7 @@ namespace ElCocineroBack.Domain.Recipe
         public static implicit operator RecipeResponseDto(Recipe recipe)
         {
             return new RecipeResponseDto(
-                recipe.Id,
+                recipe.RecipeId,
                 recipe.Name,
                 recipe.Description,
                 recipe.AuthorId,
@@ -74,11 +75,11 @@ namespace ElCocineroBack.Domain.Recipe
             return fullIngredients
                 .SelectMany(x =>
                     ingredients
-                        .Where(y => y.Id == x.Id)
+                        .Where(y => y.Id == x.IngredientId)
                         .Select(y =>
                             new RecipeIngredient.RecipeIngredient(
                                 recipeId,
-                                x.Id,
+                                x.IngredientId,
                                 y.Amount,
                                 y.Unit
                             ))
