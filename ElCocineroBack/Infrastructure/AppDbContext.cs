@@ -1,17 +1,18 @@
-using System.Linq;
-using System.Security.Principal;
 using ElCocineroBack.Domain.Author;
 using ElCocineroBack.Domain.Ingredient;
 using ElCocineroBack.Domain.Recipe;
 using ElCocineroBack.Domain.RecipeIngredient;
 using ElCocineroBack.Domain.RecipeStep;
 using Microsoft.EntityFrameworkCore;
-using IIdentity = ElCocineroBack.Domain.ValueObjects.IIdentity;
+using Microsoft.Extensions.Logging;
 
 namespace ElCocineroBack.Infrastructure
 {
     public class AppDbContext : DbContext
     {
+        public static readonly ILoggerFactory MyLoggerFactory
+            = LoggerFactory.Create(builder => { builder.AddConsole(); });
+        
         public DbSet<Recipe> Recipes { get; set; }
         public DbSet<Author> Authors { get; set; }
 
@@ -26,6 +27,7 @@ namespace ElCocineroBack.Infrastructure
 
         protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
         {
+            optionsBuilder.UseLoggerFactory(MyLoggerFactory);
             optionsBuilder.EnableSensitiveDataLogging();
             optionsBuilder.UseLazyLoadingProxies();
             base.OnConfiguring(optionsBuilder);

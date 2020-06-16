@@ -1,0 +1,22 @@
+version: '3.7'
+services:
+  moments:
+    restart: always
+    container_name: moments
+    image: moments_rs:latest
+    environment:
+      - DATABASE_URL=mysql://root:my-secret-pw@mysql:3306/moments
+      - HOST=0.0.0.0
+      - PORT=8088
+      - RUST_LOG=actix_web=info
+    ports:
+      - 8088:8088
+  mysql:
+    restart: always
+    container_name: mariadb
+    image: mariadb
+    environment:
+      - MYSQL_ROOT_PASSWORD=my-secret-pw
+      - MYSQL_DATABASE=moments
+    ports:
+      - 3306:3306
