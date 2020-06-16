@@ -50,7 +50,8 @@ namespace ElCocineroBack.Domain.Recipe
                     body.Description,
                     author,
                     body.Ingredients,
-                    fullIngredients)
+                    fullIngredients,
+                    body.Steps)
             );
             return insertedRecipe;
         }

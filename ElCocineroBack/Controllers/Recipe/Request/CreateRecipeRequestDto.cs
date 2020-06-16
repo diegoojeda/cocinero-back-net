@@ -8,5 +8,6 @@ namespace ElCocineroBack.Controllers.Recipe.Request
         public string Description { get; set; }
         public string AuthorId { get; set; }
         public IEnumerable<RecipeIngredientDto> Ingredients { get; set; }
+        public IEnumerable<RecipeStepRequestDto> Steps { get; set; }
     }
 }

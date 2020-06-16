@@ -86,6 +86,25 @@ namespace ElCocineroBack.Migrations
                     b.ToTable("RecipeIngredients");
                 });
 
+            modelBuilder.Entity("ElCocineroBack.Domain.RecipeStep.RecipeStep", b =>
+                {
+                    b.Property<string>("RecipeId")
+                        .HasColumnType("TEXT");
+
+                    b.Property<int>("Position")
+                        .HasColumnType("INTEGER");
+
+                    b.Property<string>("Description")
+                        .HasColumnType("TEXT");
+
+                    b.Property<string>("ImageUrl")
+                        .HasColumnType("TEXT");
+
+                    b.HasKey("RecipeId", "Position");
+
+                    b.ToTable("RecipeSteps");
+                });
+
             modelBuilder.Entity("ElCocineroBack.Domain.Recipe.Recipe", b =>
                 {
                     b.HasOne("ElCocineroBack.Domain.Author.Author", "Author")
@@ -103,6 +122,15 @@ namespace ElCocineroBack.Migrations
 
                     b.HasOne("ElCocineroBack.Domain.Recipe.Recipe", "Recipe")
                         .WithMany("Ingredients")
+                        .HasForeignKey("RecipeId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
+                });
+
+            modelBuilder.Entity("ElCocineroBack.Domain.RecipeStep.RecipeStep", b =>
+                {
+                    b.HasOne("ElCocineroBack.Domain.Recipe.Recipe", null)
+                        .WithMany("Steps")
                         .HasForeignKey("RecipeId")
                         .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
