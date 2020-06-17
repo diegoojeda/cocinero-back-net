@@ -1,11 +1,11 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="DataSourceManagerImpl" format="xml" multifile-model="true">
-    <data-source source="LOCAL" name="ElCocinero.db" uuid="67130932-98f5-43f0-9a33-d708e9a294be">
-      <driver-ref>sqlite.xerial</driver-ref>
+    <data-source source="LOCAL" name="Dev" uuid="734bc1de-f3be-44b2-94f2-59d1bea32d59">
+      <driver-ref>sqlserver.ms</driver-ref>
       <synchronize>true</synchronize>
-      <jdbc-driver>org.sqlite.JDBC</jdbc-driver>
-      <jdbc-url>jdbc:sqlite:$PROJECT_DIR$/ElCocineroBack/ElCocinero.db</jdbc-url>
+      <jdbc-driver>com.microsoft.sqlserver.jdbc.SQLServerDriver</jdbc-driver>
+      <jdbc-url>jdbc:sqlserver://elcocinero.database.windows.net:1433;database=elcocinero</jdbc-url>
     </data-source>
   </component>
 </project>

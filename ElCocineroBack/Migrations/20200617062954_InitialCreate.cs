@@ -2,7 +2,7 @@
 
 namespace ElCocineroBack.Migrations
 {
-    public partial class a : Migration
+    public partial class InitialCreate : Migration
     {
         protected override void Up(MigrationBuilder migrationBuilder)
         {
@@ -10,8 +10,8 @@ namespace ElCocineroBack.Migrations
                 name: "Authors",
                 columns: table => new
                 {
-                    AuthorId = table.Column<string>(type: "TEXT", nullable: false),
-                    Name = table.Column<string>(type: "TEXT", nullable: true)
+                    AuthorId = table.Column<string>(type: "nvarchar(450)", nullable: false),
+                    Name = table.Column<string>(type: "nvarchar(max)", nullable: true)
                 },
                 constraints: table =>
                 {
@@ -22,9 +22,9 @@ namespace ElCocineroBack.Migrations
                 name: "Ingredients",
                 columns: table => new
                 {
-                    IngredientId = table.Column<string>(type: "TEXT", nullable: false),
-                    Name = table.Column<string>(type: "TEXT", nullable: true),
-                    Key = table.Column<string>(type: "TEXT", nullable: true)
+                    IngredientId = table.Column<string>(type: "nvarchar(450)", nullable: false),
+                    Name = table.Column<string>(type: "nvarchar(max)", nullable: true),
+                    Key = table.Column<string>(type: "nvarchar(max)", nullable: true)
                 },
                 constraints: table =>
                 {
@@ -35,10 +35,10 @@ namespace ElCocineroBack.Migrations
                 name: "Recipes",
                 columns: table => new
                 {
-                    RecipeId = table.Column<string>(type: "TEXT", nullable: false),
-                    Name = table.Column<string>(type: "TEXT", nullable: true),
-                    Description = table.Column<string>(type: "TEXT", nullable: true),
-                    AuthorId = table.Column<string>(type: "TEXT", nullable: true)
+                    RecipeId = table.Column<string>(type: "nvarchar(450)", nullable: false),
+                    Name = table.Column<string>(type: "nvarchar(max)", nullable: true),
+                    Description = table.Column<string>(type: "nvarchar(max)", nullable: true),
+                    AuthorId = table.Column<string>(type: "nvarchar(450)", nullable: true)
                 },
                 constraints: table =>
                 {
@@ -55,10 +55,10 @@ namespace ElCocineroBack.Migrations
                 name: "RecipeIngredients",
                 columns: table => new
                 {
-                    RecipeId = table.Column<string>(type: "TEXT", nullable: false),
-                    IngredientId = table.Column<string>(type: "TEXT", nullable: false),
-                    Amount = table.Column<int>(type: "INTEGER", nullable: false),
-                    Unit = table.Column<string>(type: "TEXT", nullable: true)
+                    RecipeId = table.Column<string>(type: "nvarchar(450)", nullable: false),
+                    IngredientId = table.Column<string>(type: "nvarchar(450)", nullable: false),
+                    Amount = table.Column<int>(type: "int", nullable: false),
+                    Unit = table.Column<string>(type: "nvarchar(max)", nullable: true)
                 },
                 constraints: table =>
                 {
@@ -81,10 +81,10 @@ namespace ElCocineroBack.Migrations
                 name: "RecipeSteps",
                 columns: table => new
                 {
-                    RecipeId = table.Column<string>(type: "TEXT", nullable: false),
-                    Position = table.Column<int>(type: "INTEGER", nullable: false),
-                    ImageUrl = table.Column<string>(type: "TEXT", nullable: true),
-                    Description = table.Column<string>(type: "TEXT", nullable: true)
+                    RecipeId = table.Column<string>(type: "nvarchar(450)", nullable: false),
+                    Position = table.Column<int>(type: "int", nullable: false),
+                    ImageUrl = table.Column<string>(type: "nvarchar(max)", nullable: true),
+                    Description = table.Column<string>(type: "nvarchar(max)", nullable: true)
                 },
                 constraints: table =>
                 {

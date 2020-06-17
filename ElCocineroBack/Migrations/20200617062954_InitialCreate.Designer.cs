@@ -2,28 +2,31 @@
 using ElCocineroBack.Infrastructure;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
+using Microsoft.EntityFrameworkCore.Metadata;
 using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 
 namespace ElCocineroBack.Migrations
 {
     [DbContext(typeof(AppDbContext))]
-    [Migration("20200616064628_a")]
-    partial class a
+    [Migration("20200617062954_InitialCreate")]
+    partial class InitialCreate
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
-                .HasAnnotation("ProductVersion", "5.0.0-preview.4.20220.10");
+                .HasAnnotation("ProductVersion", "5.0.0-preview.4.20220.10")
+                .HasAnnotation("Relational:MaxIdentifierLength", 128)
+                .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
 
             modelBuilder.Entity("ElCocineroBack.Domain.Author.Author", b =>
                 {
                     b.Property<string>("AuthorId")
-                        .HasColumnType("TEXT");
+                        .HasColumnType("nvarchar(450)");
 
                     b.Property<string>("Name")
-                        .HasColumnType("TEXT");
+                        .HasColumnType("nvarchar(max)");
 
                     b.HasKey("AuthorId");
 
@@ -33,13 +36,13 @@ namespace ElCocineroBack.Migrations
             modelBuilder.Entity("ElCocineroBack.Domain.Ingredient.Ingredient", b =>
                 {
                     b.Property<string>("IngredientId")
-                        .HasColumnType("TEXT");
+                        .HasColumnType("nvarchar(450)");
 
                     b.Property<string>("Key")
-                        .HasColumnType("TEXT");
+                        .HasColumnType("nvarchar(max)");
 
                     b.Property<string>("Name")
-                        .HasColumnType("TEXT");
+                        .HasColumnType("nvarchar(max)");
 
                     b.HasKey("IngredientId");
 
@@ -49,16 +52,16 @@ namespace ElCocineroBack.Migrations
             modelBuilder.Entity("ElCocineroBack.Domain.Recipe.Recipe", b =>
                 {
                     b.Property<string>("RecipeId")
-                        .HasColumnType("TEXT");
+                        .HasColumnType("nvarchar(450)");
 
                     b.Property<string>("AuthorId")
-                        .HasColumnType("TEXT");
+                        .HasColumnType("nvarchar(450)");
 
                     b.Property<string>("Description")
-                        .HasColumnType("TEXT");
+                        .HasColumnType("nvarchar(max)");
 
                     b.Property<string>("Name")
-                        .HasColumnType("TEXT");
+                        .HasColumnType("nvarchar(max)");
 
                     b.HasKey("RecipeId");
 
@@ -70,16 +73,16 @@ namespace ElCocineroBack.Migrations
             modelBuilder.Entity("ElCocineroBack.Domain.RecipeIngredient.RecipeIngredient", b =>
                 {
                     b.Property<string>("RecipeId")
-                        .HasColumnType("TEXT");
+                        .HasColumnType("nvarchar(450)");
 
                     b.Property<string>("IngredientId")
-                        .HasColumnType("TEXT");
+                        .HasColumnType("nvarchar(450)");
 
                     b.Property<int>("Amount")
-                        .HasColumnType("INTEGER");
+                        .HasColumnType("int");
 
                     b.Property<string>("Unit")
-                        .HasColumnType("TEXT");
+                        .HasColumnType("nvarchar(max)");
 
                     b.HasKey("RecipeId", "IngredientId");
 
@@ -91,16 +94,16 @@ namespace ElCocineroBack.Migrations
             modelBuilder.Entity("ElCocineroBack.Domain.RecipeStep.RecipeStep", b =>
                 {
                     b.Property<string>("RecipeId")
-                        .HasColumnType("TEXT");
+                        .HasColumnType("nvarchar(450)");
 
                     b.Property<int>("Position")
-                        .HasColumnType("INTEGER");
+                        .HasColumnType("int");
 
                     b.Property<string>("Description")
-                        .HasColumnType("TEXT");
+                        .HasColumnType("nvarchar(max)");
 
                     b.Property<string>("ImageUrl")
-                        .HasColumnType("TEXT");
+                        .HasColumnType("nvarchar(max)");
 
                     b.HasKey("RecipeId", "Position");
 

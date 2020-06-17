@@ -27,7 +27,7 @@ namespace ElCocineroBack
             services.AddControllers();
             services.AddDbContext<AppDbContext>(options =>
             {
-                options.UseSqlite(Configuration.GetConnectionString("AppDbContext"));
+                options.UseSqlServer(Configuration.GetConnectionString("AppDbContext"));
             });
 
             services.AddScoped<IRecipeRepository, EfRecipeRepository>();
